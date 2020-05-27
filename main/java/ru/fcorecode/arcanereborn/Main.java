@@ -36,7 +36,7 @@ public class Main {
 			return _logoCreativeTabs;
 		}
 	};
-	//-----------------------------
+	//--------------------------------
 
 	@EventHandler
 	public void preLoad(FMLPreInitializationEvent event)
