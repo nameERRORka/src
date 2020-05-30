@@ -1,26 +1,17 @@
 package ru.fcorecode.arcanereborn.configs;
 
+import net.minecraft.item.EnumRarity;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.common.util.EnumHelper;
 
-public enum Rarity {
+public class Rarity {
+
+	public static final EnumRarity _useless = EnumHelper.addRarity("_useless", EnumChatFormatting.DARK_GRAY, "[Предмет]");
+	public static final EnumRarity _common = EnumHelper.addRarity("_common", EnumChatFormatting.GRAY, "[Запакованный]");
+	public static final EnumRarity _uncommon = EnumHelper.addRarity("_uncommon", EnumChatFormatting.WHITE, "[Обынчый]");
+	public static final EnumRarity _rare = EnumHelper.addRarity("_rare", EnumChatFormatting.BLUE, "[Редкий]");
+	public static final EnumRarity _epic = EnumHelper.addRarity("_epic", EnumChatFormatting.LIGHT_PURPLE, "[Эпический]");
+	public static final EnumRarity _legendary = EnumHelper.addRarity("_legendary", EnumChatFormatting.YELLOW, "[Легендарный]");
+	public static final EnumRarity _awakened = EnumHelper.addRarity("_awakened", EnumChatFormatting.GOLD, "[Пробужденный]");
 	
-	_useless(EnumChatFormatting.DARK_GRAY, "Предмет"),
-	_common(EnumChatFormatting.GRAY, "Запечатанный"),
-    _uncommon(EnumChatFormatting.WHITE, "Обынчый"),
-    _rare(EnumChatFormatting.BLUE, "Редкий"),
-    _epic(EnumChatFormatting.LIGHT_PURPLE, "Эпический"),
-	_legendary(EnumChatFormatting.GOLD, "Легендарный"),
-	_awakened(EnumChatFormatting.GOLD, "Пробужденный");
-	
-    public final EnumChatFormatting rarityColor;
-    
-    public final String rarityName;
-
-    private static final String __OBFID = "CL_00000056";
-
-    private Rarity(EnumChatFormatting p_i45349_3_, String p_i45349_4_)
-    {
-        this.rarityColor = p_i45349_3_;
-        this.rarityName = p_i45349_4_;
-    }
 }

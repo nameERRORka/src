@@ -31,12 +31,14 @@ import net.minecraftforge.common.util.EnumHelper;
 import ru.fcorecode.arcanereborn.Main;
 import ru.fcorecode.arcanereborn.configs.ConfigInfo;
 import ru.fcorecode.arcanereborn.configs.RandomUtils;
+import ru.fcorecode.arcanereborn.configs.Rarity;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BasePickaxe extends ItemPickaxe 
 {
 		boolean mode = false;
+		public static final ToolMaterial BASEPICKAXEMAT = EnumHelper.addToolMaterial("BASEPICKAXEMAT", 3, 274564, 17.0F, 4.0F, 50);
 		
 		public BasePickaxe(String name, String texture, int maxStackSize)
 		{
@@ -49,6 +51,11 @@ public class BasePickaxe extends ItemPickaxe
 			this.maxStackSize = 1;
 			GameRegistry.registerItem(this, name);
 		}
+		
+		public EnumRarity getRarity(ItemStack itemStack) 
+		{
+			return Rarity._legendary;
+		}
 			  
 		@SideOnly(Side.CLIENT)
 	    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
@@ -57,7 +64,7 @@ public class BasePickaxe extends ItemPickaxe
 			  a = this.getMaxDamage();
 			  b = this.getDamage(par1ItemStack);
 			  c = a - b;
-	        par3List.add("�2��������� :" + c);
+	        par3List.add("" + Rarity._legendary.rarityName);
 	    }
 			 
 				
@@ -161,10 +168,4 @@ public class BasePickaxe extends ItemPickaxe
 				}
 			}
 		}
-		
-		public EnumRarity getRarity(ItemStack itemStack) 
-		{
-			return EnumRarity.epic;
-		}
-		public static final ToolMaterial BASEPICKAXEMAT = EnumHelper.addToolMaterial("BASEPICKAXEMAT", 3, 274564, 17.0F, 4.0F, 50);
 }

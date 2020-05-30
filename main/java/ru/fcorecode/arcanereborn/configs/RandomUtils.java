@@ -1,4 +1,5 @@
 package ru.fcorecode.arcanereborn.configs;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
