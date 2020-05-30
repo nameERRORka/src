@@ -37,7 +37,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BasePickaxe extends ItemPickaxe 
 {
-		boolean mode = false;
+		int mode = 1;
 		public static final ToolMaterial BASEPICKAXEMAT = EnumHelper.addToolMaterial("BASEPICKAXEMAT", 3, 274564, 17.0F, 4.0F, 50);
 		
 		public BasePickaxe(String name, String texture, int maxStackSize)
@@ -47,7 +47,7 @@ public class BasePickaxe extends ItemPickaxe
 			this.setUnlocalizedName(name);
 			this.setTextureName(Main.MODID + ":" + texture);
 			this.setCreativeTab(Main.tabAFReborn);
-			this.setMaxDamage(100);
+			this.setMaxDamage(10000);
 			this.maxStackSize = 1;
 			GameRegistry.registerItem(this, name);
 		}
@@ -64,12 +64,14 @@ public class BasePickaxe extends ItemPickaxe
 			  a = this.getMaxDamage();
 			  b = this.getDamage(par1ItemStack);
 			  c = a - b;
+			par3List.add("Прочности осталось " + c);
 	        par3List.add("" + Rarity._legendary.rarityName);
 	    }
 			 
 				
 		public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
 		    if (world.isRemote) {
+<<<<<<< e650043b33b41e79092f2e6f3cad15c93f07eabb
 		        if (!mode) {
 		            player.addChatMessage(new ChatComponentText("Включено 3X3"));
 		            player.capabilities.allowFlying = true;
@@ -79,6 +81,25 @@ public class BasePickaxe extends ItemPickaxe
 		            player.capabilities.allowFlying = false;
 		            mode = false;
 		        }
+=======
+		        if (mode == 1) {
+		            player.addChatMessage(new ChatComponentText("Включено ночное зрение"));
+		            player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 10000000, 1, true));
+		            player.removePotionEffect(Potion.blindness.id);
+		            mode = 2;
+		        } else if (mode == 2) {
+		            player.addChatMessage(new ChatComponentText("Включена спешка"));
+		            player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 10000000, 1, true));
+		            player.removePotionEffect(Potion.nightVision.id);
+		            mode = 3;
+		        } else if (mode == 3) {		            
+		        player.addChatMessage(new ChatComponentText("Включена пизда"));
+	            player.addPotionEffect(new PotionEffect(Potion.blindness.id, 10000000, 1, true));
+	            player.removePotionEffect(Potion.digSpeed.id);
+	            mode = 1;
+	            }
+		        
+>>>>>>> Переключение 3 режимов без проверки на руку
 		    }
 		    itemStack.damageItem(1, player);
 		    return itemStack;
