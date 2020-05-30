@@ -17,13 +17,15 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 import ru.fcorecode.arcanereborn.Main;
+import ru.fcorecode.arcanereborn.items.armor._daemonicArmor;
+import ru.fcorecode.arcanereborn.configs.Rarity;
 
-public class Items extends Item 
+public class DaemonicShatter extends Item 
 {
 
 		boolean mode = false;
 
-		public Items(String name, String texture, int maxStackSize) 
+		public DaemonicShatter(String name, String texture, int maxStackSize) 
 		{
 			this.canRepair = false;
 			this.setUnlocalizedName(name);
@@ -37,7 +39,7 @@ public class Items extends Item
 		@SideOnly(Side.CLIENT)
 		public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) 
 		{
-			par3List.add("Прочность :"+this.getMaxDamage());
+			par3List.add("" + Rarity._useless.rarityName);
 		}
 
 		public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase player, EntityLivingBase Entity) 
@@ -77,7 +79,7 @@ public class Items extends Item
 
 		public EnumRarity getRarity(ItemStack itemStack) 
 		{
-			return EnumRarity.epic;
+			return Rarity._useless;
 		}
 }
 
