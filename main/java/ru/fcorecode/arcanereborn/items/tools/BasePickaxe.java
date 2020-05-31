@@ -2,6 +2,11 @@ package ru.fcorecode.arcanereborn.items.tools;
 
 import java.util.List;
 
+import cpw.mods.fml.common.eventhandler.EventPriority;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.InputEvent.KeyInputEvent;
+import cpw.mods.fml.common.gameevent.TickEvent;
+import cpw.mods.fml.common.gameevent.TickEvent.ServerTickEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -9,37 +14,32 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
-import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeHooks;
-import java.text.DecimalFormat;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemPickaxe;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import ru.fcorecode.arcanereborn.Main;
 import ru.fcorecode.arcanereborn.configs.ConfigInfo;
 import ru.fcorecode.arcanereborn.configs.RandomUtils;
 import ru.fcorecode.arcanereborn.configs.Rarity;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class BasePickaxe extends ItemPickaxe 
-{
+{		
+		TickEvent.ServerTickEvent evt;
+		EntityPlayer player;
 		int mode = 1;
-		public static final ToolMaterial BASEPICKAXEMAT = EnumHelper.addToolMaterial("BASEPICKAXEMAT", 3, 274564, 17.0F, 4.0F, 50);
 		
+		
+		public static final ToolMaterial BASEPICKAXEMAT = EnumHelper.addToolMaterial("BASEPICKAXEMAT", 3, 274564, 17.0F, 4.0F, 50);
+				
 		public BasePickaxe(String name, String texture, int maxStackSize)
 		{
 			super(BASEPICKAXEMAT);
@@ -59,51 +59,43 @@ public class BasePickaxe extends ItemPickaxe
 			  
 		@SideOnly(Side.CLIENT)
 	    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
+			par3List.add("" + Rarity._legendary.rarityColor + Rarity._legendary.rarityName);
 	        par3List.add("Описание предмета");
 		    int a, b, c;
 			  a = this.getMaxDamage();
 			  b = this.getDamage(par1ItemStack);
 			  c = a - b;
 			par3List.add("Прочности осталось " + c);
-	        par3List.add("" + Rarity._legendary.rarityName);
 	    }
 			 
 				
 		public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
 		    if (world.isRemote) {
-<<<<<<< e650043b33b41e79092f2e6f3cad15c93f07eabb
-		        if (!mode) {
-		            player.addChatMessage(new ChatComponentText("Включено 3X3"));
-		            player.capabilities.allowFlying = true;
-		            mode = true;
-		        } else {
-		            player.addChatMessage(new ChatComponentText("Выключено 3X3"));
-		            player.capabilities.allowFlying = false;
-		            mode = false;
-		        }
-=======
 		        if (mode == 1) {
 		            player.addChatMessage(new ChatComponentText("Включено ночное зрение"));
 		            player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 10000000, 1, true));
 		            player.removePotionEffect(Potion.blindness.id);
-		            mode = 2;
+		            mode = 2; 
 		        } else if (mode == 2) {
 		            player.addChatMessage(new ChatComponentText("Включена спешка"));
 		            player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 10000000, 1, true));
 		            player.removePotionEffect(Potion.nightVision.id);
 		            mode = 3;
 		        } else if (mode == 3) {		            
-		        player.addChatMessage(new ChatComponentText("Включена пизда"));
-	            player.addPotionEffect(new PotionEffect(Potion.blindness.id, 10000000, 1, true));
-	            player.removePotionEffect(Potion.digSpeed.id);
-	            mode = 1;
-	            }
-		        
->>>>>>> Переключение 3 режимов без проверки на руку
+			        player.addChatMessage(new ChatComponentText("Включена пизда"));
+		            player.addPotionEffect(new PotionEffect(Potion.blindness.id, 10000000, 1, true));
+		            player.removePotionEffect(Potion.digSpeed.id);
+		            mode = 0;
+		        } else if (mode == 0) {		            
+			        player.addChatMessage(new ChatComponentText("Выключение всех режимов"));
+		            player.removePotionEffect(Potion.blindness.id);
+		            mode = 1;
+		        }
 		    }
 		    itemStack.damageItem(1, player);
 		    return itemStack;
 		}
+		
 		@Override
 		public boolean onBlockStartBreak(ItemStack stack, int x, int y, int z, EntityPlayer player)
 		{
@@ -164,7 +156,6 @@ public class BasePickaxe extends ItemPickaxe
 					}
 				}
 			}
-		
 			return false;
 		}
 		

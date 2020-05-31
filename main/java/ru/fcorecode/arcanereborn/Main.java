@@ -1,5 +1,7 @@
 package ru.fcorecode.arcanereborn;
 
+import java.util.TimerTask;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
@@ -46,8 +48,8 @@ public class Main {
 		_daemonicLegs = new _daemonicArmor(0, 2).setUnlocalizedName("DaemonicLegs").setTextureName(MODID + ":armor/_daemonicLegs");
 		_daemonicSteps = new _daemonicArmor(0, 3).setUnlocalizedName("DaemonicSteps").setTextureName(MODID + ":armor/_daemonicSteps");
 		_daemonicShatter = new DaemonicShatter("DaemonicShatter", "items/_daemonicShatter", 64);
-		_basepickaxe = new BasePickaxe("BasePickaxe", "tools/_basePickaxe", 1);
-		
+		_basepickaxe = new BasePickaxe("BasePickaxe", "tools/_basePickaxe", 1);	
+
 		GameRegistry.registerItem(_daemonicSteps, "DaemonicSteps");
 		GameRegistry.registerItem(_daemonicShatter, "DaemonicShatter");
 		GameRegistry.registerItem(_daemonicHelmet, "DaemonicHelmet");
@@ -56,3 +58,4 @@ public class Main {
 		GameRegistry.registerItem(_basepickaxe, "BasePickaxe");
 	}
 }
+
