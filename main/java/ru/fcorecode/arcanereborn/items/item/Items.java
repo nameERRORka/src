@@ -20,12 +20,12 @@ import ru.fcorecode.arcanereborn.Main;
 import ru.fcorecode.arcanereborn.items.armor._daemonicArmor;
 import ru.fcorecode.arcanereborn.configs.Rarity;
 
-public class DaemonicShatter extends Item 
+public class Items extends Item 
 {
 
 		boolean mode = false;
 
-		public DaemonicShatter(String name, String texture, int maxStackSize) 
+		public Items(String name, String texture, int maxStackSize) 
 		{
 			this.canRepair = false;
 			this.setUnlocalizedName(name);

@@ -9,10 +9,15 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import ibxm.Player;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ChatComponentText;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import ru.fcorecode.arcanereborn.items.armor._daemonicArmor;
-import ru.fcorecode.arcanereborn.items.item.DaemonicShatter;
+import ru.fcorecode.arcanereborn.items.item.Items;
 import ru.fcorecode.arcanereborn.items.tools.BasePickaxe;
 
 @Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION)
@@ -31,7 +36,7 @@ public class Main {
 	public static Item _basepickaxe;
 	
 	//Нехуй трогать, и так заебись
-	public static Item _logoCreativeTabs = new DaemonicShatter("CreativeTabsLogo" , "_logoCreativeTabs" , 0);
+	public static Item _logoCreativeTabs = new Items("CreativeTabsLogo" , "_logoCreativeTabs" , 0);
 	public static final CreativeTabs tabAFReborn = new CreativeTabs("tabAFReborn") {	
 		@Override
 		public Item getTabIconItem() {
@@ -47,7 +52,7 @@ public class Main {
 		_daemonicBody = new _daemonicArmor(0, 1).setUnlocalizedName("DaemonicBody").setTextureName(MODID + ":armor/_daemonicBody");
 		_daemonicLegs = new _daemonicArmor(0, 2).setUnlocalizedName("DaemonicLegs").setTextureName(MODID + ":armor/_daemonicLegs");
 		_daemonicSteps = new _daemonicArmor(0, 3).setUnlocalizedName("DaemonicSteps").setTextureName(MODID + ":armor/_daemonicSteps");
-		_daemonicShatter = new DaemonicShatter("DaemonicShatter", "items/_daemonicShatter", 64);
+		_daemonicShatter = new Items("DaemonicShatter", "items/_daemonicShatter", 64);
 		_basepickaxe = new BasePickaxe("BasePickaxe", "tools/_basePickaxe", 1);	
 
 		GameRegistry.registerItem(_daemonicSteps, "DaemonicSteps");
@@ -56,6 +61,21 @@ public class Main {
 		GameRegistry.registerItem(_daemonicBody, "DaemonicBody");
 		GameRegistry.registerItem(_daemonicLegs, "DaemonicLegs");
 		GameRegistry.registerItem(_basepickaxe, "BasePickaxe");
+	}
+	
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent event, PlayerEvent e) {
+		EntityPlayer player = e.entityPlayer;
+		ItemStack heldItem = player.getHeldItem();
+		for (;;) {
+			if (heldItem == null)
+			{
+				player.addChatMessage(new ChatComponentText("Ебац тестики"));
+			}
+			else {
+				player.addChatMessage(new ChatComponentText("Включено ночное зрение"));
+			}
+		}
 	}
 }
 
