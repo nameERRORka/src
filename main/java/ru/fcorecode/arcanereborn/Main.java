@@ -19,6 +19,7 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import ru.fcorecode.arcanereborn.items.armor._daemonicArmor;
 import ru.fcorecode.arcanereborn.items.item.Items;
 import ru.fcorecode.arcanereborn.items.tools.BasePickaxe;
+import ru.fcorecode.arcanereborn.items.weapons.BaseSkana;
 
 @Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION)
 
@@ -34,6 +35,7 @@ public class Main {
 	public static Item _daemonicSteps;
 	public static Item _daemonicShatter;
 	public static Item _basepickaxe;
+	public static Item _BaseSkana;
 	
 	//Нехуй трогать, и так заебись
 	public static Item _logoCreativeTabs = new Items("CreativeTabsLogo" , "_logoCreativeTabs" , 0);
@@ -54,6 +56,7 @@ public class Main {
 		_daemonicSteps = new _daemonicArmor(0, 3).setUnlocalizedName("DaemonicSteps").setTextureName(MODID + ":armor/_daemonicSteps");
 		_daemonicShatter = new Items("DaemonicShatter", "items/_daemonicShatter", 64);
 		_basepickaxe = new BasePickaxe("BasePickaxe", "tools/_basePickaxe", 1);	
+		_BaseSkana = new BaseSkana("BaseSkana", "weapons/_baseSkana", 1);
 
 		GameRegistry.registerItem(_daemonicSteps, "DaemonicSteps");
 		GameRegistry.registerItem(_daemonicShatter, "DaemonicShatter");
@@ -61,6 +64,7 @@ public class Main {
 		GameRegistry.registerItem(_daemonicBody, "DaemonicBody");
 		GameRegistry.registerItem(_daemonicLegs, "DaemonicLegs");
 		GameRegistry.registerItem(_basepickaxe, "BasePickaxe");
+		GameRegistry.registerItem(_BaseSkana, "BaseSkana");
 	}
 	
 	@EventHandler
