@@ -38,16 +38,14 @@ public class BaseSkana extends ItemSword
 		TickEvent.ServerTickEvent evt;
 		EntityPlayer player;
 		int mode = 1;
-		public static final ToolMaterial BASESKANAMAT = EnumHelper.addToolMaterial("BASESKANAMAT", 3, 274564, 17.0F, 4.0F, 50);
 				
-		public BaseSkana(String name, String texture, int maxStackSize)
+		public BaseSkana(String name, String texture, int maxStackSize, ToolMaterial mater)
 		{
-		    super(BASESKANAMAT);
+		    super(mater);
 			this.canRepair = false;
 			this.setUnlocalizedName(name);
 			this.setTextureName(Main.MODID + ":" + texture);
 			this.setCreativeTab(Main.tabAFReborn);
-			this.setMaxDamage(10000);
 			this.maxStackSize = 1;
 			GameRegistry.registerItem(this, name);
 		}

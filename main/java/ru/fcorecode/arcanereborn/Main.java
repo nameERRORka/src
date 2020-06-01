@@ -13,8 +13,10 @@ import ibxm.Player;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import ru.fcorecode.arcanereborn.items.armor._daemonicArmor;
 import ru.fcorecode.arcanereborn.items.item.Items;
@@ -46,6 +48,8 @@ public class Main {
 		}
 	};
 	//--------------------------------
+	
+	public static ToolMaterial SKANAMATERIAL = EnumHelper.addToolMaterial("SKANAMATERIAL", 3, 274564, 17.0F, 9.0F, 50);;
 
 	@EventHandler
 	public void preLoad(FMLPreInitializationEvent event)
@@ -56,7 +60,7 @@ public class Main {
 		_daemonicSteps = new _daemonicArmor(0, 3).setUnlocalizedName("DaemonicSteps").setTextureName(MODID + ":armor/_daemonicSteps");
 		_daemonicShatter = new Items("DaemonicShatter", "items/_daemonicShatter", 64);
 		_basepickaxe = new BasePickaxe("BasePickaxe", "tools/_basePickaxe", 1);	
-		_BaseSkana = new BaseSkana("BaseSkana", "weapons/_baseSkana", 1);
+		_BaseSkana = new BaseSkana("BaseSkana", "weapons/_baseSkana", 1, SKANAMATERIAL);
 
 		GameRegistry.registerItem(_daemonicSteps, "DaemonicSteps");
 		GameRegistry.registerItem(_daemonicShatter, "DaemonicShatter");
