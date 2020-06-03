@@ -18,6 +18,7 @@ import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemBow;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
@@ -33,15 +34,23 @@ import ru.fcorecode.arcanereborn.configs.ConfigInfo;
 import ru.fcorecode.arcanereborn.configs.RandomUtils;
 import ru.fcorecode.arcanereborn.configs.Rarity;
 
-public class BaseSkana extends ItemSword
+public class BaseBow extends ItemBow
 {		
 		TickEvent.ServerTickEvent evt;
 		EntityPlayer player;
 		int mode = 1;
-				
-		public BaseSkana(String name, String texture, int maxStackSize, ToolMaterial mater)
+		private final String ingot;
+		private float arrowDamage = 1.0F;
+		private final float arrowSpeed = 2.0F;
+		public ItemBowAdv itemBow;
+		public BaseBow(String name, String texture, int maxStackSize)
 		{
-		    super(mater);
+		    super();
+		    ingot = "ingot" + name;
+			{
+				arrowDamage = 1.0F + damage / 8F;
+				itemBow.setRepairIngot(ingot).setArrowSpeed(arrowSpeed).setArrowDamage(arrowDamage).setUnlocalizedName(name + "Bow");		
+				}
 			this.canRepair = false;
 			this.setUnlocalizedName(name);
 			this.setTextureName(Main.MODID + ":" + texture);

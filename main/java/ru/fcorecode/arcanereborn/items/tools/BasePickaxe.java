@@ -37,17 +37,14 @@ public class BasePickaxe extends ItemPickaxe
 		EntityPlayer player;
 		int mode = 1;
 		
-		
-		public static final ToolMaterial BASEPICKAXEMAT = EnumHelper.addToolMaterial("BASEPICKAXEMAT", 3, 274564, 17.0F, 4.0F, 50);
 				
-		public BasePickaxe(String name, String texture, int maxStackSize)
+		public BasePickaxe(String name, String texture, int maxStackSize, ToolMaterial MEDIUMHAMMER)
 		{
-			super(BASEPICKAXEMAT);
+			super(MEDIUMHAMMER);
 			this.canRepair = false;
 			this.setUnlocalizedName(name);
 			this.setTextureName(Main.MODID + ":" + texture);
 			this.setCreativeTab(Main.tabAFReborn);
-			this.setMaxDamage(10000);
 			this.maxStackSize = 1;
 			GameRegistry.registerItem(this, name);
 		}
