@@ -31,8 +31,6 @@ public class Items extends Item
 			this.setUnlocalizedName(name);
 			this.setTextureName(Main.MODID + ":" + texture);
 			this.setCreativeTab(Main.tabAFReborn);
-			this.setMaxDamage(100);
-			this.maxStackSize = 1;
 			GameRegistry.registerItem(this, name);
 		}
 
