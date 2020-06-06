@@ -1,6 +1,6 @@
 package ru.fcorecode.arcanereborn.items.item;
 
-import java.awt.List;
+import java.util.List;
 
 import com.google.common.eventbus.Subscribe;
 
@@ -13,6 +13,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import ru.fcorecode.arcanereborn.Main;
 import ru.fcorecode.arcanereborn.configs.Rarity;
@@ -35,7 +36,12 @@ public class MoneyClass extends Item
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) 
 	{
-		par3List.add("" + Rarity._useless.rarityName);
+		par3List.add("" + Rarity._arcoins.rarityColor + Rarity._arcoins.rarityName);
+		par3List.add(StatCollector.translateToLocal("item.Coin1.lore"));
+		par3List.add(StatCollector.translateToLocal("item.Coin2.lore"));
+		par3List.add(StatCollector.translateToLocal("item.Coin3.lore"));
+		par3List.add(StatCollector.translateToLocal("item.CoinEmpty.lore"));
+		par3List.add(StatCollector.translateToLocal("item.Coin4.lore"));
 	}
 
 	public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase player, EntityLivingBase Entity) 
@@ -46,6 +52,6 @@ public class MoneyClass extends Item
 
 	public EnumRarity getRarity(ItemStack itemStack) 
 	{
-		return Rarity._useless;
+		return Rarity._arcoins;
 	}
 }

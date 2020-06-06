@@ -1,6 +1,6 @@
 package ru.fcorecode.arcanereborn.items.item;
 
-import java.awt.List;
+import java.util.List;
 
 import com.google.common.eventbus.Subscribe;
 import cpw.mods.fml.common.registry.GameRegistry;

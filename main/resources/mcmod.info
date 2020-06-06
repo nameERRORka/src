@@ -1,15 +1,15 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "AF_REBORN",
+  "name": "Arcanefactory Reborn",
+  "description": "Специальный мод, расширяющий геймплей и однотипность...",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
-  "logoFile": "",
+  "authorList": ["FCORETOP","D_Lorian"],
+  "credits": "Создано персонально для проекта Dreamfinity © 2020 FCORECode™",
+  "logoFile": "logo4all.png",
   "screenshots": [],
   "dependencies": []
 }

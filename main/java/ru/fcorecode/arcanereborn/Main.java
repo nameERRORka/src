@@ -63,7 +63,7 @@ public class Main {
     
     @EventHandler
     public void preLoad(FMLPreInitializationEvent event) {
-      /*  _daemonicHelmet = new _daemonicArmor(0, 0).setUnlocalizedName("DaemonicHelmet").setTextureName(MODID + ":armor/_daemonicHelmet");
+      /*_daemonicHelmet = new _daemonicArmor(0, 0).setUnlocalizedName("DaemonicHelmet").setTextureName(MODID + ":armor/_daemonicHelmet");
         _daemonicBody = new _daemonicArmor(0, 1).setUnlocalizedName("DaemonicBody").setTextureName(MODID + ":armor/_daemonicBody");
         _daemonicLegs = new _daemonicArmor(0, 2).setUnlocalizedName("DaemonicLegs").setTextureName(MODID + ":armor/_daemonicLegs");
         _daemonicSteps = new _daemonicArmor(0, 3).setUnlocalizedName("DaemonicSteps").setTextureName(MODID + ":armor/_daemonicSteps");
@@ -82,11 +82,11 @@ public class Main {
         GameRegistry.registerItem(_IceSkana, "IceSkana");*/
     	
     	//############ Регистрация денег ############
-    	_goldenCoin = new MoneyClass("GoldenCoin", "items/_goldenCoin", 200);
+    	_goldenCoin = new MoneyClass("GoldenCoin", "items/_goldenCoin", 64);
     	GameRegistry.registerItem(_goldenCoin, "GoldenCoin");
-    	_silverCoin = new MoneyClass("SilverCoin", "items/_silverCoin", 500);
+    	_silverCoin = new MoneyClass("SilverCoin", "items/_silverCoin", 64);
     	GameRegistry.registerItem(_silverCoin, "SilverCoin");
-    	_cooperCoin = new MoneyClass("CooperCoin", "items/_cooperCoin", 1000);
+    	_cooperCoin = new MoneyClass("CooperCoin", "items/_cooperCoin", 64);
     	GameRegistry.registerItem(_cooperCoin, "CooperCoin");
     	//###########################################
     }
