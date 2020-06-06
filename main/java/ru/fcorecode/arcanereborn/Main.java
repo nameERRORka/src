@@ -33,7 +33,6 @@ public class Main {
     public static final String MODNAME = "Arcanefactory Reborn";
     public static final String VERSION = "1.1.0";
     
-    /*
     public static Item _daemonicHelmet;
     public static Item _daemonicBody;
     public static Item _daemonicLegs;
@@ -43,8 +42,7 @@ public class Main {
     public static Item _BaseSkana;
     public static Item _IceSkana;
     public static Item _BaseBow;
-    */
-    
+
     //############ Переменные для денег ############
     public static Item _goldenCoin;
     public static Item _silverCoin;
@@ -63,7 +61,7 @@ public class Main {
     
     @EventHandler
     public void preLoad(FMLPreInitializationEvent event) {
-      /*_daemonicHelmet = new _daemonicArmor(0, 0).setUnlocalizedName("DaemonicHelmet").setTextureName(MODID + ":armor/_daemonicHelmet");
+        _daemonicHelmet = new _daemonicArmor(0, 0).setUnlocalizedName("DaemonicHelmet").setTextureName(MODID + ":armor/_daemonicHelmet");
         _daemonicBody = new _daemonicArmor(0, 1).setUnlocalizedName("DaemonicBody").setTextureName(MODID + ":armor/_daemonicBody");
         _daemonicLegs = new _daemonicArmor(0, 2).setUnlocalizedName("DaemonicLegs").setTextureName(MODID + ":armor/_daemonicLegs");
         _daemonicSteps = new _daemonicArmor(0, 3).setUnlocalizedName("DaemonicSteps").setTextureName(MODID + ":armor/_daemonicSteps");
@@ -79,7 +77,7 @@ public class Main {
         GameRegistry.registerItem(_daemonicShatter, "DaemonicShatter");
         GameRegistry.registerItem(_basepickaxe, "BasePickaxe");
         GameRegistry.registerItem(_BaseSkana, "BaseSkana");
-        GameRegistry.registerItem(_IceSkana, "IceSkana");*/
+        GameRegistry.registerItem(_IceSkana, "IceSkana");
     	
     	//############ Регистрация денег ############
     	_goldenCoin = new MoneyClass("GoldenCoin", "items/_goldenCoin", 64);
