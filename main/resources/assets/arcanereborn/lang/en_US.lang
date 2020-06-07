@@ -1,4 +1,10 @@
-itemGroup.tabAFReborn=Arcanefactory Reborn Mod
+### CREATIVE TABS ###
+itemGroup.tabAFRebornMoney=§5[AF] Reborn | Money
+itemGroup.tabAFRebornWaA=§5[AF] Reborn | Weapon and Armor
+itemGroup.tabAFRebornTools=§5[AF] Reborn | Tools
+itemGroup.tabAFRebornAnother=§5[AF] Reborn | Another
+#####################
+
 item.DaemonicHelmet.name=Daemonic Helmet
 item.DaemonicBody.name=Daemonic Body Armor
 item.DaemonicLegs.name=Daemonic Legs Armor
