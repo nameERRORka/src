@@ -45,7 +45,7 @@ public class BaseSkana extends ItemSword
 			this.canRepair = false;
 			this.setUnlocalizedName(name);
 			this.setTextureName(Main.MODID + ":" + texture);
-			this.setCreativeTab(Main.tabAFReborn);
+			this.setCreativeTab(Main.tabAFRebornWaA);
 			this.maxStackSize = 1;
 			GameRegistry.registerItem(this, name);
 		}

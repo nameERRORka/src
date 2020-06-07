@@ -30,7 +30,7 @@ public class Items extends Item
 			this.canRepair = false;
 			this.setUnlocalizedName(name);
 			this.setTextureName(Main.MODID + ":" + texture);
-			this.setCreativeTab(Main.tabAFReborn);
+			this.setCreativeTab(Main.tabAFRebornAnother);
 			GameRegistry.registerItem(this, name);
 		}
 
@@ -38,12 +38,6 @@ public class Items extends Item
 		public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) 
 		{
 			par3List.add("" + Rarity._useless.rarityName);
-		}
-
-		public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase player, EntityLivingBase Entity) 
-		{
-			par1ItemStack.damageItem(1, Entity);
-			return false;
 		}
 
 		public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) 

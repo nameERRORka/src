@@ -31,7 +31,7 @@ public class Main {
 
     public static final String MODID = "arcanereborn";
     public static final String MODNAME = "Arcanefactory Reborn";
-    public static final String VERSION = "1.1.0";
+    public static final String VERSION = "1.10.2";
     
     public static Item _daemonicHelmet;
     public static Item _daemonicBody;
@@ -50,11 +50,35 @@ public class Main {
     //##############################################
 
     //Нехуй трогать, и так заебись
-    public static Item _logoCreativeTabs = new Items("CreativeTabsLogo", "_logoCreativeTabs", 0);
-    public static final CreativeTabs tabAFReborn = new CreativeTabs("tabAFReborn") {
+    public static Item _logoCreativeTabsMoney = new Items("CreativeTabsLogoMoney", "_logoCreativeTabsMoney", 0);
+    public static final CreativeTabs tabAFRebornMoney = new CreativeTabs("tabAFRebornMoney") {
         @Override
         public Item getTabIconItem() {
-            return _logoCreativeTabs;
+            return _logoCreativeTabsMoney;
+        }
+    };
+    
+    public static Item _logoCreativeTabsWeaponAndArmor = new Items("CreativeTabsLogoWaA", "_logoCreativeTabsWeaponAndArmor", 0);
+    public static final CreativeTabs tabAFRebornWaA = new CreativeTabs("tabAFRebornWaA") {
+        @Override
+        public Item getTabIconItem() {
+            return _logoCreativeTabsWeaponAndArmor;
+        }
+    };
+    
+    public static Item _logoCreativeTabsTools = new Items("CreativeTabsLogoTools", "_logoCreativeTabsTools", 0);
+    public static final CreativeTabs tabAFRebornTools = new CreativeTabs("tabAFRebornTools") {
+        @Override
+        public Item getTabIconItem() {
+            return _logoCreativeTabsTools;
+        }
+    };
+    
+    public static Item _logoCreativeTabsAnother = new Items("CreativeTabsLogoAnother", "_logoCreativeTabsAnother", 0);
+    public static final CreativeTabs tabAFRebornAnother = new CreativeTabs("tabAFRebornAnother") {
+        @Override
+        public Item getTabIconItem() {
+            return _logoCreativeTabsAnother;
         }
     };
     //--------------------------------

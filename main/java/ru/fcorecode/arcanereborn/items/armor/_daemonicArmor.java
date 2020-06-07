@@ -22,7 +22,7 @@ public class _daemonicArmor extends ItemArmor {
 	//=================================================================
 	public _daemonicArmor(int id, int armorType) {
 	  super(ArmorMaterial.DIAMOND, id, armorType);
-	  this.setCreativeTab(Main.tabAFReborn);
+	  this.setCreativeTab(Main.tabAFRebornWaA);
 	  this.setMaxStackSize(1);
 	  this.setTextureName();
 	}

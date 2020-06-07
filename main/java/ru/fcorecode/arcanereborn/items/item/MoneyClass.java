@@ -28,7 +28,7 @@ public class MoneyClass extends Item
 		this.canRepair = false;
 		this.setUnlocalizedName(name);
 		this.setTextureName(Main.MODID + ":" + texture);
-		this.setCreativeTab(Main.tabAFReborn);
+		this.setCreativeTab(Main.tabAFRebornMoney);
 		this.maxStackSize = maxStackSize;
 		GameRegistry.registerItem(this, name);
 	}

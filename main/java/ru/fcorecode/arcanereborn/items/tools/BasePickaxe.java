@@ -42,7 +42,7 @@ public class BasePickaxe extends ItemPickaxe {
         this.canRepair = false;
         this.setUnlocalizedName(name);
         this.setTextureName(Main.MODID + ":" + texture);
-        this.setCreativeTab(Main.tabAFReborn);
+        this.setCreativeTab(Main.tabAFRebornTools);
         this.maxStackSize = 1;
         GameRegistry.registerItem(this, name);
     }
