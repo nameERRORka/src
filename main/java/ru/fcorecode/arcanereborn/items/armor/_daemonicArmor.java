@@ -17,7 +17,7 @@ import ru.fcorecode.arcanereborn.configs.Rarity;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class _daemonicArmor extends ItemArmor {
-	//=====================Ебачи костылики=============================
+	//=====================kostili=============================
 	private String texturePath = Main.MODID + ":textures/model/armor/";
 	//=================================================================
 	public _daemonicArmor(int id, int armorType) {

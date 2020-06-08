@@ -22,6 +22,7 @@ import ru.fcorecode.arcanereborn.items.armor._daemonicArmor;
 import ru.fcorecode.arcanereborn.items.item.Items;
 import ru.fcorecode.arcanereborn.items.item.MoneyClass;
 import ru.fcorecode.arcanereborn.items.tools.BasePickaxe;
+import ru.fcorecode.arcanereborn.items.tools.MediumHammer;
 import ru.fcorecode.arcanereborn.items.weapons.BaseSkana;
 import ru.fcorecode.arcanereborn.configs.ModToolMaterial;
 
@@ -33,23 +34,25 @@ public class Main {
     public static final String MODNAME = "Arcanefactory Reborn";
     public static final String VERSION = "1.10.2";
     
+
     public static Item _daemonicHelmet;
     public static Item _daemonicBody;
     public static Item _daemonicLegs;
     public static Item _daemonicSteps;
     public static Item _daemonicShatter;
     public static Item _basepickaxe;
+    public static Item _MediumHammer;
     public static Item _BaseSkana;
     public static Item _IceSkana;
     public static Item _BaseBow;
 
-    //############ Переменные для денег ############
+
     public static Item _goldenCoin;
     public static Item _silverCoin;
     public static Item _cooperCoin;
-    //##############################################
 
-    //Нехуй трогать, и так заебись
+
+
     public static Item _logoCreativeTabsMoney = new Items("CreativeTabsLogoMoney", "_logoCreativeTabsMoney", 0);
     public static final CreativeTabs tabAFRebornMoney = new CreativeTabs("tabAFRebornMoney") {
         @Override
@@ -90,8 +93,9 @@ public class Main {
         _daemonicLegs = new _daemonicArmor(0, 2).setUnlocalizedName("DaemonicLegs").setTextureName(MODID + ":armor/_daemonicLegs");
         _daemonicSteps = new _daemonicArmor(0, 3).setUnlocalizedName("DaemonicSteps").setTextureName(MODID + ":armor/_daemonicSteps");
         _daemonicShatter = new Items("DaemonicShatter", "items/_daemonicShatter", 64);
-        _basepickaxe = new BasePickaxe("BasePickaxe", "tools/_basePickaxe", 1, ModToolMaterial.MEDIUMHAMMER);
-        _BaseSkana = new BaseSkana("BaseSkana", "weapon/_baseSkana", 1, ModToolMaterial.SKANA);
+        _basepickaxe = new BasePickaxe("BasePickaxe", "tools/_basePickaxe", 1, ModToolMaterial.baseHAMMER);
+        _MediumHammer = new MediumHammer("MediumHammer", "tools/_MediumHammer", 1, ModToolMaterial.MEDIUMHAMMER);
+       // _BaseSkana = new BaseSkana("BaseSkana", "weapon/_baseSkana", 1, ModToolMaterial.SKANA);
         _IceSkana = new BaseSkana("IceSkana", "weapon/_IceSword", 1, ModToolMaterial.ICESCANA);
 
         GameRegistry.registerItem(_daemonicSteps, "DaemonicSteps");
@@ -102,14 +106,15 @@ public class Main {
         GameRegistry.registerItem(_basepickaxe, "BasePickaxe");
         GameRegistry.registerItem(_BaseSkana, "BaseSkana");
         GameRegistry.registerItem(_IceSkana, "IceSkana");
+        //GameRegistry.registerItem(_MediumHammer, "MediumHammer");
     	
-    	//############ Регистрация денег ############
+
     	_goldenCoin = new MoneyClass("GoldenCoin", "items/_goldenCoin", 64);
     	GameRegistry.registerItem(_goldenCoin, "GoldenCoin");
     	_silverCoin = new MoneyClass("SilverCoin", "items/_silverCoin", 64);
     	GameRegistry.registerItem(_silverCoin, "SilverCoin");
     	_cooperCoin = new MoneyClass("CooperCoin", "items/_cooperCoin", 64);
     	GameRegistry.registerItem(_cooperCoin, "CooperCoin");
-    	//###########################################
+
     }
 }

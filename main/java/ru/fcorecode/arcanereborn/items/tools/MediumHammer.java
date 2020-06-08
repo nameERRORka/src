@@ -34,14 +34,14 @@ import ru.fcorecode.arcanereborn.configs.Rarity;
 import ru.fcorecode.arcanereborn.configs.ModToolMaterial;
 import net.minecraft.util.StatCollector;
 
-public class BasePickaxe extends ItemPickaxe {
+public class MediumHammer extends ItemPickaxe {
     TickEvent.ServerTickEvent evt;
     EntityPlayer player;
     int mode = 1;
 
 
-    public BasePickaxe(String name, String texture, int maxStackSize, ToolMaterial baseHAMMER) {
-        super(baseHAMMER);
+    public MediumHammer(String name, String texture, int maxStackSize, ToolMaterial MEDIUMHAMMER) {
+        super(MEDIUMHAMMER);
         this.canRepair = false;
         this.setUnlocalizedName(name);
         this.setTextureName(Main.MODID + ":" + texture);

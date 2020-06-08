@@ -79,16 +79,16 @@ public class Items extends Item
 
 /*
 ----------------------------------
-        Штуки для полёта
+        fly
 ----------------------------------
 if (world.isRemote) {
 
 if (!mode) {
-	player.addChatMessage(new ChatComponentText("Врубаем полет"));
+	player.addChatMessage(new ChatComponentText("fly on"));
 	player.capabilities.allowFlying = true;
 	mode = true;
 } else {
-	player.addChatMessage(new ChatComponentText("Вырубаем"));
+	player.addChatMessage(new ChatComponentText("fly off"));
 	player.capabilities.allowFlying = false;
 	mode = false;
 }
@@ -98,7 +98,7 @@ itemStack.damageItem(1, player);
 
 /*
 ----------------------------------
-        Штуки вывода сообщений
+        message
 ----------------------------------
 player.addChatMessage(new ChatComponentText("� ����� ���!" + mode));
 mode = !mode;
@@ -107,7 +107,7 @@ player.capabilities.disableDamage = mode;
 
 /*
 ----------------------------------
-        Штуки для бафов
+        potion
 ----------------------------------
 super.onUpdate(stack, world, entity, par4, par5);
 if (entity instanceof EntityPlayer) {
