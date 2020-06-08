@@ -38,10 +38,10 @@ public class BaseSkana extends ItemSword
 		TickEvent.ServerTickEvent evt;
 		EntityPlayer player;
 		int mode = 1;
-				
 		public BaseSkana(String name, String texture, int maxStackSize, ToolMaterial mater)
 		{
 		    super(mater);
+			this.getItemAttributeModifiers();
 			this.canRepair = false;
 			this.setUnlocalizedName(name);
 			this.setTextureName(Main.MODID + ":" + texture);
