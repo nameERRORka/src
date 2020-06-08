@@ -95,7 +95,11 @@ public class Main {
         _daemonicShatter = new Items("DaemonicShatter", "items/_daemonicShatter", 64);
         _basepickaxe = new BasePickaxe("BasePickaxe", "tools/_basePickaxe", 1, ModToolMaterial.baseHAMMER);
         _MediumHammer = new MediumHammer("MediumHammer", "tools/_MediumHammer", 1, ModToolMaterial.MEDIUMHAMMER);
+<<<<<<< HEAD
         _BaseSkana = new BaseSkana("BaseSkana", "weapon/_baseSkana", 1, ModToolMaterial.SKANA);
+=======
+       // _BaseSkana = new BaseSkana("BaseSkana", "weapon/_baseSkana", 1, ModToolMaterial.SKANA);
+>>>>>>> master
         _IceSkana = new BaseSkana("IceSkana", "weapon/_IceSword", 1, ModToolMaterial.ICESCANA);
 
         GameRegistry.registerItem(_daemonicSteps, "DaemonicSteps");
@@ -106,7 +110,11 @@ public class Main {
         GameRegistry.registerItem(_basepickaxe, "BasePickaxe");
         GameRegistry.registerItem(_BaseSkana, "BaseSkana");
         GameRegistry.registerItem(_IceSkana, "IceSkana");
+<<<<<<< HEAD
         GameRegistry.registerItem(_MediumHammer, "MediumHammer");
+=======
+        //GameRegistry.registerItem(_MediumHammer, "MediumHammer");
+>>>>>>> master
     	
 
     	_goldenCoin = new MoneyClass("GoldenCoin", "items/_goldenCoin", 64);

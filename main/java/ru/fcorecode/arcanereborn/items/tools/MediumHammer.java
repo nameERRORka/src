@@ -47,7 +47,11 @@ public class MediumHammer extends ItemPickaxe {
         this.setTextureName(Main.MODID + ":" + texture);
         this.setCreativeTab(Main.tabAFRebornTools);
         this.maxStackSize = 1;
+<<<<<<< HEAD
 
+=======
+        GameRegistry.registerItem(this, name);
+>>>>>>> master
     }
 
     public EnumRarity getRarity(ItemStack itemStack) {
@@ -56,6 +60,7 @@ public class MediumHammer extends ItemPickaxe {
 
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
+<<<<<<< HEAD
         par3List.add("" + Rarity._epic.rarityColor + Rarity._epic.rarityName);
         par3List.add(" " + " ");
         par3List.add(StatCollector.translateToLocal("item.effency.lore") + " " + ModToolMaterial.digSpeedMEDIUMHAMMER);
@@ -65,12 +70,25 @@ public class MediumHammer extends ItemPickaxe {
 		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM3.lore"));
 		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM4.lore"));
 		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM5.lore"));
+=======
+        par3List.add("" + Rarity._legendary.rarityColor + Rarity._legendary.rarityName);
+        par3List.add("" + "");
+        par3List.add(StatCollector.translateToLocal("item.effency.name") + " " + ModToolMaterial.digSpeedMEDIUMHAMMER);
+		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM1.name"));
+		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM2.name"));
+		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM3.name"));
+		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM4.name"));
+>>>>>>> master
         int a, b, c;
         a = this.getMaxDamage();
         b = this.getDamage(par1ItemStack);
         c = a - b;
+<<<<<<< HEAD
         par3List.add(" " + " ");
         par3List.add(StatCollector.translateToLocal("item.GetDamage.lore") + " " + c + " " + StatCollector.translateToLocal("item.GetDamageL.lore"));
+=======
+        par3List.add(StatCollector.translateToLocal("item.GetDamage.name") + " " + c + " " + StatCollector.translateToLocal("item.GetDamageL.name"));
+>>>>>>> master
 
     }
 
@@ -101,7 +119,11 @@ public class MediumHammer extends ItemPickaxe {
         itemStack.damageItem(1, player);
         return itemStack;
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> master
     @Override
     public boolean onBlockStartBreak(ItemStack stack, int x, int y, int z, EntityPlayer player) {
         World world = player.worldObj;
