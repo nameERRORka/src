@@ -57,17 +57,20 @@ public class BasePickaxe extends ItemPickaxe {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
         par3List.add("" + Rarity._legendary.rarityColor + Rarity._legendary.rarityName);
-        par3List.add("" + "");
-        par3List.add(StatCollector.translateToLocal("item.effency.name") + " " + ModToolMaterial.digSpeedMEDIUMHAMMER);
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM1.name"));
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM2.name"));
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM3.name"));
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM4.name"));
+        par3List.add(" " + " ");
+        par3List.add(StatCollector.translateToLocal("item.effency.lore") + " " + ModToolMaterial.digSpeedbaseHAMMER);
+        par3List.add(" " + " ");
+		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM1.lore"));
+		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM2.lore"));
+		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM3.lore"));
+		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM4.lore"));
+		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM5.lore"));
         int a, b, c;
         a = this.getMaxDamage();
         b = this.getDamage(par1ItemStack);
         c = a - b;
-        par3List.add(StatCollector.translateToLocal("item.GetDamage.name") + " " + c + " " + StatCollector.translateToLocal("item.GetDamageL.name"));
+        par3List.add(" " + " ");
+        par3List.add(StatCollector.translateToLocal("item.GetDamage.lore") + " " + c + " " + StatCollector.translateToLocal("item.GetDamageL.lore"));
 
     }
 
@@ -75,22 +78,22 @@ public class BasePickaxe extends ItemPickaxe {
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
         if (world.isRemote) {
             if (mode == 1) {
-                player.addChatMessage(new ChatComponentText("Включен режим ночного видения"));
+                player.addChatMessage(new ChatComponentText("Р’РєР»СЋС‡РµРЅРѕ РЅРѕС‡РЅРѕРµ Р·СЂРµРЅРёРµ"));
                 player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 10000000, 1, true));
                 player.removePotionEffect(Potion.blindness.id);
                 mode = 2;
             } else if (mode == 2) {
-                player.addChatMessage(new ChatComponentText("Увеличена скорость копания"));
+                player.addChatMessage(new ChatComponentText("Р’РєР»СЋС‡РµРЅРѕ СѓСЃРєРѕСЂРµРЅРЅРѕРµ РєРѕРїР°РЅРёРµ"));
                 player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 10000000, 1, true));
                 player.removePotionEffect(Potion.nightVision.id);
                 mode = 3;
             } else if (mode == 3) {
-                player.addChatMessage(new ChatComponentText("Вам пришла пизда"));
+                player.addChatMessage(new ChatComponentText("Р’Р°Рј РїСЂРёС€Р»Р° РїРёР·РґР°."));
                 player.addPotionEffect(new PotionEffect(Potion.blindness.id, 10000000, 1, true));
                 player.removePotionEffect(Potion.digSpeed.id);
                 mode = 0;
             } else if (mode == 0) {
-                player.addChatMessage(new ChatComponentText("Все режимы были выключены"));
+                player.addChatMessage(new ChatComponentText("Р’СЃРµ Р±С‹Р»Рѕ РІС‹РєР»СЋС‡РµРЅРѕ."));
                 player.removePotionEffect(Potion.blindness.id);
                 mode = 1;
             }
