@@ -24,6 +24,7 @@ import ru.fcorecode.arcanereborn.items.item.MoneyClass;
 import ru.fcorecode.arcanereborn.items.tools.BasePickaxe;
 import ru.fcorecode.arcanereborn.items.tools.MediumHammer;
 import ru.fcorecode.arcanereborn.items.weapons.BaseSkana;
+import ru.fcorecode.arcanereborn.items.weapons.LeatherClaws;
 import ru.fcorecode.arcanereborn.configs.ModToolMaterial;
 
 @Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION)
@@ -45,6 +46,7 @@ public class Main {
     public static Item _BaseSkana;
     public static Item _IceSkana;
     public static Item _BaseBow;
+    public static Item _LeatherClaws;
 
 
     public static Item _goldenCoin;
@@ -59,18 +61,10 @@ public class Main {
         _daemonicSteps = new _daemonicArmor(0, 3).setUnlocalizedName("DaemonicSteps").setTextureName(MODID + ":armor/_daemonicSteps");
         _daemonicShatter = new Items("DaemonicShatter", "items/_daemonicShatter", 64);
         _basepickaxe = new BasePickaxe("BasePickaxe", "tools/_basePickaxe", 1, ModToolMaterial.baseHAMMER);
-<<<<<<< HEAD
-        _MediumHammer = new MediumHammer("MediumHammer", "tools/_MediumHammer", 1, ModToolMaterial.MEDIUMHAMMER);
-<<<<<<< HEAD
-        _BaseSkana = new BaseSkana("BaseSkana", "weapon/_baseSkana", 1, ModToolMaterial.SKANA);
-=======
-       // _BaseSkana = new BaseSkana("BaseSkana", "weapon/_baseSkana", 1, ModToolMaterial.SKANA);
->>>>>>> master
-=======
         _mediumHammer = new MediumHammer("MediumHammer", "tools/_MediumHammer", 1, ModToolMaterial.MEDIUMHAMMER);
         _BaseSkana = new BaseSkana("BaseSkana", "weapon/_baseSkana", 1, ModToolMaterial.SKANA);
->>>>>>> master
         _IceSkana = new BaseSkana("IceSkana", "weapon/_IceSword", 1, ModToolMaterial.ICESCANA);
+        _LeatherClaws = new LeatherClaws("LeatherClaws", "weapon/_LClaws", 1, ModToolMaterial.LClaws);
 
         GameRegistry.registerItem(_daemonicSteps, "DaemonicSteps");
         GameRegistry.registerItem(_daemonicLegs, "DaemonicLegs");
@@ -80,15 +74,9 @@ public class Main {
         GameRegistry.registerItem(_basepickaxe, "BasePickaxe");
         GameRegistry.registerItem(_BaseSkana, "BaseSkana");
         GameRegistry.registerItem(_IceSkana, "IceSkana");
-<<<<<<< HEAD
-<<<<<<< HEAD
-        GameRegistry.registerItem(_MediumHammer, "MediumHammer");
-=======
-        //GameRegistry.registerItem(_MediumHammer, "MediumHammer");
->>>>>>> master
-=======
         GameRegistry.registerItem(_mediumHammer, "MediumHammer");
->>>>>>> master
+        GameRegistry.registerItem(_LeatherClaws, "LeatherClaws");
+
     	
 
     	_goldenCoin = new MoneyClass("GoldenCoin", "items/_goldenCoin", 64);

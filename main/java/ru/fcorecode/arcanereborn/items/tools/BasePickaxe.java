@@ -12,6 +12,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemPickaxe;
@@ -35,11 +36,8 @@ import ru.fcorecode.arcanereborn.configs.ModToolMaterial;
 import net.minecraft.util.StatCollector;
 
 public class BasePickaxe extends ItemPickaxe {
-    TickEvent.ServerTickEvent evt;
-    EntityPlayer player;
-    int mode = 1;
-
-
+    public int mode = 4;
+    public String namemode = "none";
     public BasePickaxe(String name, String texture, int maxStackSize, ToolMaterial baseHAMMER) {
         super(baseHAMMER);
         this.canRepair = false;
@@ -57,7 +55,6 @@ public class BasePickaxe extends ItemPickaxe {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
         par3List.add("" + Rarity._legendary.rarityColor + Rarity._legendary.rarityName);
-<<<<<<< HEAD
         par3List.add(" " + " ");
         par3List.add(StatCollector.translateToLocal("item.effency.lore") + " " + ModToolMaterial.digSpeedbaseHAMMER);
         par3List.add(" " + " ");
@@ -66,24 +63,16 @@ public class BasePickaxe extends ItemPickaxe {
 		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM3.lore"));
 		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM4.lore"));
 		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM5.lore"));
-=======
-        par3List.add("" + "");
-        par3List.add(StatCollector.translateToLocal("item.effency.name") + " " + ModToolMaterial.digSpeedMEDIUMHAMMER);
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM1.name"));
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM2.name"));
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM3.name"));
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM4.name"));
->>>>>>> master
+	    par3List.add(" " + " ");
+		par3List.add(StatCollector.translateToLocal("item.par3mode.lore")+ " " + namemode);
         int a, b, c;
         a = this.getMaxDamage();
         b = this.getDamage(par1ItemStack);
         c = a - b;
-<<<<<<< HEAD
+
         par3List.add(" " + " ");
         par3List.add(StatCollector.translateToLocal("item.GetDamage.lore") + " " + c + " " + StatCollector.translateToLocal("item.GetDamageL.lore"));
-=======
-        par3List.add(StatCollector.translateToLocal("item.GetDamage.name") + " " + c + " " + StatCollector.translateToLocal("item.GetDamageL.name"));
->>>>>>> master
+
 
     }
 
@@ -91,42 +80,47 @@ public class BasePickaxe extends ItemPickaxe {
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
         if (world.isRemote) {
             if (mode == 1) {
-                player.addChatMessage(new ChatComponentText("������� ����� ������� �������"));
-                player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 10000000, 1, true));
-                player.removePotionEffect(Potion.blindness.id);
-                mode = 2;
-            } else if (mode == 2) {
-<<<<<<< HEAD
-                player.addChatMessage(new ChatComponentText("Включено ускоренное копание"));
-=======
-                player.addChatMessage(new ChatComponentText("��������� �������� �������"));
->>>>>>> master
-                player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 10000000, 1, true));
-                player.removePotionEffect(Potion.nightVision.id);
+            	
+                player.addChatMessage(new ChatComponentText("Ночное видение"));
+            	mode = 2;
+            	namemode = "NightVision";
+            } else if (mode == 2) { 
+                player.addChatMessage(new ChatComponentText("Увеличен урон"));
                 mode = 3;
+                namemode = "DamageBoost";
             } else if (mode == 3) {
-<<<<<<< HEAD
-                player.addChatMessage(new ChatComponentText("Вам пришла пизда."));
-=======
-                player.addChatMessage(new ChatComponentText("��� ������ �����"));
->>>>>>> master
-                player.addPotionEffect(new PotionEffect(Potion.blindness.id, 10000000, 1, true));
-                player.removePotionEffect(Potion.digSpeed.id);
-                mode = 0;
-            } else if (mode == 0) {
-<<<<<<< HEAD
-                player.addChatMessage(new ChatComponentText("Все было выключено."));
-=======
-                player.addChatMessage(new ChatComponentText("��� ������ ���� ���������"));
->>>>>>> master
-                player.removePotionEffect(Potion.blindness.id);
+                player.addChatMessage(new ChatComponentText("Все было выключено"));
+                mode = 4;
+                namemode = "none";
+            } else if (mode == 4) {
+                player.addChatMessage(new ChatComponentText("Утомление"));
                 mode = 1;
+                namemode = "digSlowDown";
             }
         }
+        
         itemStack.damageItem(1, player);
         return itemStack;
     }
+    public void onUpdate (ItemStack stack, World world, Entity entity, int par4, boolean par5)
+    {
+        super.onUpdate(stack, world, entity, par4, par5);
+        if (entity instanceof EntityPlayer)
+        {
+            EntityPlayer player = (EntityPlayer) entity;
+            ItemStack equipped = player.getCurrentEquippedItem();
+            if (equipped == stack && mode == 1){
+                player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 2, 2, true));
+            } else if (equipped == stack && mode == 2) {
+                player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 2, 2, true));
+            } else if (equipped == stack && mode == 3) {
+                player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 2, 2, true));
+            } else if (equipped == stack && mode == 0) {
+            	player.removePotionEffect(Potion.damageBoost.id);
+            }
+        
 
+}}
     @Override
     public boolean onBlockStartBreak(ItemStack stack, int x, int y, int z, EntityPlayer player) {
         World world = player.worldObj;

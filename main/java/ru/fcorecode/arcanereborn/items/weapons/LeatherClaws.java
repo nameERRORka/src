@@ -13,6 +13,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemPickaxe;
@@ -27,33 +30,34 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import ru.fcorecode.arcanereborn.Main;
 import ru.fcorecode.arcanereborn.configs.ConfigInfo;
 import ru.fcorecode.arcanereborn.configs.RandomUtils;
 import ru.fcorecode.arcanereborn.configs.Rarity;
+import net.minecraft.entity.monster.EntityCreeper;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
-public class BaseSkana extends ItemSword
+public class LeatherClaws extends ItemSword
 {		
-    @Override
-    public void onUpdate (ItemStack stack, World world, Entity entity, int par4, boolean par5)
-    {
-        super.onUpdate(stack, world, entity, par4, par5);
-        if (entity instanceof EntityPlayer)
-        {
-            EntityPlayer player = (EntityPlayer) entity;
-            ItemStack equipped = player.getCurrentEquippedItem();
-            if (equipped == stack)
-            {
-                player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 2, 2, true));
-            }
-        }
-    }
+		private boolean isValidPlayer(EntityPlayer entityPlayer) {
+
+		return false;
+	}
+		private boolean isLiving(Entity target) {
+
+		return false;
+	}
 		TickEvent.ServerTickEvent evt;
 		EntityPlayer player;
 		int mode = 1;
-		public BaseSkana(String name, String texture, int maxStackSize, ToolMaterial mater)
+		public LeatherClaws(String name, String texture, int maxStackSize, ToolMaterial mater)
 		{
 		    super(mater);
 			this.getItemAttributeModifiers();
@@ -80,4 +84,6 @@ public class BaseSkana extends ItemSword
 			  c = a - b;
 			par3List.add("Прочности осталось " + c);
 	    }
-		}
+		
+
+}
