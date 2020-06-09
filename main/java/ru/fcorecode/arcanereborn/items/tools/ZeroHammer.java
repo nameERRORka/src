@@ -57,11 +57,11 @@ public class ZeroHammer extends ItemPickaxe {
         par3List.add(" " + " ");
         par3List.add(StatCollector.translateToLocal("item.effency.lore") + " " + ModToolMaterial.digSpeedZeroHAMMER);
         par3List.add(" " + " ");
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM1.lore"));
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM2.lore"));
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM3.lore"));
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM4.lore"));
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM5.lore"));
+		par3List.add(StatCollector.translateToLocal("item.par2zero1.lore"));
+		par3List.add(StatCollector.translateToLocal("item.par2zero2.lore"));
+		par3List.add(StatCollector.translateToLocal("item.par2zero3.lore"));
+		par3List.add(StatCollector.translateToLocal("item.par2zero4.lore"));
+		par3List.add(StatCollector.translateToLocal("item.par2zero5.lore"));
 	    par3List.add(" " + " ");
 		par3List.add(StatCollector.translateToLocal("item.par3mode.lore")+ " " + namemode);
         int a, b, c;

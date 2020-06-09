@@ -5,42 +5,45 @@ itemGroup.tabAFRebornTools=§5[AF] Reborn | Инструменты
 itemGroup.tabAFRebornAnother=§5[AF] Reborn | Разное
 #####################
 
-### ARMOR LANG ###
 item.DaemonicHelmet.name=Демонический щлем
 item.DaemonicBody.name=Демоническая кираса
 item.DaemonicLegs.name=Демонические поножи
 item.DaemonicSteps.name=Демонические боты
-##################
-
-### ITEMS ###
 item.DaemonicShatter.name=Демонический осколок
-item.GoldenCoin.name=Золотой Аркоин
-item.SilverCoin.name=Серебряный Аркоин
-item.CooperCoin.name=Бронзовый Аркоин
-item.Coin1.lore=§5Древний вид валюты мира Аркан.
-item.Coin2.lore=§5Очень ценится торговцами и служит
-item.Coin3.lore=§5регулятором торговли в Аркане.
-item.Coin4.lore=§5Вы можете получить это за задания или в обменнике.
-item.CoinEmpty.lore=§5
-#############
-
-####### TOOLS #######
 item.BasePickaxe.name=Кирка "беги отсюда нахуй"
 item.MediumHammer.name=Молот богоподобного сэрхея
 item.ZeroHammer.name=Осколок великого молота
 item.BestHammer.name=Молот иного измерения 
+#######################
 item.effency.lore=§5Эффективность этого молота оценивается где-то в:
 item.GetDamage.lore=§5Молот будет сломан через:
 item.GetDamageL.lore=§5ударов
+item.par3mode.lore=§5Активирована способность:
+#############################################
 item.par1MEDIUM1.lore=§5Этот молот изготавливался лучшими мастерами...
 item.par1MEDIUM2.lore=§5Только §6достойные §5смогут раскрыть истиннный его потенциал, но
 item.par1MEDIUM3.lore=§5Если что-то пойдет не так, то всегда можно §4лечь отдохнуть
 item.par1MEDIUM4.lore=§5На §4кухне §5например.
 item.par1MEDIUM5.lore=§5Только не активируйте  §4 третью способность... §5 Хотя что может пойти не так?
-item.par2MEDIUM1.lore=
-item.par2MEDIUM2.lore=
-item.par2MEDIUM3.lore=
-item.par2MEDIUM4.lore=
-item.par2MEDIUM5.lore=
-item.par3mode.lore=§5Активирована способность:
 #####################
+item.par2zero1.lore=§5Попав в один из миров, исследователи столкнулись с обломком...
+item.par2zero2.lore=§6Обломок§5 - обладая когда-то мощью, представлял собой просто камень на палке...
+item.par2zero3.lore=§5Однако, и ему нашлось применение. Он очень легко создается, и стоит очень дешево...
+item.par2zero4.lore=§5Теперь, новички могут купить его в городах всего за 2 бронзовых монеты, и хватит его 
+item.par2zero5.lore=§5 на 1000 и 1 применение. А после его можно будет купить еще раз.
+######################
+item.par3best1.lore=§5В одном из миров, исследователи нашли что-то непонятное.
+item.par3best2.lore=§5Им встретился коллективный разум, с которым, однако, они смогли договориться.
+item.par3best3.lore=§5Предоставив зергам питательные ресурсы, мы получили от них §4молот
+item.par3best4.lore=§5По силе он был равен нашим лучшим молотам, и мы заключили союз.
+item.par3best5.lore=§5Теперь этот молот продается в центриуме.
+########################COINS#################################
+item.GoldenCoin.name=Золотой Аркоин
+item.Coin1.lore=§5Древний вид валюты мира Аркан.
+item.Coin2.lore=§5Очень ценится торговцами и служит
+item.Coin3.lore=§5регулятором торговли в Аркане.
+item.Coin4.lore=§5Вы можете получить это за задания или в обменнике.
+item.CoinEmpty.lore=§5
+item.SilverCoin.name=Серебряный Аркоин
+item.CooperCoin.name=Бронзовый Аркоин
+##############################################################
