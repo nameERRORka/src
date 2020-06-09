@@ -35,11 +35,11 @@ import ru.fcorecode.arcanereborn.configs.Rarity;
 import ru.fcorecode.arcanereborn.configs.ModToolMaterial;
 import net.minecraft.util.StatCollector;
 
-public class MediumHammer extends ItemPickaxe {
+public class BestHammer extends ItemPickaxe {
     public int mode = 4;
     public String namemode = "none";
-    public MediumHammer(String name, String texture, int maxStackSize, ToolMaterial MediumHammer) {
-        super(MediumHammer);
+    public BestHammer(String name, String texture, int maxStackSize, ToolMaterial BestHammer) {
+        super(BestHammer);
         this.canRepair = false;
         this.setUnlocalizedName(name);
         this.setTextureName(Main.MODID + ":" + texture);
@@ -55,7 +55,7 @@ public class MediumHammer extends ItemPickaxe {
     public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
         par3List.add("" + Rarity._legendary.rarityColor + Rarity._legendary.rarityName);
         par3List.add(" " + " ");
-        par3List.add(StatCollector.translateToLocal("item.effency.lore") + " " + ModToolMaterial.digSpeedMEDIUMHAMMER);
+        par3List.add(StatCollector.translateToLocal("item.effency.lore") + " " + ModToolMaterial.digSpeedBestHAMMER);
         par3List.add(" " + " ");
 		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM1.lore"));
 		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM2.lore"));
@@ -80,20 +80,21 @@ public class MediumHammer extends ItemPickaxe {
         if (world.isRemote) {
             if (mode == 1) {
             	
-                player.addChatMessage(new ChatComponentText("РќРѕС‡РЅРѕРµ РІРёРґРµРЅРёРµ"));
+                player.addChatMessage(new ChatComponentText("Ночное видение"));
             	mode = 2;
             	namemode = "NightVision";
             } else if (mode == 2) { 
-                player.addChatMessage(new ChatComponentText("РЈРІРµР»РёС‡РµРЅ СѓСЂРѕРЅ"));
+                player.addChatMessage(new ChatComponentText("Увеличен урон"));
                 mode = 3;
                 namemode = "DamageBoost";
             } else if (mode == 3) {
-                player.addChatMessage(new ChatComponentText("Р’СЃРµ Р±С‹Р»Рѕ РІС‹РєР»СЋС‡РµРЅРѕ"));
+                player.addChatMessage(new ChatComponentText("Все было выключено"));
                 mode = 4;
                 namemode = "none";
             } else if (mode == 4) {
-                player.addChatMessage(new ChatComponentText("РЈС‚РѕРјР»РµРЅРёРµ"));
+                player.addChatMessage(new ChatComponentText("Утомление"));
                 mode = 1;
+                namemode = "digSlowDown";
             }
         }
         

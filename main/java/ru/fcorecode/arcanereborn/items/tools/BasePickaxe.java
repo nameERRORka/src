@@ -45,7 +45,6 @@ public class BasePickaxe extends ItemPickaxe {
         this.setTextureName(Main.MODID + ":" + texture);
         this.setCreativeTab(ConfigInfo.tabAFRebornTools);
         this.maxStackSize = 1;
-        GameRegistry.registerItem(this, name);
     }
 
     public EnumRarity getRarity(ItemStack itemStack) {

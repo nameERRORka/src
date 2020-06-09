@@ -22,7 +22,9 @@ import ru.fcorecode.arcanereborn.items.armor._daemonicArmor;
 import ru.fcorecode.arcanereborn.items.item.Items;
 import ru.fcorecode.arcanereborn.items.item.MoneyClass;
 import ru.fcorecode.arcanereborn.items.tools.BasePickaxe;
+import ru.fcorecode.arcanereborn.items.tools.BestHammer;
 import ru.fcorecode.arcanereborn.items.tools.MediumHammer;
+import ru.fcorecode.arcanereborn.items.tools.ZeroHammer;
 import ru.fcorecode.arcanereborn.items.weapons.BaseSkana;
 import ru.fcorecode.arcanereborn.items.weapons.LeatherClaws;
 import ru.fcorecode.arcanereborn.configs.ModToolMaterial;
@@ -43,10 +45,13 @@ public class Main {
     public static Item _daemonicShatter;
     public static Item _basepickaxe;
     public static Item _mediumHammer;
+    public static Item _bestHammer;
+    public static Item _zeroHammer;
     public static Item _BaseSkana;
     public static Item _IceSkana;
     public static Item _BaseBow;
     public static Item _LeatherClaws;
+
 
 
     public static Item _goldenCoin;
@@ -62,6 +67,9 @@ public class Main {
         _daemonicShatter = new Items("DaemonicShatter", "items/_daemonicShatter", 64);
         _basepickaxe = new BasePickaxe("BasePickaxe", "tools/_basePickaxe", 1, ModToolMaterial.baseHAMMER);
         _mediumHammer = new MediumHammer("MediumHammer", "tools/_MediumHammer", 1, ModToolMaterial.MEDIUMHAMMER);
+        _bestHammer = new BestHammer("BestHammer", "tools/_besthammer", 1, ModToolMaterial.BestHammer);
+        _zeroHammer = new ZeroHammer("ZeroHammer", "tools/_hammerzero", 1, ModToolMaterial.ZeroHammer);
+       // _mediumHammer = new MediumHammer("MediumHammer", "tools/_hammerzero", 1, ModToolMaterial.MEDIUMHAMMER);
         _BaseSkana = new BaseSkana("BaseSkana", "weapon/_baseSkana", 1, ModToolMaterial.SKANA);
         _IceSkana = new BaseSkana("IceSkana", "weapon/_IceSword", 1, ModToolMaterial.ICESCANA);
         _LeatherClaws = new LeatherClaws("LeatherClaws", "weapon/_LClaws", 1, ModToolMaterial.LClaws);
@@ -72,9 +80,12 @@ public class Main {
         GameRegistry.registerItem(_daemonicHelmet, "DaemonicHelmet");
         GameRegistry.registerItem(_daemonicShatter, "DaemonicShatter");
         GameRegistry.registerItem(_basepickaxe, "BasePickaxe");
+        GameRegistry.registerItem(_bestHammer, "BestPickaxe");
+        GameRegistry.registerItem(_mediumHammer, "MediumHammer");
+        GameRegistry.registerItem(_zeroHammer, "ZeroHammer");
+        GameRegistry.registerItem(_mediumHammer, "MediumHammer");
         GameRegistry.registerItem(_BaseSkana, "BaseSkana");
         GameRegistry.registerItem(_IceSkana, "IceSkana");
-        GameRegistry.registerItem(_mediumHammer, "MediumHammer");
         GameRegistry.registerItem(_LeatherClaws, "LeatherClaws");
 
     	
