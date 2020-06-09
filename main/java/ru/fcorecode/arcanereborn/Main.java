@@ -41,7 +41,7 @@ public class Main {
     public static Item _daemonicSteps;
     public static Item _daemonicShatter;
     public static Item _basepickaxe;
-    public static Item _MediumHammer;
+    public static Item _mediumHammer;
     public static Item _BaseSkana;
     public static Item _IceSkana;
     public static Item _BaseBow;
@@ -50,41 +50,6 @@ public class Main {
     public static Item _goldenCoin;
     public static Item _silverCoin;
     public static Item _cooperCoin;
-
-
-
-    public static Item _logoCreativeTabsMoney = new Items("CreativeTabsLogoMoney", "_logoCreativeTabsMoney", 0);
-    public static final CreativeTabs tabAFRebornMoney = new CreativeTabs("tabAFRebornMoney") {
-        @Override
-        public Item getTabIconItem() {
-            return _logoCreativeTabsMoney;
-        }
-    };
-    
-    public static Item _logoCreativeTabsWeaponAndArmor = new Items("CreativeTabsLogoWaA", "_logoCreativeTabsWeaponAndArmor", 0);
-    public static final CreativeTabs tabAFRebornWaA = new CreativeTabs("tabAFRebornWaA") {
-        @Override
-        public Item getTabIconItem() {
-            return _logoCreativeTabsWeaponAndArmor;
-        }
-    };
-    
-    public static Item _logoCreativeTabsTools = new Items("CreativeTabsLogoTools", "_logoCreativeTabsTools", 0);
-    public static final CreativeTabs tabAFRebornTools = new CreativeTabs("tabAFRebornTools") {
-        @Override
-        public Item getTabIconItem() {
-            return _logoCreativeTabsTools;
-        }
-    };
-    
-    public static Item _logoCreativeTabsAnother = new Items("CreativeTabsLogoAnother", "_logoCreativeTabsAnother", 0);
-    public static final CreativeTabs tabAFRebornAnother = new CreativeTabs("tabAFRebornAnother") {
-        @Override
-        public Item getTabIconItem() {
-            return _logoCreativeTabsAnother;
-        }
-    };
-    //--------------------------------
     
     @EventHandler
     public void preLoad(FMLPreInitializationEvent event) {
@@ -94,11 +59,16 @@ public class Main {
         _daemonicSteps = new _daemonicArmor(0, 3).setUnlocalizedName("DaemonicSteps").setTextureName(MODID + ":armor/_daemonicSteps");
         _daemonicShatter = new Items("DaemonicShatter", "items/_daemonicShatter", 64);
         _basepickaxe = new BasePickaxe("BasePickaxe", "tools/_basePickaxe", 1, ModToolMaterial.baseHAMMER);
+<<<<<<< HEAD
         _MediumHammer = new MediumHammer("MediumHammer", "tools/_MediumHammer", 1, ModToolMaterial.MEDIUMHAMMER);
 <<<<<<< HEAD
         _BaseSkana = new BaseSkana("BaseSkana", "weapon/_baseSkana", 1, ModToolMaterial.SKANA);
 =======
        // _BaseSkana = new BaseSkana("BaseSkana", "weapon/_baseSkana", 1, ModToolMaterial.SKANA);
+>>>>>>> master
+=======
+        _mediumHammer = new MediumHammer("MediumHammer", "tools/_MediumHammer", 1, ModToolMaterial.MEDIUMHAMMER);
+        _BaseSkana = new BaseSkana("BaseSkana", "weapon/_baseSkana", 1, ModToolMaterial.SKANA);
 >>>>>>> master
         _IceSkana = new BaseSkana("IceSkana", "weapon/_IceSword", 1, ModToolMaterial.ICESCANA);
 
@@ -111,9 +81,13 @@ public class Main {
         GameRegistry.registerItem(_BaseSkana, "BaseSkana");
         GameRegistry.registerItem(_IceSkana, "IceSkana");
 <<<<<<< HEAD
+<<<<<<< HEAD
         GameRegistry.registerItem(_MediumHammer, "MediumHammer");
 =======
         //GameRegistry.registerItem(_MediumHammer, "MediumHammer");
+>>>>>>> master
+=======
+        GameRegistry.registerItem(_mediumHammer, "MediumHammer");
 >>>>>>> master
     	
 

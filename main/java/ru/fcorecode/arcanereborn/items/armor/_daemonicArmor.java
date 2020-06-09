@@ -13,6 +13,7 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.item.ItemStack;
 import ru.fcorecode.arcanereborn.Main;
+import ru.fcorecode.arcanereborn.configs.ConfigInfo;
 import ru.fcorecode.arcanereborn.configs.Rarity;
 import net.minecraftforge.common.util.EnumHelper;
 
@@ -22,7 +23,7 @@ public class _daemonicArmor extends ItemArmor {
 	//=================================================================
 	public _daemonicArmor(int id, int armorType) {
 	  super(ArmorMaterial.DIAMOND, id, armorType);
-	  this.setCreativeTab(Main.tabAFRebornWaA);
+	  this.setCreativeTab(ConfigInfo.tabAFRebornWaA);
 	  this.setMaxStackSize(1);
 	  this.setTextureName();
 	}

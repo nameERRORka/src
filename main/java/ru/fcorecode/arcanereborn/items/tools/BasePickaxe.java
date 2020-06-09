@@ -45,7 +45,7 @@ public class BasePickaxe extends ItemPickaxe {
         this.canRepair = false;
         this.setUnlocalizedName(name);
         this.setTextureName(Main.MODID + ":" + texture);
-        this.setCreativeTab(Main.tabAFRebornTools);
+        this.setCreativeTab(ConfigInfo.tabAFRebornTools);
         this.maxStackSize = 1;
         GameRegistry.registerItem(this, name);
     }
@@ -91,7 +91,7 @@ public class BasePickaxe extends ItemPickaxe {
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
         if (world.isRemote) {
             if (mode == 1) {
-                player.addChatMessage(new ChatComponentText("Включен режим ночного видения"));
+                player.addChatMessage(new ChatComponentText("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ"));
                 player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 10000000, 1, true));
                 player.removePotionEffect(Potion.blindness.id);
                 mode = 2;
@@ -99,7 +99,7 @@ public class BasePickaxe extends ItemPickaxe {
 <<<<<<< HEAD
                 player.addChatMessage(new ChatComponentText("Р’РєР»СЋС‡РµРЅРѕ СѓСЃРєРѕСЂРµРЅРЅРѕРµ РєРѕРїР°РЅРёРµ"));
 =======
-                player.addChatMessage(new ChatComponentText("Увеличена скорость копания"));
+                player.addChatMessage(new ChatComponentText("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ"));
 >>>>>>> master
                 player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 10000000, 1, true));
                 player.removePotionEffect(Potion.nightVision.id);
@@ -108,7 +108,7 @@ public class BasePickaxe extends ItemPickaxe {
 <<<<<<< HEAD
                 player.addChatMessage(new ChatComponentText("Р’Р°Рј РїСЂРёС€Р»Р° РїРёР·РґР°."));
 =======
-                player.addChatMessage(new ChatComponentText("Вам пришла пизда"));
+                player.addChatMessage(new ChatComponentText("пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ"));
 >>>>>>> master
                 player.addPotionEffect(new PotionEffect(Potion.blindness.id, 10000000, 1, true));
                 player.removePotionEffect(Potion.digSpeed.id);
@@ -117,7 +117,7 @@ public class BasePickaxe extends ItemPickaxe {
 <<<<<<< HEAD
                 player.addChatMessage(new ChatComponentText("Р’СЃРµ Р±С‹Р»Рѕ РІС‹РєР»СЋС‡РµРЅРѕ."));
 =======
-                player.addChatMessage(new ChatComponentText("Все режимы были выключены"));
+                player.addChatMessage(new ChatComponentText("пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"));
 >>>>>>> master
                 player.removePotionEffect(Potion.blindness.id);
                 mode = 1;

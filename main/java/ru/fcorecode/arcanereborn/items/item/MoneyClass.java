@@ -16,6 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import ru.fcorecode.arcanereborn.Main;
+import ru.fcorecode.arcanereborn.configs.ConfigInfo;
 import ru.fcorecode.arcanereborn.configs.Rarity;
 
 public class MoneyClass extends Item 
@@ -28,7 +29,7 @@ public class MoneyClass extends Item
 		this.canRepair = false;
 		this.setUnlocalizedName(name);
 		this.setTextureName(Main.MODID + ":" + texture);
-		this.setCreativeTab(Main.tabAFRebornMoney);
+		this.setCreativeTab(ConfigInfo.tabAFRebornMoney);
 		this.maxStackSize = maxStackSize;
 		GameRegistry.registerItem(this, name);
 	}
