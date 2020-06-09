@@ -5,23 +5,30 @@ itemGroup.tabAFRebornTools=§5[AF] Reborn | Инструменты
 itemGroup.tabAFRebornAnother=§5[AF] Reborn | Разное
 #####################
 
+### ARMOR LANG ###
 item.DaemonicHelmet.name=Демонический щлем
 item.DaemonicBody.name=Демоническая кираса
 item.DaemonicLegs.name=Демонические поножи
 item.DaemonicSteps.name=Демонические боты
+##################
+
+### ITEMS ###
 item.DaemonicShatter.name=Демонический осколок
-item.BasePickaxe.name=Кирка "беги отсюда нахуй"
-item.MediumHammer.name=Молот богоподобного сэрхея
-item.ZeroHammer.name=Осколок великого молота
-item.BestHammer.name=Молот иного измерения 
 item.GoldenCoin.name=Золотой Аркоин
+item.SilverCoin.name=Серебряный Аркоин
+item.CooperCoin.name=Бронзовый Аркоин
 item.Coin1.lore=§5Древний вид валюты мира Аркан.
 item.Coin2.lore=§5Очень ценится торговцами и служит
 item.Coin3.lore=§5регулятором торговли в Аркане.
 item.Coin4.lore=§5Вы можете получить это за задания или в обменнике.
 item.CoinEmpty.lore=§5
-item.SilverCoin.name=Серебряный Аркоин
-item.CooperCoin.name=Бронзовый Аркоин
+#############
+
+####### TOOLS #######
+item.BasePickaxe.name=Кирка "беги отсюда нахуй"
+item.MediumHammer.name=Молот богоподобного сэрхея
+item.ZeroHammer.name=Осколок великого молота
+item.BestHammer.name=Молот иного измерения 
 item.effency.lore=§5Эффективность этого молота оценивается где-то в:
 item.GetDamage.lore=§5Молот будет сломан через:
 item.GetDamageL.lore=§5ударов
@@ -36,4 +43,4 @@ item.par2MEDIUM3.lore=
 item.par2MEDIUM4.lore=
 item.par2MEDIUM5.lore=
 item.par3mode.lore=§5Активирована способность:
-
+#####################
