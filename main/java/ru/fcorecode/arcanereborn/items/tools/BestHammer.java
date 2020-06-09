@@ -57,11 +57,11 @@ public class BestHammer extends ItemPickaxe {
         par3List.add(" " + " ");
         par3List.add(StatCollector.translateToLocal("item.effency.lore") + " " + ModToolMaterial.digSpeedBestHAMMER);
         par3List.add(" " + " ");
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM1.lore"));
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM2.lore"));
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM3.lore"));
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM4.lore"));
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM5.lore"));
+		par3List.add(StatCollector.translateToLocal("item.par3best1.lore"));
+		par3List.add(StatCollector.translateToLocal("item.par3best2.lore"));
+		par3List.add(StatCollector.translateToLocal("item.par3best3.lore"));
+		par3List.add(StatCollector.translateToLocal("item.par3best4.lore"));
+		par3List.add(StatCollector.translateToLocal("item.par3best5.lore"));
 	    par3List.add(" " + " ");
 		par3List.add(StatCollector.translateToLocal("item.par3mode.lore")+ " " + namemode);
         int a, b, c;
