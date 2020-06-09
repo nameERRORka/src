@@ -1,8 +1,10 @@
 package ru.fcorecode.arcanereborn.configs;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import ru.fcorecode.arcanereborn.Main;
+import ru.fcorecode.arcanereborn.items.item.Items;
 
 public class ConfigInfo
 	{
@@ -60,4 +62,38 @@ public class ConfigInfo
 		public static boolean CanBonemealSapling;
 		public static int SaplingGrowthChanceNatural;
 		public static int SaplingGrowthChanceBonemeal;
+		
+		//---------Не трогать XD----------
+	    public static Item _logoCreativeTabsMoney = new Items("CreativeTabsLogoMoney", "_logoCreativeTabsMoney", 0);
+	    public static final CreativeTabs tabAFRebornMoney = new CreativeTabs("tabAFRebornMoney") {
+	        @Override
+	        public Item getTabIconItem() {
+	            return _logoCreativeTabsMoney;
+	        }
+	    };
+	    
+	    public static Item _logoCreativeTabsWeaponAndArmor = new Items("CreativeTabsLogoWaA", "_logoCreativeTabsWeaponAndArmor", 0);
+	    public static final CreativeTabs tabAFRebornWaA = new CreativeTabs("tabAFRebornWaA") {
+	        @Override
+	        public Item getTabIconItem() {
+	            return _logoCreativeTabsWeaponAndArmor;
+	        }
+	    };
+	    
+	    public static Item _logoCreativeTabsTools = new Items("CreativeTabsLogoTools", "_logoCreativeTabsTools", 0);
+	    public static final CreativeTabs tabAFRebornTools = new CreativeTabs("tabAFRebornTools") {
+	        @Override
+	        public Item getTabIconItem() {
+	            return _logoCreativeTabsTools;
+	        }
+	    };
+	    
+	    public static Item _logoCreativeTabsAnother = new Items("CreativeTabsLogoAnother", "_logoCreativeTabsAnother", 0);
+	    public static final CreativeTabs tabAFRebornAnother = new CreativeTabs("tabAFRebornAnother") {
+	        @Override
+	        public Item getTabIconItem() {
+	            return _logoCreativeTabsAnother;
+	        }
+	    };
+	    //--------------------------------
 	}

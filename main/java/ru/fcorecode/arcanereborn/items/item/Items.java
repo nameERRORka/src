@@ -18,6 +18,7 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 import ru.fcorecode.arcanereborn.Main;
 import ru.fcorecode.arcanereborn.items.armor._daemonicArmor;
+import ru.fcorecode.arcanereborn.configs.ConfigInfo;
 import ru.fcorecode.arcanereborn.configs.Rarity;
 
 public class Items extends Item 
@@ -30,7 +31,7 @@ public class Items extends Item
 			this.canRepair = false;
 			this.setUnlocalizedName(name);
 			this.setTextureName(Main.MODID + ":" + texture);
-			this.setCreativeTab(Main.tabAFRebornAnother);
+			this.setCreativeTab(ConfigInfo.tabAFRebornAnother);
 			GameRegistry.registerItem(this, name);
 		}
 
