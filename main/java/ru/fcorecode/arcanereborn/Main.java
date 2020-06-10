@@ -15,6 +15,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -27,6 +28,7 @@ import ru.fcorecode.arcanereborn.items.tools.MediumHammer;
 import ru.fcorecode.arcanereborn.items.tools.ZeroHammer;
 import ru.fcorecode.arcanereborn.items.weapons.BaseSkana;
 import ru.fcorecode.arcanereborn.items.weapons.LeatherClaws;
+import ru.fcorecode.arcanereborn.potion.potionFly;
 import ru.fcorecode.arcanereborn.configs.ModToolMaterial;
 
 @Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION)
@@ -51,6 +53,7 @@ public class Main {
     public static Item _IceSkana;
     public static Item _BaseBow;
     public static Item _LeatherClaws;
+    public static Potion _potionFly;
 
 
 
@@ -73,6 +76,7 @@ public class Main {
         _BaseSkana = new BaseSkana("BaseSkana", "weapon/_baseSkana", 1, ModToolMaterial.SKANA);
         _IceSkana = new BaseSkana("IceSkana", "weapon/_IceSword", 1, ModToolMaterial.ICESCANA);
         _LeatherClaws = new LeatherClaws("LeatherClaws", "weapon/_LClaws", 1, ModToolMaterial.LClaws);
+        _potionFly = new potionFly();
 
         GameRegistry.registerItem(_daemonicSteps, "DaemonicSteps");
         GameRegistry.registerItem(_daemonicLegs, "DaemonicLegs");

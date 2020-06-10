@@ -63,6 +63,9 @@ public class ConfigInfo
 		public static int SaplingGrowthChanceNatural;
 		public static int SaplingGrowthChanceBonemeal;
 		
+		//Potion ID
+		public static int IDFly = 1015;
+		
 		//---------Не трогать XD----------
 	    public static Item _logoCreativeTabsMoney = new Items("CreativeTabsLogoMoney", "_logoCreativeTabsMoney", 0);
 	    public static final CreativeTabs tabAFRebornMoney = new CreativeTabs("tabAFRebornMoney") {

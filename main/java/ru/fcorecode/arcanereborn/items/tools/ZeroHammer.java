@@ -21,6 +21,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.Direction;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
@@ -120,67 +121,5 @@ public class ZeroHammer extends ItemPickaxe {
         
 
 }}
-    @Override
-    public boolean onBlockStartBreak(ItemStack stack, int x, int y, int z, EntityPlayer player) {
-        World world = player.worldObj;
-        Block block = world.getBlock(x, y, z);
 
-        MovingObjectPosition object = RandomUtils.raytraceFromEntity(world, player, false, 4.5D);
-
-        if (object == null) {
-            return super.onBlockDestroyed(stack, world, block, x, y, z, player);
-        }
-
-        int side = object.sideHit;
-        int xmove = 0;
-        int ymove = 0;
-        int zmove = 0;
-
-        if (side == 0 || side == 1) {
-            xmove = 1;
-            zmove = 1;
-        } else {
-            ymove = 1;
-            if (side == 4 || side == 5) {
-                zmove = 1;
-            } else {
-                xmove = 1;
-            }
-        }
-
-        float strength = ForgeHooks.blockStrength(block, player, world, x, y, z);
-
-        if (player.isSneaking() && ConfigInfo.EnableHammerShiftOneBlock &&
-            (player.experienceLevel >= 20 || player.capabilities.isCreativeMode)) {
-            checkBlockBreak(world, player, x, y, z, stack, strength, block, side);
-        } else {
-            for (int i = -xmove; i <= xmove; i++) {
-                for (int j = -ymove; j <= ymove; j++) {
-                    for (int k = -zmove; k <= zmove; k++) {
-                        if (i != x && j != y && k != z) {
-                            checkBlockBreak(world, player, x + i, y + j, z + k, stack, strength, block, side);
-                        }
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
-    public void checkBlockBreak(World world, EntityPlayer player, int x, int y, int z, ItemStack stack, float strength, Block originalBlock, int side) {
-        Block breakBlock = world.getBlock(x, y, z);
-
-        if (this.canHarvestBlock(breakBlock, stack)) {
-            float newStrength = ForgeHooks.blockStrength(breakBlock, player, world, x, y, z);
-            Material material = originalBlock.getMaterial();
-
-            if (newStrength > 0f && strength / newStrength <= 10f && breakBlock.getMaterial() == material) {
-                RandomUtils.breakBlock(world, breakBlock, x, y, z, side, player);
-
-                if ((double) breakBlock.getBlockHardness(world, x, y, z) != 0.0D) {
-                    stack.damageItem(1, player);
-                }
-            }
-        }
-    }
 }
