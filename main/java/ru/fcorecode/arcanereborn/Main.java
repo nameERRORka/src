@@ -1,6 +1,12 @@
 package ru.fcorecode.arcanereborn;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.TimerTask;
+import java.util.Set;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -8,8 +14,10 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
-import ibxm.Player;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -28,7 +36,6 @@ import ru.fcorecode.arcanereborn.items.tools.MediumHammer;
 import ru.fcorecode.arcanereborn.items.tools.ZeroHammer;
 import ru.fcorecode.arcanereborn.items.weapons.BaseSkana;
 import ru.fcorecode.arcanereborn.items.weapons.LeatherClaws;
-import ru.fcorecode.arcanereborn.potion.potionFly;
 import ru.fcorecode.arcanereborn.configs.ModToolMaterial;
 
 @Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION)
@@ -55,11 +62,35 @@ public class Main {
     public static Item _LeatherClaws;
     public static Potion _potionFly;
 
-
-
     public static Item _goldenCoin;
     public static Item _silverCoin;
     public static Item _cooperCoin;
+    
+    public static void extendPotionArray() {
+        Potion[] potionTypes = null;
+        for (Field f : Potion.class.getDeclaredFields()) { // получаем все поля из класса зелья
+            f.setAccessible(true); // даём к ним доступ (локально убираем private)
+            try {
+                if (f.getName().equals("potionTypes") || f.getName().equals("field_76425_a")) { // проверка что это поле именно со списком зелий
+                    Field modfield = Field.class.getDeclaredField("modifiers");
+                    modfield.setAccessible(true);
+                    modfield.setInt(f, f.getModifiers() & ~Modifier.FINAL); // убираем final модфикатор
+                    potionTypes = (Potion[])f.get(null);
+                    final Potion[] newPotionTypes = new Potion[256]; // создаём новый массив зелий на 256 элементов
+                    System.arraycopy(potionTypes, 0, newPotionTypes, 0, potionTypes.length); // копируем старые зелья в новый массив
+                    f.set(null, newPotionTypes); // и заменяем
+                    return;
+                }
+            } catch (Exception e) {
+                System.err.println(e); // на случай ошибки выводим её в лог
+            }
+        }
+    }
+    
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+    	if(Potion.potionTypes.length < 256) extendPotionArray();
+    }
     
     @EventHandler
     public void preLoad(FMLPreInitializationEvent event) {
@@ -76,7 +107,6 @@ public class Main {
         _BaseSkana = new BaseSkana("BaseSkana", "weapon/_baseSkana", 1, ModToolMaterial.SKANA);
         _IceSkana = new BaseSkana("IceSkana", "weapon/_IceSword", 1, ModToolMaterial.ICESCANA);
         _LeatherClaws = new LeatherClaws("LeatherClaws", "weapon/_LClaws", 1, ModToolMaterial.LClaws);
-        _potionFly = new potionFly();
 
         GameRegistry.registerItem(_daemonicSteps, "DaemonicSteps");
         GameRegistry.registerItem(_daemonicLegs, "DaemonicLegs");
@@ -91,15 +121,12 @@ public class Main {
         GameRegistry.registerItem(_BaseSkana, "BaseSkana");
         GameRegistry.registerItem(_IceSkana, "IceSkana");
         GameRegistry.registerItem(_LeatherClaws, "LeatherClaws");
-
-    	
-
-    	_goldenCoin = new MoneyClass("GoldenCoin", "items/_goldenCoin", 64);
+        
+        _goldenCoin = new MoneyClass("GoldenCoin", "items/_goldenCoin", 64);
     	GameRegistry.registerItem(_goldenCoin, "GoldenCoin");
     	_silverCoin = new MoneyClass("SilverCoin", "items/_silverCoin", 64);
     	GameRegistry.registerItem(_silverCoin, "SilverCoin");
     	_cooperCoin = new MoneyClass("CooperCoin", "items/_cooperCoin", 64);
     	GameRegistry.registerItem(_cooperCoin, "CooperCoin");
-
     }
 }

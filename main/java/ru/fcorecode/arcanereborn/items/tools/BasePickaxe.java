@@ -97,17 +97,12 @@ public class BasePickaxe extends ItemPickaxe {
             ItemStack equipped = player.getCurrentEquippedItem();
             if (equipped == stack && mode == 1) {
                 player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 2, 2, true));
-            } else if (equipped == stack && mode == 2) {
-                player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 2, 2, true));
-            } else if (equipped == stack && mode == 3) {
-                player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 2, 2, true));
             } else if (equipped == stack && mode == 0) {
-                player.removePotionEffect(Potion.damageBoost.id);
+                player.removePotionEffect(Potion.digSlowdown.id);
             }
-
-
         }
     }
+    
     @Override
     public boolean onBlockStartBreak(ItemStack stack, int x, int y, int z, EntityPlayer player) {
     	
