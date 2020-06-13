@@ -33,11 +33,12 @@ import ru.fcorecode.arcanereborn.Main;
 import ru.fcorecode.arcanereborn.configs.ConfigInfo;
 import ru.fcorecode.arcanereborn.configs.RandomUtils;
 import ru.fcorecode.arcanereborn.configs.Rarity;
+import ru.fcorecode.arcanereborn.enchant.EnchantmentRegistry;
 import ru.fcorecode.arcanereborn.configs.ModToolMaterial;
 import net.minecraft.util.StatCollector;
 
 public class ZeroHammer extends ItemPickaxe {
-    public int mode = 4;
+    public int mode = 4;	
     public String namemode = "none";
     public ZeroHammer(String name, String texture, int maxStackSize, ToolMaterial ZeroHammer) {
         super(ZeroHammer);
@@ -51,7 +52,7 @@ public class ZeroHammer extends ItemPickaxe {
     public EnumRarity getRarity(ItemStack itemStack) {
         return Rarity._legendary;
     }
-
+    @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
         par3List.add("" + Rarity._legendary.rarityColor + Rarity._legendary.rarityName);
@@ -72,7 +73,9 @@ public class ZeroHammer extends ItemPickaxe {
 
         par3List.add(" " + " ");
         par3List.add(StatCollector.translateToLocal("item.GetDamage.lore") + " " + c + " " + StatCollector.translateToLocal("item.GetDamageL.lore"));
-
+        if( par1ItemStack.stackTagCompound == null ) {
+        par1ItemStack.addEnchantment(EnchantmentRegistry.SAFE_ALL, 1);
+        }
 
     }
 

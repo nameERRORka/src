@@ -32,6 +32,7 @@ import ru.fcorecode.arcanereborn.Main;
 import ru.fcorecode.arcanereborn.configs.ConfigInfo;
 import ru.fcorecode.arcanereborn.configs.RandomUtils;
 import ru.fcorecode.arcanereborn.configs.Rarity;
+import ru.fcorecode.arcanereborn.enchant.EnchantmentRegistry;
 import ru.fcorecode.arcanereborn.configs.ModToolMaterial;
 import net.minecraft.util.StatCollector;
 
@@ -71,6 +72,9 @@ public class BestHammer extends ItemPickaxe {
 
         par3List.add(" " + " ");
         par3List.add(StatCollector.translateToLocal("item.GetDamage.lore") + " " + c + " " + StatCollector.translateToLocal("item.GetDamageL.lore"));
+        if( par1ItemStack.stackTagCompound == null ) {
+        par1ItemStack.addEnchantment(EnchantmentRegistry.SAFE_ALL, 1);
+        }
 
 
     }

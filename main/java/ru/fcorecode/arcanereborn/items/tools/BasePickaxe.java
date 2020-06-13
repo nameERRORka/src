@@ -1,6 +1,9 @@
 package ru.fcorecode.arcanereborn.items.tools;
 
 import java.util.List;
+import java.util.Set;
+
+import com.google.common.collect.Sets;
 
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -14,6 +17,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
@@ -32,12 +36,12 @@ import ru.fcorecode.arcanereborn.Main;
 import ru.fcorecode.arcanereborn.configs.ConfigInfo;
 import ru.fcorecode.arcanereborn.configs.RandomUtils;
 import ru.fcorecode.arcanereborn.configs.Rarity;
+import ru.fcorecode.arcanereborn.enchant.EnchantmentRegistry;
 import ru.fcorecode.arcanereborn.configs.ModToolMaterial;
 import net.minecraft.util.StatCollector;
 
 public class BasePickaxe extends ItemPickaxe {
-    public int mode = 0;
-
+    public int mode = 0;   
     public String namemode = "1 на 1";
 
     public BasePickaxe(String name, String texture, int maxStackSize, ToolMaterial baseHAMMER) {
@@ -72,6 +76,10 @@ public class BasePickaxe extends ItemPickaxe {
         c = a - b;
         par3List.add(" " + " ");
         par3List.add(StatCollector.translateToLocal("item.GetDamage.lore") + " " + c + " " + StatCollector.translateToLocal("item.GetDamageL.lore"));
+        if(par1ItemStack.isItemEnchanted()) {
+        	ItemStack enchStack = new ItemStack(Main._basepickaxe);
+        	enchStack.addEnchantment(EnchantmentRegistry.SAFE_ALL, 1);
+        }
     }
 
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {

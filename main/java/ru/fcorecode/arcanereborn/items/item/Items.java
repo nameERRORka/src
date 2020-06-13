@@ -1,21 +1,22 @@
 package ru.fcorecode.arcanereborn.items.item;
 
 import java.util.List;
-
 import com.google.common.eventbus.Subscribe;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.entity.player.*;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import ru.fcorecode.arcanereborn.Main;
 import ru.fcorecode.arcanereborn.items.armor._daemonicArmor;
 import ru.fcorecode.arcanereborn.configs.ConfigInfo;
@@ -48,9 +49,16 @@ public class Items extends Item
 
 		@Subscribe
 		public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) 
-		{
-			return itemStack;
-		}
+		{/*
+		    if(player.inventory.hasItem(Main._basepickaxe)) {
+		    	player.addChatMessage(new ChatComponentText("БЕГИ СУКА!"));
+		    }else if(player.inventory.hasItem(Main._IceSkana)) {
+		    	player.addChatMessage(new ChatComponentText("Не беги, сука!"));
+		    	player.addChatMessage(new ChatComponentText("Утомление"));
+		    	
+		    }
+		    */
+			return itemStack;}
 
 		public boolean itemInteractionForEntity(ItemStack itemStack, EntityPlayer player, EntityLivingBase Entity) 
 		{

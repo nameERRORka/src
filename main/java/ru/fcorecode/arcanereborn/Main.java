@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TimerTask;
+
 import java.util.Set;
 
 import cpw.mods.fml.common.Mod;
@@ -19,17 +20,20 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ChatComponentText;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import ru.fcorecode.arcanereborn.items.armor._daemonicArmor;
 import ru.fcorecode.arcanereborn.items.item.Items;
 import ru.fcorecode.arcanereborn.items.item.MoneyClass;
+import ru.fcorecode.arcanereborn.items.tools.BaseMultiTool;
 import ru.fcorecode.arcanereborn.items.tools.BasePickaxe;
 import ru.fcorecode.arcanereborn.items.tools.BestHammer;
 import ru.fcorecode.arcanereborn.items.tools.MediumHammer;
@@ -37,6 +41,7 @@ import ru.fcorecode.arcanereborn.items.tools.ZeroHammer;
 import ru.fcorecode.arcanereborn.items.weapons.BaseSkana;
 import ru.fcorecode.arcanereborn.items.weapons.LeatherClaws;
 import ru.fcorecode.arcanereborn.configs.ModToolMaterial;
+import ru.fcorecode.arcanereborn.enchant.EnchantmentRegistry;
 
 @Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION)
 
@@ -56,6 +61,8 @@ public class Main {
     public static Item _mediumHammer;
     public static Item _bestHammer;
     public static Item _zeroHammer;
+
+    public static BaseMultiTool _baseMultiTool;
     public static Item _BaseSkana;
     public static Item _IceSkana;
     public static Item _BaseBow;
@@ -90,6 +97,7 @@ public class Main {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
     	if(Potion.potionTypes.length < 256) extendPotionArray();
+        EnchantmentRegistry.register();
     }
     
     @EventHandler
@@ -103,6 +111,7 @@ public class Main {
         _mediumHammer = new MediumHammer("MediumHammer", "tools/_MediumHammer", 1, ModToolMaterial.MEDIUMHAMMER);
         _bestHammer = new BestHammer("BestHammer", "tools/_besthammer", 1, ModToolMaterial.BestHammer);
         _zeroHammer = new ZeroHammer("ZeroHammer", "tools/_hammerzero", 1, ModToolMaterial.ZeroHammer);
+        _baseMultiTool = new BaseMultiTool("Multi", "tools/_multi", 1, ModToolMaterial.BaseMultiTool);
        // _mediumHammer = new MediumHammer("MediumHammer", "tools/_hammerzero", 1, ModToolMaterial.MEDIUMHAMMER);
         _BaseSkana = new BaseSkana("BaseSkana", "weapon/_baseSkana", 1, ModToolMaterial.SKANA);
         _IceSkana = new BaseSkana("IceSkana", "weapon/_IceSword", 1, ModToolMaterial.ICESCANA);
@@ -118,6 +127,7 @@ public class Main {
         GameRegistry.registerItem(_mediumHammer, "MediumHammer");
         GameRegistry.registerItem(_zeroHammer, "ZeroHammer");
         GameRegistry.registerItem(_mediumHammer, "MediumHammer");
+        GameRegistry.registerItem(_baseMultiTool, "BaseMultiTool");
         GameRegistry.registerItem(_BaseSkana, "BaseSkana");
         GameRegistry.registerItem(_IceSkana, "IceSkana");
         GameRegistry.registerItem(_LeatherClaws, "LeatherClaws");
@@ -128,5 +138,10 @@ public class Main {
     	GameRegistry.registerItem(_silverCoin, "SilverCoin");
     	_cooperCoin = new MoneyClass("CooperCoin", "items/_cooperCoin", 64);
     	GameRegistry.registerItem(_cooperCoin, "CooperCoin");
+    	ItemStack enchStack = new ItemStack(Main._basepickaxe);
+    	ItemStack enchStack1 = new ItemStack(net.minecraft.init.Items.diamond_pickaxe);
+    	enchStack.addEnchantment(EnchantmentRegistry.SAFE_ALL, 1);
+    	enchStack1.addEnchantment(EnchantmentRegistry.SAFE_ALL, 1);
+    	enchStack1.addEnchantment(Enchantment.fortune, 2);
     }
 }
