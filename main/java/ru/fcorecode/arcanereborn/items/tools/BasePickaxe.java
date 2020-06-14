@@ -43,7 +43,15 @@ import net.minecraft.util.StatCollector;
 public class BasePickaxe extends ItemPickaxe {
     public int mode = 0;   
     public String namemode = "1 на 1";
+    
+    protected Material[] getEffectiveMaterials ()
+    {
+        return materials;
+    }
 
+    static Material[] materials = new Material[] { Material.rock, Material.iron, Material.ice, Material.glass, Material.piston, Material.anvil };
+
+  
     public BasePickaxe(String name, String texture, int maxStackSize, ToolMaterial baseHAMMER) {
         super(baseHAMMER);
         this.canRepair = false;
