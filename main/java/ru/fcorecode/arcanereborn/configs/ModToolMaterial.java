@@ -18,7 +18,7 @@ public class ModToolMaterial {
     public static final ToolMaterial ICESCANA = EnumHelper.addToolMaterial("ICESCANA", 3, 2110, 17.0F, 25.0F, 10);
 	public static float digSpeedbaseHAMMER = 7.0F;
 	public static float digSpeedMEDIUMHAMMER = 12.0F;
-	public static float digSpeedBestHAMMER = 15.0F;
+	public static float digSpeedBestHAMMER = 25.0F;
 	public static float digSpeedZeroHAMMER = 2.0F;
 	public static float digSpeedBaseMulti = 12.0F;
     public static final ToolMaterial baseHAMMER = EnumHelper.addToolMaterial("baseHAMMER", 4, 1500, digSpeedbaseHAMMER , 4.0F, 5);

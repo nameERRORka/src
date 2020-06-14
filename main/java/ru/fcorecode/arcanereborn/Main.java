@@ -78,7 +78,7 @@ public class Main {
         _IceSkana = new BaseSkana("IceSkana", "weapon/_IceSword", 1, ModToolMaterial.ICESCANA);
         _LeatherClaws = new LeatherClaws("LeatherClaws", "weapon/_LClaws", 1, ModToolMaterial.LClaws);
         _MagicRock = new Blocks("MagicRock", Material.rock, 3, 15, "pickaxe", 4, "MagicRock/_MagicRock");
-        _MagicWood = new Blocks("MagicWood", Material.wood, 3, 15, "axe", 4, "MagicWood/_MagicWood");
+        _MagicWood = new Blocks("MagicWood", Material.wood, 3, 15, "axe", 4, "_MagicWood");
 
         GameRegistry.registerItem(_daemonicSteps, "DaemonicSteps");
         GameRegistry.registerItem(_daemonicLegs, "DaemonicLegs");
