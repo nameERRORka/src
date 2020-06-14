@@ -98,5 +98,13 @@ public class ConfigInfo
 	            return _logoCreativeTabsAnother;
 	        }
 	    };
+	    
+	    public static Item _logoCreativeTabsBlocks = new Items("CreativeTabsLogoBlocks", "_logoCreativeTabsBlocks", 0);
+	    public static final CreativeTabs tabAFRebornBlocks = new CreativeTabs("tabAFRebornBlocks") {
+	        @Override
+	        public Item getTabIconItem() {
+	            return _logoCreativeTabsAnother;
+	        }
+	    };
 	    //--------------------------------
 	}

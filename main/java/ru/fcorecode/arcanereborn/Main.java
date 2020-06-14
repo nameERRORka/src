@@ -1,13 +1,20 @@
 package ru.fcorecode.arcanereborn;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
+import net.minecraft.util.IIcon;
+import ru.fcorecode.arcanereborn.blocks.Blocks;
 import ru.fcorecode.arcanereborn.configs.ModToolMaterial;
 import ru.fcorecode.arcanereborn.enchant.EnchantmentRegistry;
 import ru.fcorecode.arcanereborn.items.armor._daemonicArmor;
@@ -49,6 +56,10 @@ public class Main {
     public static Item _goldenCoin;
     public static Item _silverCoin;
     public static Item _cooperCoin;
+   
+    public static Block _MagicRock;
+    public static Block _MagicWood;
+
     
     @EventHandler
     public void preLoad(FMLPreInitializationEvent event) {
@@ -66,6 +77,8 @@ public class Main {
         _BaseSkana = new BaseSkana("BaseSkana", "weapon/_baseSkana", 1, ModToolMaterial.SKANA);
         _IceSkana = new BaseSkana("IceSkana", "weapon/_IceSword", 1, ModToolMaterial.ICESCANA);
         _LeatherClaws = new LeatherClaws("LeatherClaws", "weapon/_LClaws", 1, ModToolMaterial.LClaws);
+        _MagicRock = new Blocks("MagicRock", Material.rock, 3, 15, "pickaxe", 4, "MagicRock/_MagicRock");
+        _MagicWood = new Blocks("MagicWood", Material.wood, 3, 15, "axe", 4, "MagicWood/_MagicWood");
 
         GameRegistry.registerItem(_daemonicSteps, "DaemonicSteps");
         GameRegistry.registerItem(_daemonicLegs, "DaemonicLegs");
@@ -81,6 +94,8 @@ public class Main {
         GameRegistry.registerItem(_BaseSkana, "BaseSkana");
         GameRegistry.registerItem(_IceSkana, "IceSkana");
         GameRegistry.registerItem(_LeatherClaws, "LeatherClaws");
+        GameRegistry.registerBlock(_MagicRock, "MagicRock");
+        GameRegistry.registerBlock(_MagicWood, "MagicWood");
         
         _goldenCoin = new MoneyClass("GoldenCoin", "items/_goldenCoin", 64);
     	GameRegistry.registerItem(_goldenCoin, "GoldenCoin");
