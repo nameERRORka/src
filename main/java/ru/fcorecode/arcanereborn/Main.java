@@ -1,38 +1,18 @@
 package ru.fcorecode.arcanereborn;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TimerTask;
-
-import java.util.Set;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
-import net.minecraft.util.ChatComponentText;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.event.entity.player.PlayerEvent;
+import ru.fcorecode.arcanereborn.configs.ModToolMaterial;
+import ru.fcorecode.arcanereborn.enchant.EnchantmentRegistry;
 import ru.fcorecode.arcanereborn.items.armor._daemonicArmor;
-import ru.fcorecode.arcanereborn.items.item.Items;
 import ru.fcorecode.arcanereborn.items.item.MoneyClass;
+import ru.fcorecode.arcanereborn.items.item.Items;
 import ru.fcorecode.arcanereborn.items.tools.BaseMultiTool;
 import ru.fcorecode.arcanereborn.items.tools.BasePickaxe;
 import ru.fcorecode.arcanereborn.items.tools.BestHammer;
@@ -40,8 +20,6 @@ import ru.fcorecode.arcanereborn.items.tools.MediumHammer;
 import ru.fcorecode.arcanereborn.items.tools.ZeroHammer;
 import ru.fcorecode.arcanereborn.items.weapons.BaseSkana;
 import ru.fcorecode.arcanereborn.items.weapons.LeatherClaws;
-import ru.fcorecode.arcanereborn.configs.ModToolMaterial;
-import ru.fcorecode.arcanereborn.enchant.EnchantmentRegistry;
 
 @Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION)
 
@@ -51,7 +29,6 @@ public class Main {
     public static final String MODNAME = "Arcanefactory Reborn";
     public static final String VERSION = "1.10.2";
     
-
     public static Item _daemonicHelmet;
     public static Item _daemonicBody;
     public static Item _daemonicLegs;
@@ -72,33 +49,6 @@ public class Main {
     public static Item _goldenCoin;
     public static Item _silverCoin;
     public static Item _cooperCoin;
-    
-    public static void extendPotionArray() {
-        Potion[] potionTypes = null;
-        for (Field f : Potion.class.getDeclaredFields()) { // получаем все поля из класса зелья
-            f.setAccessible(true); // даём к ним доступ (локально убираем private)
-            try {
-                if (f.getName().equals("potionTypes") || f.getName().equals("field_76425_a")) { // проверка что это поле именно со списком зелий
-                    Field modfield = Field.class.getDeclaredField("modifiers");
-                    modfield.setAccessible(true);
-                    modfield.setInt(f, f.getModifiers() & ~Modifier.FINAL); // убираем final модфикатор
-                    potionTypes = (Potion[])f.get(null);
-                    final Potion[] newPotionTypes = new Potion[256]; // создаём новый массив зелий на 256 элементов
-                    System.arraycopy(potionTypes, 0, newPotionTypes, 0, potionTypes.length); // копируем старые зелья в новый массив
-                    f.set(null, newPotionTypes); // и заменяем
-                    return;
-                }
-            } catch (Exception e) {
-                System.err.println(e); // на случай ошибки выводим её в лог
-            }
-        }
-    }
-    
-    @EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-    	if(Potion.potionTypes.length < 256) extendPotionArray();
-        EnchantmentRegistry.register();
-    }
     
     @EventHandler
     public void preLoad(FMLPreInitializationEvent event) {
@@ -137,7 +87,8 @@ public class Main {
     	_silverCoin = new MoneyClass("SilverCoin", "items/_silverCoin", 64);
     	GameRegistry.registerItem(_silverCoin, "SilverCoin");
     	_cooperCoin = new MoneyClass("CooperCoin", "items/_cooperCoin", 64);
-    	GameRegistry.registerItem(_cooperCoin, "CooperCoin");
+    	GameRegistry.registerItem(_cooperCoin, "CooperCoin");   	
+    	
     	ItemStack enchStack = new ItemStack(Main._basepickaxe);
     	ItemStack enchStack1 = new ItemStack(net.minecraft.init.Items.diamond_pickaxe);
     	enchStack.addEnchantment(EnchantmentRegistry.SAFE_ALL, 1);
