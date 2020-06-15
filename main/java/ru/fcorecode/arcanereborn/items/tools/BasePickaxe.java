@@ -50,6 +50,7 @@ public class BasePickaxe extends ItemPickaxe {
     }
 
     static Material[] materials = new Material[] { Material.rock, Material.iron, Material.ice, Material.glass, Material.piston, Material.anvil };
+    
 
   
     public BasePickaxe(String name, String texture, int maxStackSize, ToolMaterial baseHAMMER) {

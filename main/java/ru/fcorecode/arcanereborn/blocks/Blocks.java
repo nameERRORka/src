@@ -52,10 +52,6 @@ public class Blocks extends Block {
         this.setBlockTextureName(Main.MODID + ":" + texture);
 
     }
-    int SideUp;
-    int SideDown;
-    public IIcon getIcon(int , int p_149691_2_) {
-		return blockIcon;
+
     
     }
-	}

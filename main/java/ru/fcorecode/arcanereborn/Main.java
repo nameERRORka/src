@@ -108,6 +108,5 @@ public class Main {
     	ItemStack enchStack1 = new ItemStack(net.minecraft.init.Items.diamond_pickaxe);
     	enchStack.addEnchantment(EnchantmentRegistry.SAFE_ALL, 1);
     	enchStack1.addEnchantment(EnchantmentRegistry.SAFE_ALL, 1);
-    	enchStack1.addEnchantment(Enchantment.fortune, 2);
     }
 }

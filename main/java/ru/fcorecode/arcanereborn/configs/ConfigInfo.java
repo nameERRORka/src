@@ -103,7 +103,7 @@ public class ConfigInfo
 	    public static final CreativeTabs tabAFRebornBlocks = new CreativeTabs("tabAFRebornBlocks") {
 	        @Override
 	        public Item getTabIconItem() {
-	            return _logoCreativeTabsAnother;
+	            return _logoCreativeTabsBlocks;
 	        }
 	    };
 	    //--------------------------------
