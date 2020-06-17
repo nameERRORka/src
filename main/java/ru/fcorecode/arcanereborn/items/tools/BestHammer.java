@@ -84,19 +84,19 @@ public class BestHammer extends ItemPickaxe {
         if (world.isRemote) {
             if (mode == 1) {
             	
-                player.addChatMessage(new ChatComponentText("Ночное видение"));
+                player.addChatMessage(new ChatComponentText("РќРѕС‡РЅРѕРµ РІРёРґРµРЅРёРµ"));
             	mode = 2;
             	namemode = "NightVision";
             } else if (mode == 2) { 
-                player.addChatMessage(new ChatComponentText("Увеличен урон"));
+                player.addChatMessage(new ChatComponentText("РЈРІРµР»РёС‡РµРЅРёРµ СѓСЂРѕРЅР°"));
                 mode = 3;
                 namemode = "DamageBoost";
             } else if (mode == 3) {
-                player.addChatMessage(new ChatComponentText("Все было выключено"));
+                player.addChatMessage(new ChatComponentText("Р‘РµР· СЌС„С„РµРєС‚РѕРІ"));
                 mode = 4;
                 namemode = "none";
             } else if (mode == 4) {
-                player.addChatMessage(new ChatComponentText("Утомление"));
+                player.addChatMessage(new ChatComponentText("РЈС‚РѕРјР»РµРЅРёРµ"));
                 mode = 1;
                 namemode = "digSlowDown";
             }

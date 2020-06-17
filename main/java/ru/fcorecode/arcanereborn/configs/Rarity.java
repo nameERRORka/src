@@ -4,7 +4,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.util.EnumHelper;
 
-public class Rarity 
+public class Rarity
 {
 	public static final EnumRarity _useless = EnumHelper.addRarity("_useless", EnumChatFormatting.DARK_GRAY, "[Предмет]");
 	public static final EnumRarity _common = EnumHelper.addRarity("_common", EnumChatFormatting.GRAY, "[Запакованный]");

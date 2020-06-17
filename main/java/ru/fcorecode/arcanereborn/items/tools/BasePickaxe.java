@@ -42,7 +42,7 @@ import net.minecraft.util.StatCollector;
 
 public class BasePickaxe extends ItemPickaxe {
     public int mode = 0;   
-    public String namemode = "1 на 1";
+    public String namemode = "1 x 1";
     
     protected Material[] getEffectiveMaterials ()
     {
@@ -94,13 +94,13 @@ public class BasePickaxe extends ItemPickaxe {
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
         if (world.isRemote) {
             if (mode == 0) {
-                player.addChatMessage(new ChatComponentText("Включен режим 3 на 3"));
+                player.addChatMessage(new ChatComponentText("Включен режим 3 x 3"));
                 mode = 1;
-                namemode = "3 на 3";
+                namemode = "3 x 3";
             } else if (mode == 1) {
-                player.addChatMessage(new ChatComponentText("Включен режим 1 на 1"));
+                player.addChatMessage(new ChatComponentText("Включен режим 1 x 1"));
                 mode = 0;
-                namemode = "1 на 1";
+                namemode = "1 x 1";
             }
         }
 

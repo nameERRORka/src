@@ -83,21 +83,22 @@ public class MediumHammer extends ItemPickaxe {
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
         if (world.isRemote) {
             if (mode == 1) {
-            	
+
                 player.addChatMessage(new ChatComponentText("Ночное видение"));
-            	mode = 2;
-            	namemode = "NightVision";
-            } else if (mode == 2) { 
-                player.addChatMessage(new ChatComponentText("Увеличен урон"));
+                mode = 2;
+                namemode = "NightVision";
+            } else if (mode == 2) {
+                player.addChatMessage(new ChatComponentText("Увеличение урона"));
                 mode = 3;
                 namemode = "DamageBoost";
             } else if (mode == 3) {
-                player.addChatMessage(new ChatComponentText("Все было выключено"));
+                player.addChatMessage(new ChatComponentText("Без эффектов"));
                 mode = 4;
                 namemode = "none";
             } else if (mode == 4) {
                 player.addChatMessage(new ChatComponentText("Утомление"));
                 mode = 1;
+                namemode = "digSlowDown";
             }
         }
         

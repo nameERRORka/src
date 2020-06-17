@@ -45,45 +45,45 @@ import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class LeatherClaws extends ItemSword
-{		
-		private boolean isValidPlayer(EntityPlayer entityPlayer) {
+{
+	private boolean isValidPlayer(EntityPlayer entityPlayer) {
 
 		return false;
 	}
-		private boolean isLiving(Entity target) {
+	private boolean isLiving(Entity target) {
 
 		return false;
 	}
-		TickEvent.ServerTickEvent evt;
-		EntityPlayer player;
-		int mode = 1;
-		public LeatherClaws(String name, String texture, int maxStackSize, ToolMaterial mater)
-		{
-		    super(mater);
-			this.getItemAttributeModifiers();
-			this.canRepair = false;
-			this.setUnlocalizedName(name);
-			this.setTextureName(Main.MODID + ":" + texture);
-			this.setCreativeTab(ConfigInfo.tabAFRebornWaA);
-			this.maxStackSize = 1;
-			GameRegistry.registerItem(this, name);
-		}
+	TickEvent.ServerTickEvent evt;
+	EntityPlayer player;
+	int mode = 1;
+	public LeatherClaws(String name, String texture, int maxStackSize, ToolMaterial mater)
+	{
+		super(mater);
+		this.getItemAttributeModifiers();
+		this.canRepair = false;
+		this.setUnlocalizedName(name);
+		this.setTextureName(Main.MODID + ":" + texture);
+		this.setCreativeTab(ConfigInfo.tabAFRebornWaA);
+		this.maxStackSize = 1;
+		GameRegistry.registerItem(this, name);
+	}
 
-		public EnumRarity getRarity(ItemStack itemStack) 
-		{
-			return Rarity._legendary;
-		}
-			  
-		@SideOnly(Side.CLIENT)
-	    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-			par3List.add("" + Rarity._legendary.rarityColor + Rarity._legendary.rarityName);
-	        par3List.add("Описание предмета");
-		    int a, b, c;
-			  a = this.getMaxDamage();
-			  b = this.getDamage(par1ItemStack);
-			  c = a - b;
-			par3List.add("Прочности осталось " + c);
-	    }
-		
+	public EnumRarity getRarity(ItemStack itemStack)
+	{
+		return Rarity._legendary;
+	}
+
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
+		par3List.add("" + Rarity._legendary.rarityColor + Rarity._legendary.rarityName);
+		par3List.add("РћРїРёСЃР°РЅРёРµ РїСЂРµРґРјРµС‚Р°");
+		int a, b, c;
+		a = this.getMaxDamage();
+		b = this.getDamage(par1ItemStack);
+		c = a - b;
+		par3List.add("РџСЂРѕС‡РЅРѕСЃС‚Рё РѕСЃС‚Р°Р»РѕСЃСЊ " + c);
+	}
+
 
 }

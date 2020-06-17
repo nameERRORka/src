@@ -66,7 +66,7 @@ public class ConfigInfo
 		//Potion ID
 		public static int IDFly = 1015;
 		
-		//---------Не трогать XD----------
+		//---------РќРµ С‚СЂРѕРіР°С‚СЊ XD----------
 	    public static Item _logoCreativeTabsMoney = new Items("CreativeTabsLogoMoney", "_logoCreativeTabsMoney", 0);
 	    public static final CreativeTabs tabAFRebornMoney = new CreativeTabs("tabAFRebornMoney") {
 	        @Override
