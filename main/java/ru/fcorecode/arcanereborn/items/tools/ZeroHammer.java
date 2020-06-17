@@ -76,7 +76,11 @@ public class ZeroHammer extends ItemPickaxe {
         if( par1ItemStack.stackTagCompound == null ) {
         par1ItemStack.addEnchantment(EnchantmentRegistry.SAFE_ALL, 1);
         }
+    }
 
+    @Override
+    public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+        return true;
     }
 
 

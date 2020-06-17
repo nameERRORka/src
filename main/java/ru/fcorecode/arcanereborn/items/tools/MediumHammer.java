@@ -77,6 +77,11 @@ public class MediumHammer extends ItemPickaxe {
         }
     }
 
+    @Override
+    public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+        return true;
+    }
+
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
         if (world.isRemote) {
             if (mode == 1) {
@@ -98,7 +103,7 @@ public class MediumHammer extends ItemPickaxe {
                 namemode = "digSlowDown";
             }
         }
-        
+
         itemStack.damageItem(1, player);
         return itemStack;
     }
@@ -118,7 +123,7 @@ public class MediumHammer extends ItemPickaxe {
             } else if (equipped == stack && mode == 0) {
             	player.removePotionEffect(Potion.damageBoost.id);
             }
-        
+
 
 }}
     @Override

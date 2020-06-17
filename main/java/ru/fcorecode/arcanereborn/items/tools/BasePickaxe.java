@@ -91,6 +91,11 @@ public class BasePickaxe extends ItemPickaxe {
         }
     }
 
+    @Override
+    public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+        return true;
+    }
+
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
         if (world.isRemote) {
             if (mode == 0) {
