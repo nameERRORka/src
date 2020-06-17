@@ -22,66 +22,66 @@ import ru.fcorecode.arcanereborn.items.armor._daemonicArmor;
 import ru.fcorecode.arcanereborn.configs.ConfigInfo;
 import ru.fcorecode.arcanereborn.configs.Rarity;
 
-public class Items extends Item 
+public class Items extends Item
 {
 
-		boolean mode = false;
+	boolean mode = false;
 
-		public Items(String name, String texture, int maxStackSize) 
-		{
-			this.canRepair = false;
-			this.setUnlocalizedName(name);
-			this.setTextureName(Main.MODID + ":" + texture);
-			this.setCreativeTab(ConfigInfo.tabAFRebornAnother);
-			GameRegistry.registerItem(this, name);
-		}
+	public Items(String name, String texture, int maxStackSize)
+	{
+		this.canRepair = false;
+		this.setUnlocalizedName(name);
+		this.setTextureName(Main.MODID + ":" + texture);
+		this.setCreativeTab(ConfigInfo.tabAFRebornAnother);
+		GameRegistry.registerItem(this, name);
+	}
 
-		@SideOnly(Side.CLIENT)
-		public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) 
-		{
-			par3List.add("" + Rarity._useless.rarityName);
-		}
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+	{
+		par3List.add("" + Rarity._useless.rarityName);
+	}
 
-		public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) 
-		{
-			return false;
-		}
+	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity)
+	{
+		return false;
+	}
 
-		@Subscribe
-		public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) 
-		{/*
+	@Subscribe
+	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
+	{/*
 		    if(player.inventory.hasItem(Main._basepickaxe)) {
 		    	player.addChatMessage(new ChatComponentText("БЕГИ СУКА!"));
 		    }else if(player.inventory.hasItem(Main._IceSkana)) {
 		    	player.addChatMessage(new ChatComponentText("Не беги, сука!"));
 		    	player.addChatMessage(new ChatComponentText("Утомление"));
-		    	
+
 		    }
 		    */
-			return itemStack;}
+		return itemStack;}
 
-		public boolean itemInteractionForEntity(ItemStack itemStack, EntityPlayer player, EntityLivingBase Entity) 
-		{
-			return false;
-		}
+	public boolean itemInteractionForEntity(ItemStack itemStack, EntityPlayer player, EntityLivingBase Entity)
+	{
+		return false;
+	}
 
-		public void onUpdate(ItemStack stack, World world, Entity entity, int par4, boolean par5) 
-		{
-			
-		}
+	public void onUpdate(ItemStack stack, World world, Entity entity, int par4, boolean par5)
+	{
 
-		public void onCreated(ItemStack itemStack, World world, EntityPlayer player) 
-		{
-			/*if (world.isRemote) 
+	}
+
+	public void onCreated(ItemStack itemStack, World world, EntityPlayer player)
+	{
+			/*if (world.isRemote)
 			 * {
 			player.addChatMessage(new ChatComponentText("� ��������!"));
 			}*/
-		}
+	}
 
-		public EnumRarity getRarity(ItemStack itemStack) 
-		{
-			return Rarity._useless;
-		}
+	public EnumRarity getRarity(ItemStack itemStack)
+	{
+		return Rarity._useless;
+	}
 }
 
 
