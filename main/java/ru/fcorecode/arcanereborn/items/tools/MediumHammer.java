@@ -56,13 +56,13 @@ public class MediumHammer extends ItemPickaxe {
     public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
         par3List.add("" + Rarity._legendary.rarityColor + Rarity._legendary.rarityName);
         par3List.add(" " + " ");
-        par3List.add(StatCollector.translateToLocal("item.effency.lore") + " " + ModToolMaterial.digSpeedMEDIUMHAMMER);
+        par3List.add(StatCollector.translateToLocal("item.efficiency.lore") + " " + ModToolMaterial.digSpeedMEDIUMHAMMER);
         par3List.add(" " + " ");
 		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM1.lore"));
 		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM2.lore"));
 		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM3.lore"));
 		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM4.lore"));
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM5.lore"));
+//		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM5.lore"));
 	    par3List.add(" " + " ");
 		par3List.add(StatCollector.translateToLocal("item.par3mode.lore")+ " " + namemode);
         int a, b, c;
@@ -75,10 +75,7 @@ public class MediumHammer extends ItemPickaxe {
         if( par1ItemStack.stackTagCompound == null ) {
         par1ItemStack.addEnchantment(EnchantmentRegistry.SAFE_ALL, 1);
         }
-
-
     }
-
 
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
         if (world.isRemote) {

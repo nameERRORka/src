@@ -48,6 +48,5 @@ public class BaseMultiTool extends ItemSpade {
         this.setCreativeTab(ConfigInfo.tabAFRebornTools);
         this.maxStackSize = 1;
     }
-    }
-
+}
 	

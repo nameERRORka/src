@@ -18,7 +18,7 @@ item.ZeroHammer.name=Осколок великого молота
 item.BestHammer.name=Молот иного измерения 
 item.Multi.name=Лопата с проклятьем
 #######################
-item.effency.lore=§5Эффективность этого молота оценивается где-то в:
+item.efficiency.lore=§5Эффективность этого молота оценивается где-то в:
 item.GetDamage.lore=§5Молот будет сломан через:
 item.GetDamageL.lore=§5ударов
 item.par3mode.lore=§5Активирована способность:

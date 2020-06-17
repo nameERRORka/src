@@ -1,28 +1,51 @@
-### CREATIVE TABS ###
+########## CREATIVE TABS ##########
 itemGroup.tabAFRebornMoney=§5[AF] Reborn | Money
 itemGroup.tabAFRebornWaA=§5[AF] Reborn | Weapon and Armor
 itemGroup.tabAFRebornTools=§5[AF] Reborn | Tools
 itemGroup.tabAFRebornAnother=§5[AF] Reborn | Another
-#####################
 
-item.DaemonicHelmet.name=Daemonic Helmet
-item.DaemonicBody.name=Daemonic Body Armor
-item.DaemonicLegs.name=Daemonic Legs Armor
-item.DaemonicSteps.name=Daemonic Steps Armor
-item.DaemonicShatter.name=Daemonic Shatter
-item.BasePickaxe.name=TEST Pickaxe
+########## Coins ##########
 item.GoldenCoin.name=Golden Arcoin
+item.SilverCoin.name=Silver Arcoin
+item.CooperCoin.name=Cooper Arcoin
 item.Coin1.lore=§5The ancient view of the world currency Arcane.
 item.Coin2.lore=§5Very much appreciated by traders and serves
 item.Coin3.lore=§5trade regulator in Arcane.
 item.Coin4.lore=§5You can get for quests and in the exchanger.
 item.CoinEmpty.lore=§5
-item.SilverCoin.name=Silver Arcoin
-item.CooperCoin.name=Cooper Arcoin
-item.efficiency.name=§5 the effectiveness of this hammer is estimated somewhere in:
-item.GetDamage.name=§5Hammer will be broken in:
-item.GetDamageL.name=§5 click
-item.par3MEDIUM1.name=§5The hammer was made by the best craftsmen
-item.par3MEDIUM2.name=§5only &6worthy §5will be able to access its full potential.
-item.par3MEDIUM3.name= & 5If something goes wrong, you can always &4 lie down and rest
-item.par3MEDIUM4.name=§5in the &4kitchen §5for example.
+
+########## Armor ##########
+item.DaemonicHelmet.name=Daemonic Helmet
+item.DaemonicBody.name=Daemonic Body Armor
+item.DaemonicLegs.name=Daemonic Legs Armor
+item.DaemonicSteps.name=Daemonic Steps Armor
+
+item.DaemonicShatter.name=Daemonic Shatter
+
+########## Items description ##########
+item.efficiency.lore=§5Efficiency of this hammer is about:
+item.GetDamage.lore=§5Hammer will be broken after:
+item.GetDamageL.lore=§5blocks broken
+item.par3mode.lore=§5Активирована способность:
+
+########## Items enchantments ##########
+enchantment.safe_all=§5Ancient Curse...
+
+########## Items lore ##########
+item.par3MEDIUM1.lore=§5The hammer was made by the best craftsmen
+item.par3MEDIUM2.lore=§5only §6worthy §5will be able to access its full potential.
+item.par3MEDIUM3.lore=§5If something goes wrong, you can always §4 lie down and rest
+item.par3MEDIUM4.lore=§5in the §4kitchen §5for example.
+
+########## Tools ##########
+item.BasePickaxe.name=TEST Pickaxe
+item.MediumHammer.name=Godlike serhey hammer
+item.ZeroHammer.name=Great hammer shard
+item.BestHammer.name=Diverse world hammed
+item.Multi.name=Cursed shovel
+item.Rarity.name=
+
+########## Weapon ##########
+item.BaseSkana.name=§5Skana
+item.IceSkana.name=§5Ice Skana
+item.LeatherClaws.name=§5Leather claws

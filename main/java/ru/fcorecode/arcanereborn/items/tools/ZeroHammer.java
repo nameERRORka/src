@@ -57,7 +57,7 @@ public class ZeroHammer extends ItemPickaxe {
     public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
         par3List.add("" + Rarity._legendary.rarityColor + Rarity._legendary.rarityName);
         par3List.add(" " + " ");
-        par3List.add(StatCollector.translateToLocal("item.effency.lore") + " " + ModToolMaterial.digSpeedZeroHAMMER);
+        par3List.add(StatCollector.translateToLocal("item.efficiency.lore") + " " + ModToolMaterial.digSpeedZeroHAMMER);
         par3List.add(" " + " ");
 		par3List.add(StatCollector.translateToLocal("item.par2zero1.lore"));
 		par3List.add(StatCollector.translateToLocal("item.par2zero2.lore"));
