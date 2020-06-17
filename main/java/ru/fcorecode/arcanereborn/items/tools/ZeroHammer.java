@@ -39,7 +39,7 @@ import net.minecraft.util.StatCollector;
 
 public class ZeroHammer extends ItemPickaxe {
     public int mode = 4;	
-    public String namemode = "none";
+    public String namemode = "";
     public ZeroHammer(String name, String texture, int maxStackSize, ToolMaterial ZeroHammer) {
         super(ZeroHammer);
         this.canRepair = false;
@@ -54,37 +54,37 @@ public class ZeroHammer extends ItemPickaxe {
     }
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-        par3List.add("" + Rarity._legendary.rarityColor + Rarity._legendary.rarityName);
-        par3List.add(" " + " ");
-        par3List.add(StatCollector.translateToLocal("item.efficiency.lore") + " " + ModToolMaterial.digSpeedZeroHAMMER);
-        par3List.add(" " + " ");
-		par3List.add(StatCollector.translateToLocal("item.par2zero1.lore"));
-		par3List.add(StatCollector.translateToLocal("item.par2zero2.lore"));
-		par3List.add(StatCollector.translateToLocal("item.par2zero3.lore"));
-		par3List.add(StatCollector.translateToLocal("item.par2zero4.lore"));
-		par3List.add(StatCollector.translateToLocal("item.par2zero5.lore"));
-	    par3List.add(" " + " ");
-		par3List.add(StatCollector.translateToLocal("item.par3mode.lore")+ " " + namemode);
+    public void addInformation(ItemStack stack, EntityPlayer player, List itemDescription, boolean none) {
+        itemDescription.add("" + Rarity._legendary.rarityColor + Rarity._legendary.rarityName);
+        itemDescription.add(" " + " ");
+        itemDescription.add(StatCollector.translateToLocal("item.efficiency.lore") + " " + ModToolMaterial.digSpeedZeroHAMMER);
+        itemDescription.add(" " + " ");
+		itemDescription.add(StatCollector.translateToLocal("item.ZeroHammerLore1.lore"));
+//		itemDescription.add(StatCollector.translateToLocal("item.ZeroHammerLore2.lore"));
+//		itemDescription.add(StatCollector.translateToLocal("item.ZeroHammerLore3.lore"));
+//		itemDescription.add(StatCollector.translateToLocal("item.ZeroHammerLore4.lore"));
+//		itemDescription.add(StatCollector.translateToLocal("item.ZeroHammerLore5.lore"));
+	    itemDescription.add(" " + " ");
+		itemDescription.add(StatCollector.translateToLocal("item.HammerMode.lore")+ " " + namemode);
         int a, b, c;
         a = this.getMaxDamage();
-        b = this.getDamage(par1ItemStack);
+        b = this.getDamage(stack);
         c = a - b;
 
-        par3List.add(" " + " ");
-        par3List.add(StatCollector.translateToLocal("item.GetDamage.lore") + " " + c + " " + StatCollector.translateToLocal("item.GetDamageL.lore"));
-        if( par1ItemStack.stackTagCompound == null ) {
-        par1ItemStack.addEnchantment(EnchantmentRegistry.SAFE_ALL, 1);
+        itemDescription.add(" " + " ");
+        itemDescription.add(StatCollector.translateToLocal("item.GetDamage.lore") + " " + c + " " + StatCollector.translateToLocal("item.GetDamageL.lore"));
+        if( stack.stackTagCompound == null ) {
+        stack.addEnchantment(EnchantmentRegistry.SAFE_ALL, 1);
         }
     }
 
     @Override
-    public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+    public boolean hasEffect(ItemStack stack, int pass) {
         return true;
     }
 
 
-    public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
+    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
         if (world.isRemote) {
             if (mode == 1) {
 
@@ -106,8 +106,8 @@ public class ZeroHammer extends ItemPickaxe {
             }
         }
         
-        itemStack.damageItem(1, player);
-        return itemStack;
+        stack.damageItem(1, player);
+        return stack;
     }
     public void onUpdate (ItemStack stack, World world, Entity entity, int par4, boolean par5)
     {

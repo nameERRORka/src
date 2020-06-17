@@ -35,23 +35,23 @@ public class MoneyClass extends Item
 	}
 
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) 
+	public void addInformation(ItemStack stack, EntityPlayer player, List itemDescription, boolean none)
 	{
-		par3List.add("" + Rarity._arcoins.rarityColor + Rarity._arcoins.rarityName);
-		par3List.add(StatCollector.translateToLocal("item.Coin1.lore"));
-		par3List.add(StatCollector.translateToLocal("item.Coin2.lore"));
-		par3List.add(StatCollector.translateToLocal("item.Coin3.lore"));
-		par3List.add(StatCollector.translateToLocal("item.CoinEmpty.lore"));
-		par3List.add(StatCollector.translateToLocal("item.Coin4.lore"));
+		itemDescription.add("" + Rarity._arcoins.rarityColor + Rarity._arcoins.rarityName);
+		itemDescription.add(StatCollector.translateToLocal("item.CoinLore1.lore"));
+		itemDescription.add(StatCollector.translateToLocal("item.CoinLore2.lore"));
+		itemDescription.add(StatCollector.translateToLocal("item.CoinLore3.lore"));
+		itemDescription.add(StatCollector.translateToLocal("item.CoinLore4.lore"));
+		itemDescription.add(StatCollector.translateToLocal("item.CoinLore5.lore"));
 	}
 
-	public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase player, EntityLivingBase Entity) 
+	public boolean hitEntity(ItemStack stack, EntityLivingBase player, EntityLivingBase Entity) 
 	{
-		par1ItemStack.damageItem(1, Entity);
+		stack.damageItem(1, Entity);
 		return false;
 	}
 
-	public EnumRarity getRarity(ItemStack itemStack) 
+	public EnumRarity getRarity(ItemStack stack)
 	{
 		return Rarity._arcoins;
 	}
