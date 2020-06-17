@@ -73,11 +73,11 @@ public class BaseSkana extends ItemSword
 		@SideOnly(Side.CLIENT)
 	    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 			par3List.add("" + Rarity._legendary.rarityColor + Rarity._legendary.rarityName);
-			par3List.add("РћРїРёСЃР°РЅРёРµ РїСЂРµРґРјРµС‚Р°");
+			par3List.add("Описание предмета");
 		    int a, b, c;
 			  a = this.getMaxDamage();
 			  b = this.getDamage(par1ItemStack);
 			  c = a - b;
-			par3List.add("РџСЂРѕС‡РЅРѕСЃС‚Рё РѕСЃС‚Р°Р»РѕСЃСЊ " + c);
+			par3List.add("Прочности осталось " + c);
 	    }
 		}
