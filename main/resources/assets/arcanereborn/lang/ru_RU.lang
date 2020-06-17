@@ -59,3 +59,8 @@ item.Multi.name=Лопата с проклятьем
 item.BaseSkana.name=§5Скана
 item.IceSkana.name=§5Ледяная Скана
 item.LeatherClaws.name=§5Кожаные когти
+
+########## Blocks ##########
+tile.CrystallisedBluePlasma.name=§fСиняя кристаллизованная плазма
+tile.MagicRock.name=§fМагический камень
+tile.MagicWood.name=§fМагическая древесина

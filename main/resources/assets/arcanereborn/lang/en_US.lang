@@ -59,3 +59,8 @@ item.Multi.name=Cursed shovel
 item.BaseSkana.name=§5Skana
 item.IceSkana.name=§5Ice Skana
 item.LeatherClaws.name=§5Leather claws
+
+########## Blocks ##########
+tile.CrystallisedBluePlasma.name=§fCrystallised Blue Plasma
+tile.MagicRock.name=§fMagic rock
+tile.MagicWood.name=§fMagic wood
