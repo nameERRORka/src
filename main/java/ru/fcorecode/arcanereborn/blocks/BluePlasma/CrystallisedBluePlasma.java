@@ -1,4 +1,4 @@
-package ru.fcorecode.arcanereborn.blocks;
+package ru.fcorecode.arcanereborn.blocks.BluePlasma;
 
 import ru.fcorecode.arcanereborn.Main;
 
@@ -6,9 +6,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import ru.fcorecode.arcanereborn.configs.ConfigInfo;
 
-public class CrystallisedBluePlasma extends Block{
+public final class CrystallisedBluePlasma extends Block {
 
-    protected CrystallisedBluePlasma(String unlocalizedName, Material material, String texturePath) {
+    public CrystallisedBluePlasma(String unlocalizedName, Material material, String texturePath) {
         super(material);
         this.setBlockName(unlocalizedName);
         this.setCreativeTab(ConfigInfo.tabAFRebornBlocks);
@@ -20,7 +20,6 @@ public class CrystallisedBluePlasma extends Block{
         this.setLightOpacity(0);
         this.setBlockTextureName(Main.MODID + ":" + texturePath);
     }
-
 
     @Override
     public boolean isOpaqueCube() {

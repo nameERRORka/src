@@ -1,4 +1,4 @@
-package ru.fcorecode.arcanereborn.blocks;
+package ru.fcorecode.arcanereborn.blocks.MagickWood;
 
 import java.util.List;
 
@@ -63,7 +63,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class BlocksWood extends Block {
+public class Magicwood extends Block {
 
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
@@ -77,8 +77,9 @@ public class BlocksWood extends Block {
             "right"
     };
 
-    public BlocksWood(Material material) {
+    public Magicwood(Material material) {
         super(material);
+        this.setStepSound(soundTypeWood);
     }
 
     /**Called when the block is placed in the world.**/

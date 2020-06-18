@@ -1,44 +1,30 @@
 package ru.fcorecode.arcanereborn.items.tools;
 
 import java.util.List;
-import java.util.Set;
 
-import com.google.common.collect.Sets;
-
-import cpw.mods.fml.common.eventhandler.EventPriority;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.InputEvent.KeyInputEvent;
-import cpw.mods.fml.common.gameevent.TickEvent;
-import cpw.mods.fml.common.gameevent.TickEvent.ServerTickEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import ru.fcorecode.arcanereborn.Main;
 import ru.fcorecode.arcanereborn.configs.ConfigInfo;
 import ru.fcorecode.arcanereborn.configs.RandomUtils;
 import ru.fcorecode.arcanereborn.configs.Rarity;
 import ru.fcorecode.arcanereborn.enchant.EnchantmentRegistry;
 import ru.fcorecode.arcanereborn.configs.ModToolMaterial;
-import net.minecraft.util.StatCollector;
+import ru.fcorecode.arcanereborn.items.AFRItems;
 
 public class BasePickaxe extends ItemPickaxe {
     public int mode = 0;   
@@ -83,9 +69,10 @@ public class BasePickaxe extends ItemPickaxe {
         c = a - b;
         itemDescription.add(" " + " ");
         itemDescription.add(StatCollector.translateToLocal("item.GetDamage.lore") + " " + c + " " + StatCollector.translateToLocal("item.GetDamageL.lore"));
+
         if(stack.isItemEnchanted()) {
-        	ItemStack enchStack = new ItemStack(Main._basepickaxe);
-        	enchStack.addEnchantment(EnchantmentRegistry.SAFE_ALL, 1);
+        	ItemStack enchantmentStack = new ItemStack(AFRItems._BasePickaxe);
+            enchantmentStack.addEnchantment(EnchantmentRegistry.SAFE_ALL, 1);
         }
     }
 
@@ -100,7 +87,7 @@ public class BasePickaxe extends ItemPickaxe {
                 player.addChatMessage(new ChatComponentText("Включен режим 3 x 3"));
                 mode = 1;
                 namemode = "3 x 3";
-            } else if (mode == 1) {
+            } else {
                 player.addChatMessage(new ChatComponentText("Включен режим 1 x 1"));
                 mode = 0;
                 namemode = "1 x 1";

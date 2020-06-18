@@ -1,10 +1,8 @@
 package ru.fcorecode.arcanereborn.configs;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import ru.fcorecode.arcanereborn.Main;
-import ru.fcorecode.arcanereborn.items.item.Items;
+import ru.fcorecode.arcanereborn.tabIcons.tabIcons;
 
 public class ConfigInfo
 	{
@@ -62,44 +60,44 @@ public class ConfigInfo
 		public static boolean CanBonemealSapling;
 		public static int SaplingGrowthChanceNatural;
 		public static int SaplingGrowthChanceBonemeal;
-		
+
 		//Potion ID
 		public static int IDFly = 1015;
 		
-		//---------РќРµ С‚СЂРѕРіР°С‚СЊ XD----------
-	    public static Item _logoCreativeTabsMoney = new Items("CreativeTabsLogoMoney", "_logoCreativeTabsMoney", 0);
+
+	    public static Item _logoCreativeTabsMoney = new tabIcons("CreativeTabsLogoMoney", "tabIcons/_logoCreativeTabsMoney");
 	    public static final CreativeTabs tabAFRebornMoney = new CreativeTabs("tabAFRebornMoney") {
 	        @Override
 	        public Item getTabIconItem() {
 	            return _logoCreativeTabsMoney;
 	        }
 	    };
-	    
-	    public static Item _logoCreativeTabsWeaponAndArmor = new Items("CreativeTabsLogoWaA", "_logoCreativeTabsWeaponAndArmor", 0);
+
+	    public static Item _logoCreativeTabsWeaponAndArmor = new tabIcons("CreativeTabsLogoWaA", "tabIcons/_logoCreativeTabsWeaponAndArmor");
 	    public static final CreativeTabs tabAFRebornWaA = new CreativeTabs("tabAFRebornWaA") {
 	        @Override
 	        public Item getTabIconItem() {
 	            return _logoCreativeTabsWeaponAndArmor;
 	        }
 	    };
-	    
-	    public static Item _logoCreativeTabsTools = new Items("CreativeTabsLogoTools", "_logoCreativeTabsTools", 0);
+
+	    public static Item _logoCreativeTabsTools = new tabIcons("CreativeTabsLogoTools", "tabIcons/_logoCreativeTabsTools");
 	    public static final CreativeTabs tabAFRebornTools = new CreativeTabs("tabAFRebornTools") {
 	        @Override
 	        public Item getTabIconItem() {
 	            return _logoCreativeTabsTools;
 	        }
 	    };
-	    
-	    public static Item _logoCreativeTabsAnother = new Items("CreativeTabsLogoAnother", "_logoCreativeTabsAnother", 0);
+
+	    public static Item _logoCreativeTabsAnother = new tabIcons("CreativeTabsLogoAnother", "tabIcons/_logoCreativeTabsAnother");
 	    public static final CreativeTabs tabAFRebornAnother = new CreativeTabs("tabAFRebornAnother") {
 	        @Override
 	        public Item getTabIconItem() {
 	            return _logoCreativeTabsAnother;
 	        }
 	    };
-	    
-	    public static Item _logoCreativeTabsBlocks = new Items("CreativeTabsLogoBlocks", "_logoCreativeTabsBlocks", 0);
+
+	    public static Item _logoCreativeTabsBlocks = new tabIcons("CreativeTabsLogoBlocks", "tabIcons/_logoCreativeTabsBlocks");
 	    public static final CreativeTabs tabAFRebornBlocks = new CreativeTabs("tabAFRebornBlocks") {
 	        @Override
 	        public Item getTabIconItem() {
