@@ -8,11 +8,11 @@ itemGroup.tabAFRebornAnother=§5[AF] Reborn | Another
 item.GoldenCoin.name=Golden Arcoin
 item.SilverCoin.name=Silver Arcoin
 item.CooperCoin.name=Cooper Arcoin
-item.Coin1.lore=§5The ancient view of the world currency Arcane.
-item.Coin2.lore=§5Very much appreciated by traders and serves
-item.Coin3.lore=§5trade regulator in Arcane.
-item.Coin4.lore=§5You can get for quests and in the exchanger.
-item.CoinEmpty.lore=§5
+item.CoinLore1.lore=§5The ancient view of the world currency Arcane.
+item.CoinLore2.lore=§5Very much appreciated by traders and serves
+item.CoinLore3.lore=§5trade regulator in Arcane.
+item.CoinLore4.lore=§5
+item.CoinLore5.lore=§5You can get for quests and in the exchanger.
 
 ########## Armor ##########
 item.DaemonicHelmet.name=Daemonic Helmet
@@ -26,26 +26,41 @@ item.DaemonicShatter.name=Daemonic Shatter
 item.efficiency.lore=§5Efficiency of this hammer is about:
 item.GetDamage.lore=§5Hammer will be broken after:
 item.GetDamageL.lore=§5blocks broken
-item.par3mode.lore=§5Активирована способность:
+item.HammerMode.lore=§5Ability activated:
 
 ########## Items enchantments ##########
 enchantment.safe_all=§5Ancient Curse...
 
 ########## Items lore ##########
-item.par3MEDIUM1.lore=§5The hammer was made by the best craftsmen
-item.par3MEDIUM2.lore=§5only §6worthy §5will be able to access its full potential.
-item.par3MEDIUM3.lore=§5If something goes wrong, you can always §4 lie down and rest
-item.par3MEDIUM4.lore=§5in the §4kitchen §5for example.
+
+##### Medium hammer #####
+item.MediumHammerLore1.lore=§5The hammer was made by the best craftsmen
+item.MediumHammerLore2.lore=§5only §6worthy §5will be able to access its full potential.
+item.MediumHammerLore3.lore=§5If something goes wrong, you can always §4 lie down and rest
+item.MediumHammerLore4.lore=§5in the §4kitchen §5for example.
+
+##### Best hammer #####
+item.BestHammerLore1.lore=§5Best hammer lore example
+
+##### Zero hammer #####
+item.ZeroHammerLore1.lore=§5Zero hammer lore example
+
+##### Base hammer #####
+item.BaseHammerLore1.lore=§5Base hammer lore example
 
 ########## Tools ##########
 item.BasePickaxe.name=TEST Pickaxe
 item.MediumHammer.name=Godlike serhey hammer
 item.ZeroHammer.name=Great hammer shard
-item.BestHammer.name=Diverse world hammed
+item.BestHammer.name=Diverse world hammer
 item.Multi.name=Cursed shovel
-item.Rarity.name=
 
 ########## Weapon ##########
 item.BaseSkana.name=§5Skana
 item.IceSkana.name=§5Ice Skana
 item.LeatherClaws.name=§5Leather claws
+
+########## Blocks ##########
+tile.CrystallisedBluePlasma.name=§fCrystallised Blue Plasma
+tile.MagicRock.name=§fMagic rock
+tile.MagicWood.name=§fMagic wood

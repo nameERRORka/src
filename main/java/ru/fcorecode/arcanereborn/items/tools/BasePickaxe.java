@@ -50,8 +50,6 @@ public class BasePickaxe extends ItemPickaxe {
     }
 
     static Material[] materials = new Material[] { Material.rock, Material.iron, Material.ice, Material.glass, Material.piston, Material.anvil };
-    
-
   
     public BasePickaxe(String name, String texture, int maxStackSize, ToolMaterial baseHAMMER) {
         super(baseHAMMER);
@@ -67,31 +65,36 @@ public class BasePickaxe extends ItemPickaxe {
     }
 
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-        par3List.add("" + Rarity._legendary.rarityColor + Rarity._legendary.rarityName);
-        par3List.add(" " + " ");
-        par3List.add(StatCollector.translateToLocal("item.efficiency.lore") + " " + ModToolMaterial.digSpeedbaseHAMMER);
-        par3List.add(" " + " ");
-		par3List.add(StatCollector.translateToLocal("item.par1MEDIUM1.lore"));
-		par3List.add(StatCollector.translateToLocal("item.par1MEDIUM2.lore"));
-		par3List.add(StatCollector.translateToLocal("item.par1MEDIUM3.lore"));
-		par3List.add(StatCollector.translateToLocal("item.par1MEDIUM4.lore"));
-		par3List.add(StatCollector.translateToLocal("item.par1MEDIUM5.lore"));
-	    par3List.add(" " + " ");
-		par3List.add(StatCollector.translateToLocal("item.par3mode.lore")+ " " + namemode);
+    public void addInformation(ItemStack stack, EntityPlayer player, List itemDescription, boolean none) {
+        itemDescription.add("" + Rarity._legendary.rarityColor + Rarity._legendary.rarityName);
+        itemDescription.add(" " + " ");
+        itemDescription.add(StatCollector.translateToLocal("item.efficiency.lore") + " " + ModToolMaterial.digSpeedbaseHAMMER);
+        itemDescription.add(" " + " ");
+		itemDescription.add(StatCollector.translateToLocal("item.BaseHammerLore1.lore"));
+//		itemDescription.add(StatCollector.translateToLocal("item.BaseHammerLore2.lore"));
+//		itemDescription.add(StatCollector.translateToLocal("item.BaseHammerLore3.lore"));
+//		itemDescription.add(StatCollector.translateToLocal("item.BaseHammerLore4.lore"));
+//		itemDescription.add(StatCollector.translateToLocal("item.BaseHammerLore5.lore"));
+	    itemDescription.add(" " + " ");
+		itemDescription.add(StatCollector.translateToLocal("item.HammerMode.lore")+ " " + namemode);
         int a, b, c;
         a = this.getMaxDamage();
-        b = this.getDamage(par1ItemStack);
+        b = this.getDamage(stack);
         c = a - b;
-        par3List.add(" " + " ");
-        par3List.add(StatCollector.translateToLocal("item.GetDamage.lore") + " " + c + " " + StatCollector.translateToLocal("item.GetDamageL.lore"));
-        if(par1ItemStack.isItemEnchanted()) {
+        itemDescription.add(" " + " ");
+        itemDescription.add(StatCollector.translateToLocal("item.GetDamage.lore") + " " + c + " " + StatCollector.translateToLocal("item.GetDamageL.lore"));
+        if(stack.isItemEnchanted()) {
         	ItemStack enchStack = new ItemStack(Main._basepickaxe);
         	enchStack.addEnchantment(EnchantmentRegistry.SAFE_ALL, 1);
         }
     }
 
-    public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
+    @Override
+    public boolean hasEffect(ItemStack stack, int pass) {
+        return true;
+    }
+
+    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
         if (world.isRemote) {
             if (mode == 0) {
                 player.addChatMessage(new ChatComponentText("Включен режим 3 x 3"));
@@ -104,8 +107,8 @@ public class BasePickaxe extends ItemPickaxe {
             }
         }
 
-        itemStack.damageItem(1, player);
-        return itemStack;
+        stack.damageItem(1, player);
+        return stack;
     }
     public void onUpdate(ItemStack stack, World world, Entity entity, int par4, boolean par5) {
         super.onUpdate(stack, world, entity, par4, par5);

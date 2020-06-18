@@ -48,36 +48,41 @@ public class MediumHammer extends ItemPickaxe {
         this.maxStackSize = 1;
     }
 
-    public EnumRarity getRarity(ItemStack itemStack) {
+    public EnumRarity getRarity(ItemStack stack) {
         return Rarity._legendary;
     }
 
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-        par3List.add("" + Rarity._legendary.rarityColor + Rarity._legendary.rarityName);
-        par3List.add(" " + " ");
-        par3List.add(StatCollector.translateToLocal("item.efficiency.lore") + " " + ModToolMaterial.digSpeedMEDIUMHAMMER);
-        par3List.add(" " + " ");
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM1.lore"));
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM2.lore"));
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM3.lore"));
-		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM4.lore"));
-//		par3List.add(StatCollector.translateToLocal("item.par3MEDIUM5.lore"));
-	    par3List.add(" " + " ");
-		par3List.add(StatCollector.translateToLocal("item.par3mode.lore")+ " " + namemode);
+    public void addInformation(ItemStack stack, EntityPlayer play, List itemDescription, boolean none) {
+        itemDescription.add("" + Rarity._legendary.rarityColor + Rarity._legendary.rarityName);
+        itemDescription.add(" " + " ");
+        itemDescription.add(StatCollector.translateToLocal("item.efficiency.lore") + " " + ModToolMaterial.digSpeedMEDIUMHAMMER);
+        itemDescription.add(" " + " ");
+		itemDescription.add(StatCollector.translateToLocal("item.MediumHammerLore1.lore"));
+		itemDescription.add(StatCollector.translateToLocal("item.MediumHammerLore2.lore"));
+		itemDescription.add(StatCollector.translateToLocal("item.MediumHammerLore3.lore"));
+		itemDescription.add(StatCollector.translateToLocal("item.MediumHammerLore4.lore"));
+//		itemDescription.add(StatCollector.translateToLocal("item.MediumHammerLore5.lore"));
+	    itemDescription.add(" " + " ");
+		itemDescription.add(StatCollector.translateToLocal("item.HammerMode.lore")+ " " + namemode);
         int a, b, c;
         a = this.getMaxDamage();
-        b = this.getDamage(par1ItemStack);
+        b = this.getDamage(stack);
         c = a - b;
 
-        par3List.add(" " + " ");
-        par3List.add(StatCollector.translateToLocal("item.GetDamage.lore") + " " + c + " " + StatCollector.translateToLocal("item.GetDamageL.lore"));
-        if( par1ItemStack.stackTagCompound == null ) {
-        par1ItemStack.addEnchantment(EnchantmentRegistry.SAFE_ALL, 1);
+        itemDescription.add(" " + " ");
+        itemDescription.add(StatCollector.translateToLocal("item.GetDamage.lore") + " " + c + " " + StatCollector.translateToLocal("item.GetDamageL.lore"));
+        if( stack.stackTagCompound == null ) {
+        stack.addEnchantment(EnchantmentRegistry.SAFE_ALL, 1);
         }
     }
 
-    public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
+    @Override
+    public boolean hasEffect(ItemStack stack, int pass) {
+        return true;
+    }
+
+    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
         if (world.isRemote) {
             if (mode == 1) {
 
@@ -98,9 +103,9 @@ public class MediumHammer extends ItemPickaxe {
                 namemode = "digSlowDown";
             }
         }
-        
-        itemStack.damageItem(1, player);
-        return itemStack;
+
+        stack.damageItem(1, player);
+        return stack;
     }
     public void onUpdate (ItemStack stack, World world, Entity entity, int par4, boolean par5)
     {
@@ -118,7 +123,7 @@ public class MediumHammer extends ItemPickaxe {
             } else if (equipped == stack && mode == 0) {
             	player.removePotionEffect(Potion.damageBoost.id);
             }
-        
+
 
 }}
     @Override
