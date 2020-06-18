@@ -1,23 +1,23 @@
 package ru.fcorecode.arcanereborn.proxy;
 
-import ru.fcorecode.arcanereborn.blocks.AFBlocks; // load blocks registry class
-//import ru.fcorecode.arcanereborn.items.tools. //load items registry class
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
+public class ServerProxy extends CommonProxy{
 
-public class CommonProxy {
-
+    @Override
     public void preInit(FMLPreInitializationEvent e) {
-        AFBlocks.init();
+        super.preInit(e);
     }
 
+    @Override
     public void init(FMLInitializationEvent e) {
-
+        super.init(e);
     }
 
+    @Override
     public void postInit(FMLPostInitializationEvent e) {
-
+        super.postInit(e);
     }
 }

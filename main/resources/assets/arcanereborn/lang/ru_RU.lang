@@ -3,6 +3,7 @@ itemGroup.tabAFRebornMoney=§5[AF] Reborn | Валюта
 itemGroup.tabAFRebornWaA=§5[AF] Reborn | Оружие и Броня
 itemGroup.tabAFRebornTools=§5[AF] Reborn | Инструменты
 itemGroup.tabAFRebornAnother=§5[AF] Reborn | Разное
+itemGroup.tabAFRebornBlocks=§5[AF] Reborn | Блоки
 
 ########## Coins ##########
 item.GoldenCoin.name=Золотой Аркоин

@@ -3,6 +3,7 @@ itemGroup.tabAFRebornMoney=§5[AF] Reborn | Money
 itemGroup.tabAFRebornWaA=§5[AF] Reborn | Weapon and Armor
 itemGroup.tabAFRebornTools=§5[AF] Reborn | Tools
 itemGroup.tabAFRebornAnother=§5[AF] Reborn | Another
+itemGroup.tabAFRebornBlocks=§5[AF] Reborn | Blocks
 
 ########## Coins ##########
 item.GoldenCoin.name=Golden Arcoin

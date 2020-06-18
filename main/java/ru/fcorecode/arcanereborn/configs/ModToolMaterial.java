@@ -5,7 +5,7 @@ import net.minecraftforge.common.util.EnumHelper;
 
 public class ModToolMaterial {
 	
-	//#######Materials for guns
+	//####### Materials for guns
     //=======================
     //1 - name
     //2 - level dig
