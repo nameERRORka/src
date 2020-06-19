@@ -19,8 +19,8 @@ public final class AFRBlocks {
         _CrystallisedBluePlasma = new CrystallisedBluePlasma("CrystallisedBluePlasma", Material.iron, "CrystallisedBluePlasma/CrystallisedBluePlasma");
         GameRegistry.registerBlock(_CrystallisedBluePlasma, "CrystallisedBluePlasma");
 
-        _MagicWood = new Magicwood(Material.wood);
-        GameRegistry.registerBlock(_MagicWood, "MagicWood");
+//        _MagicWood = new Magicwood(Material.wood);
+//        GameRegistry.registerBlock(_MagicWood, "MagicWood");
 
         _MagicRock = new MagicRock("MagicRock", Material.rock, "MagicRock/_MagicRock");
         GameRegistry.registerBlock(_MagicRock, "MagicRock");

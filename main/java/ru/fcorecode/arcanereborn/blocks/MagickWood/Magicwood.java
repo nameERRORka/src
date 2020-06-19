@@ -77,8 +77,11 @@ public class Magicwood extends Block {
             "right"
     };
 
-    public Magicwood(Material material) {
+    public Magicwood(String unlocalizedName, Material material, String texture) {
         super(material);
+        this.setBlockName(unlocalizedName);
+        this.setBlockTextureName(Main.MODID + ":" + unlocalizedName);
+        this.setCreativeTab(ConfigInfo.tabAFRebornBlocks);
         this.setStepSound(soundTypeWood);
     }
 
