@@ -63,15 +63,6 @@ public class ConfigInfo
 
 		//Potion ID
 		public static int IDFly = 1015;
-		
-
-	    public static Item _logoCreativeTabsMoney = new tabIcons("CreativeTabsLogoMoney", "tabIcons/_logoCreativeTabsMoney");
-	    public static final CreativeTabs tabAFRebornMoney = new CreativeTabs("tabAFRebornMoney") {
-	        @Override
-	        public Item getTabIconItem() {
-	            return _logoCreativeTabsMoney;
-	        }
-	    };
 
 	    public static Item _logoCreativeTabsWeaponAndArmor = new tabIcons("CreativeTabsLogoWaA", "tabIcons/_logoCreativeTabsWeaponAndArmor");
 	    public static final CreativeTabs tabAFRebornWaA = new CreativeTabs("tabAFRebornWaA") {
@@ -89,19 +80,27 @@ public class ConfigInfo
 	        }
 	    };
 
-	    public static Item _logoCreativeTabsAnother = new tabIcons("CreativeTabsLogoAnother", "tabIcons/_logoCreativeTabsAnother");
-	    public static final CreativeTabs tabAFRebornAnother = new CreativeTabs("tabAFRebornAnother") {
-	        @Override
-	        public Item getTabIconItem() {
-	            return _logoCreativeTabsAnother;
-	        }
-	    };
-
 	    public static Item _logoCreativeTabsBlocks = new tabIcons("CreativeTabsLogoBlocks", "tabIcons/_logoCreativeTabsBlocks");
 	    public static final CreativeTabs tabAFRebornBlocks = new CreativeTabs("tabAFRebornBlocks") {
 	        @Override
 	        public Item getTabIconItem() {
 	            return _logoCreativeTabsBlocks;
+	        }
+	    };
+
+		public static Item _logoCreativeTabsMoney = new tabIcons("CreativeTabsLogoMoney", "tabIcons/_logoCreativeTabsMoney");
+		public static final CreativeTabs tabAFRebornMoney = new CreativeTabs("tabAFRebornMoney") {
+			@Override
+			public Item getTabIconItem() {
+				return _logoCreativeTabsMoney;
+			}
+		};
+
+	    public static Item _logoCreativeTabsAnother = new tabIcons("CreativeTabsLogoAnother", "tabIcons/_logoCreativeTabsAnother");
+	    public static final CreativeTabs tabAFRebornAnother = new CreativeTabs("tabAFRebornAnother") {
+	        @Override
+	        public Item getTabIconItem() {
+	            return _logoCreativeTabsAnother;
 	        }
 	    };
 	    //--------------------------------

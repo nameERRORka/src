@@ -6,6 +6,8 @@ import net.minecraft.item.ItemStack;
 import ru.fcorecode.arcanereborn.configs.ModToolMaterial;
 import ru.fcorecode.arcanereborn.enchant.EnchantmentRegistry;
 import ru.fcorecode.arcanereborn.items.Money.Money;
+import ru.fcorecode.arcanereborn.items.armor._daemonicArmor;
+import ru.fcorecode.arcanereborn.items.items.DaemonicShatter;
 import ru.fcorecode.arcanereborn.items.tools.*;
 import ru.fcorecode.arcanereborn.items.weapons.BaseSkana;
 import ru.fcorecode.arcanereborn.items.weapons.LeatherClaws;
@@ -26,6 +28,9 @@ public final class AFRItems {
 	public static Item _LeatherClaws;
 
 	public static void init() {
+
+		_daemonicShatter = new DaemonicShatter("DaemonicShatter", "items/_daemonicShatter");
+		GameRegistry.registerItem(_daemonicShatter, "DaemonicShatter");
 
 		_Skana = new BaseSkana("BaseSkana", "weapon/_baseSkana", 1, ModToolMaterial.SKANA);
 		GameRegistry.registerItem(_Skana, "BaseSkana");
@@ -48,7 +53,7 @@ public final class AFRItems {
 		_ZeroHammer = new ZeroHammer("ZeroHammer", "tools/_zeroHammer", 1, ModToolMaterial.ZeroHammer);
 		GameRegistry.registerItem(_ZeroHammer, "ZeroHammer");
 
-		_BaseMultitool = new BaseMultiTool("Multi", "tools/_multi", 1, ModToolMaterial.BaseMultiTool);
+		_BaseMultitool = new BaseMultiTool("Multi", "tools/_baseMultiTool", 1, ModToolMaterial.BaseMultiTool);
 		GameRegistry.registerItem(_BaseMultitool, "Multitool");
 
 		_goldenCoin = new Money("GoldenCoin", "items/_goldenCoin", 64);

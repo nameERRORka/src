@@ -13,5 +13,5 @@ public class Rarity
 	public static final EnumRarity _epic = EnumHelper.addRarity("_epic", EnumChatFormatting.LIGHT_PURPLE, "[Эпический]");
 	public static final EnumRarity _legendary = EnumHelper.addRarity("_legendary", EnumChatFormatting.YELLOW, "[Легендарный]");
 	public static final EnumRarity _awakened = EnumHelper.addRarity("_awakened", EnumChatFormatting.GOLD, "[Пробужденный]");
-	public static final EnumRarity _arcoins = EnumHelper.addRarity("_awakened", EnumChatFormatting.GOLD, "[Валюта]");
+	public static final EnumRarity _arcoins = EnumHelper.addRarity("_arcoin", EnumChatFormatting.GOLD, "[Валюта]");
 }
