@@ -66,7 +66,7 @@ public class LeatherClaws extends ItemSword
 		this.setTextureName(Main.MODID + ":" + texture);
 		this.setCreativeTab(ConfigInfo.tabAFRebornWaA);
 		this.maxStackSize = 1;
-		GameRegistry.registerItem(this, name);
+//		GameRegistry.registerItem(this, name);
 	}
 
 	public EnumRarity getRarity(ItemStack itemStack)

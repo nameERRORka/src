@@ -27,7 +27,7 @@ public class Money extends Item
 		this.setTextureName(Main.MODID + ":" + texture);
 		this.setCreativeTab(ConfigInfo.tabAFRebornMoney);
 		this.maxStackSize = maxStackSize;
-		GameRegistry.registerItem(this, name);
+//		GameRegistry.registerItem(this, name);
 	}
 
 	@SideOnly(Side.CLIENT)

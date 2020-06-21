@@ -63,24 +63,24 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class Magicwood extends Block {
+public class MagicWood extends Block {
 
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
 
     public final String[] name = new String[] {
-            "bottom",
-            "top",
-            "back",
-            "front",
-            "left",
-            "right"
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
     };
 
-    public Magicwood(String unlocalizedName, Material material, String texture) {
+    public MagicWood(String unlocalizedName, Material material) {
         super(material);
         this.setBlockName(unlocalizedName);
-        this.setBlockTextureName(Main.MODID + ":" + unlocalizedName);
+        this.setBlockTextureName(Main.MODID + ":" + unlocalizedName + "/_" + unlocalizedName);
         this.setCreativeTab(ConfigInfo.tabAFRebornBlocks);
         this.setStepSound(soundTypeWood);
     }
