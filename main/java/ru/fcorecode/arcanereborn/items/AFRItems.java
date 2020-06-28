@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import ru.fcorecode.arcanereborn.configs.ModToolMaterial;
 import ru.fcorecode.arcanereborn.enchant.EnchantmentRegistry;
+import ru.fcorecode.arcanereborn.food.littlecake;
 import ru.fcorecode.arcanereborn.items.Money.Money;
 import ru.fcorecode.arcanereborn.items.armor._daemonicArmor;
 import ru.fcorecode.arcanereborn.items.items.DaemonicShatter;
@@ -27,6 +28,7 @@ public final class AFRItems {
 	public static Item _Skana;
 	public static Item _IceSkana;
 	public static Item _LeatherClaws;
+	public static Item _LittleCake;
 	
 
 	public static void init() {
@@ -69,6 +71,9 @@ public final class AFRItems {
 
 		_cooperCoin = new Money("CooperCoin", "items/_cooperCoin", 64);
 		GameRegistry.registerItem(_cooperCoin, "CooperCoin");
+		
+		_LittleCake = new littlecake("LittleCake", 1, 5F, false);
+		GameRegistry.registerItem(_LittleCake, "LittleCake");
 
 
 
