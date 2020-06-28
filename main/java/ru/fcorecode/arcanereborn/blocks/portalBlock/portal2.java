@@ -23,9 +23,8 @@ import ru.fcorecode.arcanereborn.dimension.FreeTeleporter;
 //import net.minecraft.server.management.PlayerList;
 
 
-public final class portal extends Block {
-
-    public portal(String unlocalizedName, Material material, String texturePath) {
+public final class portal2 extends Block {
+    public portal2(String unlocalizedName, Material material, String texturePath) {
         super(material);
         this.setBlockName(unlocalizedName);
         this.setCreativeTab(ConfigInfo.tabAFRebornBlocks);
@@ -37,26 +36,23 @@ public final class portal extends Block {
         this.setLightOpacity(0);
         this.setBlockTextureName(Main.MODID + ":" + texturePath);
     }
-    
    // public static List<EntityPlayerMP> getAllPlayers() {
    //     return FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().playerEntityList;
    // }
-boolean onBlockActivated(World world, Entity entity, int dimTo, double x, double y, double z, EntityPlayer playerIn, EntityPlayerMP players, WorldServer worldIn){
-	    if (!world.isRemote) {
-	    	EntityPlayerMP player = (EntityPlayerMP) entity;
-	        if ((player.ridingEntity == null) && (player.riddenByEntity == null)
-	                && ((player instanceof EntityPlayerMP))) { //
-	            EntityPlayerMP playerMP = (EntityPlayerMP) player;
-	            if (playerMP.dimension != 55553) {
-		dimTo = 55553;
-
-	player.addChatMessage(new ChatComponentText("� ��������!"));
-	MinecraftServer server = FMLCommonHandler.instance().getMinecraftServerInstance();
-	//PlayerList list = FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().getPlayerList();
-	//list.transferPlayerToDimension((EntityPlayerMP)playerIn, 55553, new FreeTeleporter(DimensionManager.getWorld(55553)));
-	MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension(player, 55553, new FreeTeleporter(DimensionManager.getWorld(55553)));
-	
-
-}}}
-	return blockConstructorCalled;}
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float f0, float f1, float f2){
+        if (!world.isRemote) {
+            if ((player.ridingEntity == null) && (player.riddenByEntity == null)
+                    && ((player instanceof EntityPlayerMP))) { //
+                EntityPlayerMP playerMP = (EntityPlayerMP) player;
+                if (playerMP.dimension != 55553) {
+                    MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension((EntityPlayerMP)player, 55553, new FreeTeleporter(DimensionManager.getWorld(55553)));
+                } else if (playerMP.dimension == 55553) {
+                	MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension((EntityPlayerMP)player, 0, new FreeTeleporter(DimensionManager.getWorld(0)));
+                }
+                
+            }
+    
+    }
+		return blockConstructorCalled;
+}
 }

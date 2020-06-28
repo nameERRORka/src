@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import ru.fcorecode.arcanereborn.blocks.BluePlasma.CrystallisedBluePlasma;
 import ru.fcorecode.arcanereborn.blocks.MagicRock.MagicRock;
 import ru.fcorecode.arcanereborn.blocks.MagickWood.MagicWood;
-import ru.fcorecode.arcanereborn.blocks.portalBlock.portal;
+import ru.fcorecode.arcanereborn.blocks.portalBlock.portal2;
 
 
 public final class AFRBlocks {
@@ -14,7 +14,8 @@ public final class AFRBlocks {
     public static Block _CrystallisedBluePlasma;
     public static Block _MagicWood;
     public static Block _MagicRock;
-    public static Block _portal;
+    public static Block _portal2;
+
     
     public static void init() {
 
@@ -26,8 +27,8 @@ public final class AFRBlocks {
 
         _MagicRock = new MagicRock("MagicRock", Material.rock, "MagicRock/_MagicRock");
         GameRegistry.registerBlock(_MagicRock, "MagicRock");
-        
-        _portal = new portal("Portal", Material.portal, "Portal/_portal");
-        GameRegistry.registerBlock(_portal, "Portal");
+
+        _portal2 = new portal2("Portal2", Material.portal, "Portal/_portal");
+        GameRegistry.registerBlock(_portal2, "Portal2");
     }
 }

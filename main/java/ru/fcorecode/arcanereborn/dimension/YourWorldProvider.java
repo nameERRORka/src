@@ -12,11 +12,12 @@ import net.minecraft.world.WorldServer;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
+import ru.fcorecode.arcanereborn.biome.DeadLand;
 
 public class YourWorldProvider extends WorldProvider {
 	public void registerWorldChunkManager() { // Чанк менеджер
 	    this.dimensionId = 55553; // ID мира
-	    this.worldChunkMgr = new WorldChunkManagerHell(BiomeGenBase.jungle, 0.0F); // Чанк менеджер, например тут генерация будет как замёрзший океан
+	    this.worldChunkMgr = new WorldChunkManagerHell(BiomeGenBase.swampland, 0.0F); 
 	}
     public IChunkProvider createChunkGenerator()
     {
@@ -33,22 +34,17 @@ public class YourWorldProvider extends WorldProvider {
         return  ("DIMA" + dimensionId);
     }
     
-    public String getWelcomeMessage()
+    public String setWelcomeMessage()
     {
         if (this instanceof YourWorldProvider)
         {
-            return "Вы входите в пиздец какую опасную зону";
+            return "Земли Арканы2: возвращение приветствуют вас";
         }
         return null;
 }
-    public boolean canCoordinateBeSpawn(int p_76566_1_, int p_76566_2_)
-    {
-        return this.worldObj.getTopBlock(p_76566_1_, p_76566_2_) == Blocks.grass;
-    }
-    public ChunkCoordinates getEntrancePortalLocation()
-    {
-        return null;
-    }
+
+ 
+    
 
     	}
 
