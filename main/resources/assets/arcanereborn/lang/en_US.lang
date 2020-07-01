@@ -17,7 +17,7 @@ item.CoinLore5.lore=§5You can get for quests and in the exchanger.
 
 ########## Armor ##########
 item.DaemonicHelmet.name=Daemonic Helmet
-item.DaemonicBody.name=Daemonic Body Armor
+item.DaemonicCuirass.name=Daemonic Cuirass
 item.DaemonicLegs.name=Daemonic Legs Armor
 item.DaemonicSteps.name=Daemonic Steps Armor
 
@@ -48,6 +48,9 @@ item.ZeroHammerLore1.lore=§5Zero hammer lore example
 
 ##### Base hammer #####
 item.BaseHammerLore1.lore=§5Base hammer lore example
+
+##### Iridium Drill #####
+item.Iridium.name=§5Iridium drill
 
 ########## Tools ##########
 item.BasePickaxe.name=TEST Pickaxe

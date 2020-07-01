@@ -2,6 +2,7 @@ package ru.fcorecode.arcanereborn.items.armor;
 
 import java.awt.List;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
@@ -17,30 +18,23 @@ import ru.fcorecode.arcanereborn.configs.ConfigInfo;
 import ru.fcorecode.arcanereborn.configs.Rarity;
 import net.minecraftforge.common.util.EnumHelper;
 
-public class _daemonicArmor extends ItemArmor {
-	//=====================kostili=============================
-	private String texturePath = Main.MODID + ":textures/model/armor/";
-	//=================================================================
-	public _daemonicArmor(int id, int armorType) {
-	  super(ArmorMaterial.DIAMOND, id, armorType);
-	  this.setCreativeTab(ConfigInfo.tabAFRebornWaA);
-	  this.setMaxStackSize(1);
-	  this.setTextureName();
-	}
+public final class _daemonicArmor extends ItemArmor {
 
-	public void setTextureName ()
-	{
-	  if(armorType == 0||armorType == 1||armorType == 3){
-	    this.texturePath += "DaemonicArmor_1.png";
-	  }
-	  else {
-	    this.texturePath += "DaemonicArmor_2.png";
-	  }
+	private final String texturePath;
+
+	public _daemonicArmor(String name, String iconPath, String texturePath, int maxStackSize, int id, int armorType) {
+		super(ArmorMaterial.DIAMOND, id, armorType);
+		this.setUnlocalizedName(name);
+		this.setTextureName(String.format("%s:%s", Main.MODID, iconPath));
+		this.setCreativeTab(ConfigInfo.tabAFRebornWaA);
+		this.setMaxStackSize(maxStackSize);
+		this.texturePath = String.format("%s:textures/model/armor/%s", Main.MODID, texturePath);
+		GameRegistry.registerItem(this, name);
 	}
 
 	@Override
 	public String getArmorTexture(ItemStack itemstack, Entity entity, int slot, String type){
-	  return this.texturePath;
+		return this.texturePath;
 	}
 	
 	public EnumRarity getRarity(ItemStack itemstack)

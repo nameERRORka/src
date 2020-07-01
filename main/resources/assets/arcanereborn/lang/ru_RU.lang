@@ -17,7 +17,7 @@ item.CoinLore5.lore=§5Вы можете получить это за задан
 
 ########## Armor ##########
 item.DaemonicHelmet.name=Демонический шлем
-item.DaemonicBody.name=Демоническая кираса
+item.DaemonicCuirass.name=Демоническая кираса
 item.DaemonicLegs.name=Демонические поножи
 item.DaemonicSteps.name=Демонические боты
 
@@ -49,9 +49,9 @@ item.ZeroHammerLore1.lore=§5Zero hammer lore example
 ##### Base hammer #####
 item.BaseHammerLore1.lore=§5Zero hammer lore example
 
-
 ##### Iridium Drill #####
 item.Iridium.name=§5Иридиевая дрель
+
 ########## Tools ##########
 item.BasePickaxe.name=Кирка "беги отсюда нахуй"
 item.MediumHammer.name=Молот богоподобного сэрхея

@@ -29,6 +29,10 @@ public final class AFRItems {
 	public static Item _IceSkana;
 	public static Item _LeatherClaws;
 	public static Item _LittleCake;
+    public static Item _daemonicHelmet;
+    public static Item _daemonicBody;
+    public static Item _daemonicLegs;
+    public static Item _daemonicSteps;
 	
 
 	public static void init() {
@@ -74,6 +78,11 @@ public final class AFRItems {
 		
 		_LittleCake = new littlecake("LittleCake", 1, 5F, false);
 		GameRegistry.registerItem(_LittleCake, "LittleCake");
+
+        _daemonicHelmet = new _daemonicArmor("DaemonicHelmet", "armor/daemonic/_daemonicHelmet", "DaemonicArmor_1.png", 1,0, 0);
+        _daemonicBody = new _daemonicArmor("DaemonicCuirass", "armor/daemonic/_daemonicCuirass", "DaemonicArmor_1.png", 1,0, 1);
+        _daemonicLegs = new _daemonicArmor("DaemonicLegs", "armor/daemonic/_daemonicLegs", "DaemonicArmor_2.png", 1,0, 2);
+        _daemonicSteps = new _daemonicArmor("DaemonicSteps","armor/daemonic/_daemonicSteps", "DaemonicArmor_1.png", 1,0, 3);
 
 
 
