@@ -22,7 +22,14 @@ public final class MagicRock extends Block {
     }
 
     @Override
-    public boolean isOpaqueCube() {
+	public boolean isOpaqueCube()
+    {
+        return false;
+    }
+
+    @Override
+	public boolean renderAsNormalBlock()
+    {
         return false;
     }
 }

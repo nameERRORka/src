@@ -14,11 +14,17 @@ import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
 import ru.fcorecode.arcanereborn.biome.DeadLand;
 
-public class YourWorldProvider extends WorldProvider {
+public class WorldProviderDeadLand extends WorldProvider {
 	public void registerWorldChunkManager() { // Чанк менеджер
 	    this.dimensionId = 55553; // ID мира
-	    this.worldChunkMgr = new WorldChunkManagerHell(BiomeGenBase.swampland, 0.0F); 
+	    this.worldChunkMgr = new WorldChunkManagerHell(BiomeGenBase.plains, 0.0F); 
 	}
+    @Override
+    public float getCloudHeight()
+    {
+        return 128.0F;
+    }
+
     public IChunkProvider createChunkGenerator()
     {
         return terrainType.getChunkGenerator(worldObj, field_82913_c);
@@ -31,16 +37,16 @@ public class YourWorldProvider extends WorldProvider {
 	
     public String getSaveFolder()
     {
-        return  ("DIMA" + dimensionId);
+        return  ("DIM" + dimensionId);
     }
     
     public String setWelcomeMessage()
     {
-        if (this instanceof YourWorldProvider)
+        if (this instanceof WorldProviderDeadLand)
         {
             return "Земли Арканы2: возвращение приветствуют вас";
         }
-        return null;
+        return "Земли Арканы2: возвращение приветствуют вас";
 }
 
  

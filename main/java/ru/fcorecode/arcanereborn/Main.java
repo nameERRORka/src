@@ -9,7 +9,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.DimensionManager;
-import ru.fcorecode.arcanereborn.dimension.YourWorldProvider;
+import ru.fcorecode.arcanereborn.dimension.WorldProviderDeadLand;
 import ru.fcorecode.arcanereborn.proxy.CommonProxy;
 
 @Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION, dependencies = "required-after:IC2;")

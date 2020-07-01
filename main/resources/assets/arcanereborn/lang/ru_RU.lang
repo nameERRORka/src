@@ -68,3 +68,7 @@ item.LeatherClaws.name=§5Кожаные когти
 tile.CrystallisedBluePlasma.name=§fСиняя кристаллизованная плазма
 tile.MagicRock.name=§fМагический камень
 tile.MagicWood.name=§fМагическая древесина
+
+######### Achievement #########
+achievement.DeadLand=§5Что это за место?
+achievement.DeadLand.desc=§5Вы попали в новый мир... Что же вас ждет? §4Смерть? §5Или же новые §6знания?
