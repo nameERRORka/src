@@ -49,6 +49,9 @@ item.ZeroHammerLore1.lore=§5Zero hammer lore example
 ##### Base hammer #####
 item.BaseHammerLore1.lore=§5Zero hammer lore example
 
+
+##### Iridium Drill #####
+item.Iridium.name=§5Иридиевая дрель
 ########## Tools ##########
 item.BasePickaxe.name=Кирка "беги отсюда нахуй"
 item.MediumHammer.name=Молот богоподобного сэрхея

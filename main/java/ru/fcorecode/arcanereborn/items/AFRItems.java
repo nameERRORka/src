@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import ru.fcorecode.arcanereborn.configs.ModToolMaterial;
 import ru.fcorecode.arcanereborn.enchant.EnchantmentRegistry;
+import ru.fcorecode.arcanereborn.food.littlecake;
 import ru.fcorecode.arcanereborn.items.Money.Money;
 import ru.fcorecode.arcanereborn.items.armor._daemonicArmor;
 import ru.fcorecode.arcanereborn.items.items.DaemonicShatter;
@@ -20,12 +21,15 @@ public final class AFRItems {
 	public static Item _ZeroHammer;
 	public static Item _BaseMultitool;
 	public static Item _BasePickaxe;
+	public static Item _IridiumDrill;
 	public static Item _goldenCoin;
 	public static Item _silverCoin;
 	public static Item _cooperCoin;
 	public static Item _Skana;
 	public static Item _IceSkana;
 	public static Item _LeatherClaws;
+	public static Item _LittleCake;
+	
 
 	public static void init() {
 
@@ -55,6 +59,9 @@ public final class AFRItems {
 
 		_BaseMultitool = new BaseMultiTool("Multi", "tools/_baseMultiTool", 1, ModToolMaterial.BaseMultiTool);
 		GameRegistry.registerItem(_BaseMultitool, "Multitool");
+		
+		_IridiumDrill = new ItemToolBigIridiumDrill("Iridium", "tools/_IridiumDrill", 2, 2.7E5D, 9.0E2D, false, 5.0E1);
+		GameRegistry.registerItem(_IridiumDrill, "IridiumDrill");
 
 		_goldenCoin = new Money("GoldenCoin", "items/_goldenCoin", 64);
 		GameRegistry.registerItem(_goldenCoin, "GoldenCoin");
@@ -64,6 +71,9 @@ public final class AFRItems {
 
 		_cooperCoin = new Money("CooperCoin", "items/_cooperCoin", 64);
 		GameRegistry.registerItem(_cooperCoin, "CooperCoin");
+		
+		_LittleCake = new littlecake("LittleCake", 1, 5F, false);
+		GameRegistry.registerItem(_LittleCake, "LittleCake");
 
 
 
