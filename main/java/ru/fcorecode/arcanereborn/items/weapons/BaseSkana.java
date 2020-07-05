@@ -2,6 +2,7 @@ package ru.fcorecode.arcanereborn.items.weapons;
 
 import java.util.List;
 
+import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.InputEvent.KeyInputEvent;
@@ -13,7 +14,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
@@ -23,10 +27,14 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.EntityDamageSource;
+import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import ru.fcorecode.arcanereborn.Main;
@@ -50,7 +58,15 @@ public class BaseSkana extends ItemSword
             }
         }
     }
+    @SubscribeEvent
+    public void onAmmount(LivingHurtEvent e, Event event) {
+        if (e.source instanceof EntityDamageSource) {
+            EntityDamageSource dmgSource = (EntityDamageSource)e.source;
+            Entity from = dmgSource.getEntity();//Кто наносит урон,
+            EntityLivingBase to = e.entityLiving;//Кому наноситься урон,
 		TickEvent.ServerTickEvent evt;
+        }}
+        
 		EntityPlayer player;
 		int mode = 1;
 		public BaseSkana(String name, String texture, int maxStackSize, ToolMaterial mater)
