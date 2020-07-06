@@ -12,45 +12,62 @@ import net.minecraft.world.WorldServer;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
-import ru.fcorecode.arcanereborn.biome.DeadLand;
+import ru.fcorecode.arcanereborn.biome.BiomeGenDeadLand;
 
 public class WorldProviderDeadLand extends WorldProvider {
-	public void registerWorldChunkManager() { // Чанк менеджер
-	    this.dimensionId = 55553; // ID мира
-	    this.worldChunkMgr = new WorldChunkManagerHell(BiomeGenBase.plains, 0.0F); 
-	}
+    @Override
+    public void registerWorldChunkManager()
+    {
+        this.worldChunkMgr = new WorldChunkManagerHell(DimensionHelper.arcanaBiome, 0.5F);
+        this.dimensionId = 55553;
+    }
+
+    @Override
+    protected void generateLightBrightnessTable()
+    {
+        float var1 = 0.1F;
+
+        for (int var2 = 0; var2 <= 15; ++var2)
+        {
+            float var3 = 1.0F - var2 / 15.0F;
+            this.lightBrightnessTable[var2] = (1.0F - var3) / (var3 * 3.0F + 1.0F) * (1.0F - var1) + var1;
+        }
+    }
+
     @Override
     public float getCloudHeight()
     {
         return 128.0F;
     }
 
-    public IChunkProvider createChunkGenerator()
+
+
+    @Override
+    public boolean isSurfaceWorld()
     {
-        return terrainType.getChunkGenerator(worldObj, field_82913_c);
+        return false;
     }
 
-	@Override
-	public String getDimensionName() {
-		return "MagicBook";
-	}
-	
-    public String getSaveFolder()
+    @Override
+    public float calculateCelestialAngle(long var1, float var3)
     {
-        return  ("DIM" + dimensionId);
+        return 0F;
     }
-    
-    public String setWelcomeMessage()
+
+    @Override
+    public boolean canRespawnHere()
     {
-        if (this instanceof WorldProviderDeadLand)
-        {
-            return "Земли Арканы2: возвращение приветствуют вас";
-        }
-        return "Земли Арканы2: возвращение приветствуют вас";
+        return false;
+    }
+
+    @Override
+    public String getSaveFolder() {
+    	return "Arcana";
+    }
+
+    @Override
+    public String getDimensionName()
+    {
+        return "Arcana";
+    }
 }
-
- 
-    
-
-    	}
-

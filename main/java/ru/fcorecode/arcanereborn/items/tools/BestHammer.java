@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
@@ -17,16 +18,19 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.common.util.ForgeDirection;
 import ru.fcorecode.arcanereborn.Main;
 import ru.fcorecode.arcanereborn.configs.ConfigInfo;
 import ru.fcorecode.arcanereborn.configs.RandomUtils;
 import ru.fcorecode.arcanereborn.configs.Rarity;
 import ru.fcorecode.arcanereborn.enchant.EnchantmentRegistry;
+import ru.fcorecode.arcanereborn.items.ToolHandler;
 import ru.fcorecode.arcanereborn.configs.ModToolMaterial;
 
 public class BestHammer extends ItemPickaxe {
-    public int mode = 4;
-    public String namemode = "none";
+    public int mode = 0;
+    public String namemode = "1 x 1";
+    
     public BestHammer(String name, String texture, int maxStackSize, ToolMaterial BestHammer) {
         super(BestHammer);
         this.canRepair = false;
@@ -70,31 +74,6 @@ public class BestHammer extends ItemPickaxe {
         return true;
     }
 
-    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-        if (world.isRemote) {
-            if (mode == 1) {
-            	
-                player.addChatMessage(new ChatComponentText("Ночное видение"));
-            	mode = 2;
-            	namemode = "NightVision";
-            } else if (mode == 2) { 
-                player.addChatMessage(new ChatComponentText("Увеличение урона"));
-                mode = 3;
-                namemode = "DamageBoost";
-            } else if (mode == 3) {
-                player.addChatMessage(new ChatComponentText("Без эффектов"));
-                mode = 4;
-                namemode = "none";
-            } else if (mode == 4) {
-                player.addChatMessage(new ChatComponentText("Утомление"));
-                mode = 1;
-                namemode = "digSlowDown";
-            }
-        }
-        
-        stack.damageItem(1, player);
-        return stack;
-    }
 
     public void onUpdate (ItemStack stack, World world, Entity entity, int par4, boolean par5)
     {
@@ -103,79 +82,75 @@ public class BestHammer extends ItemPickaxe {
         {
             EntityPlayer player = (EntityPlayer) entity;
             ItemStack equipped = player.getCurrentEquippedItem();
-            if (equipped == stack && mode == 1){
-                player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 2, 2, true));
-            } else if (equipped == stack && mode == 2) {
-                player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 2, 2, true));
-            } else if (equipped == stack && mode == 3) {
-                player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 2, 2, true));
-            } else if (equipped == stack && mode == 0) {
-            	player.removePotionEffect(Potion.damageBoost.id);
+            if (equipped == stack){
+                player.removePotionEffect(Potion.moveSpeed.id);
             }
         
 
 }}
-    @Override
-    public boolean onBlockStartBreak(ItemStack stack, int x, int y, int z, EntityPlayer player) {
-        World world = player.worldObj;
-        Block block = world.getBlock(x, y, z);
+	@Override
+	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
+		if (par2World.isRemote) {
 
-        MovingObjectPosition object = RandomUtils.raytraceFromEntity(world, player, false, 4.5D);
+			} if (par3EntityPlayer.isSneaking()) {
+				if (namemode == "1 x 1") {
+					namemode = "3 x 3";
+					mode = 1;
+					par3EntityPlayer.addChatMessage(new ChatComponentText(namemode));
+				} else if (namemode == "3 x 3") {
+					namemode = "1 x 1";
+					mode = 0;
+			    	par3EntityPlayer.addChatMessage(new ChatComponentText(namemode));
+				}
+				
+			}
+			return par1ItemStack;
+		}
+		
+		
+	
+	
+	@Override
+	public boolean onBlockStartBreak(ItemStack stack, int x, int y, int z, EntityPlayer player) {
+		World world = player.worldObj;
+		Material mat = world.getBlock(x, y, z).getMaterial();
+		if (!ToolHandler.isRightMaterial(mat, ToolHandler.materialsPick))
+			return false;
 
-        if (object == null) {
-            return super.onBlockDestroyed(stack, world, block, x, y, z, player);
-        }
+		MovingObjectPosition block = ToolHandler.raytraceFromEntity(world, player, true, 4.5);
+		if (block == null)
+			return false;
 
-        int side = object.sideHit;
-        int xmove = 0;
-        int ymove = 0;
-        int zmove = 0;
+		Block blk = world.getBlock(x, y, z);
 
-        if (side == 0 || side == 1) {
-            xmove = 1;
-            zmove = 1;
-        } else {
-            ymove = 1;
-            if (side == 4 || side == 5) {
-                zmove = 1;
-            } else {
-                xmove = 1;
-            }
-        }
+		ForgeDirection direction = ForgeDirection.getOrientation(block.sideHit);
+		int fortune = EnchantmentHelper.getFortuneModifier(player);
+		boolean silk = EnchantmentHelper.getSilkTouchModifier(player);
+		
+		switch (mode) {
+			case 0:
+				break;
+				
+			case 1: {
+				boolean doX = direction.offsetX == 0;
+				boolean doY = direction.offsetY == 0;
+				boolean doZ = direction.offsetZ == 0;
+             if(mode == 1) {
+				ToolHandler.removeBlocksInIteration(player, world, x, y, z, doX ? -1 : 0, doY ? -1 : 0, doZ ? -1 : 0, doX ? 2 : 1, doY ? 2 : 1, doZ ? 2 : 1, null, ToolHandler.materialsPick, silk, fortune);
+				stack.damageItem(9, player); } else if(mode == 0) {
+				ToolHandler.removeBlocksInIteration(player, world, x, y, z, doX ? -1 : 0, doY ? -1 : 0, doZ ? -1 : 0, doX ? 2 : 1, doY ? 2 : 1, doZ ? 2 : 1, null, ToolHandler.materialsPick, silk, fortune);
+				stack.damageItem(1, player);}
+				break;
+			}
+		/*	case 2: {
+				int xo = -direction.offsetX;
+				int yo = -direction.offsetY;
+				int zo = -direction.offsetZ;
 
-        float strength = ForgeHooks.blockStrength(block, player, world, x, y, z);
-
-        if (player.isSneaking() && ConfigInfo.EnableHammerShiftOneBlock &&
-            (player.experienceLevel >= 20 || player.capabilities.isCreativeMode)) {
-            checkBlockBreak(world, player, x, y, z, stack, strength, block, side);
-        } else {
-            for (int i = -xmove; i <= xmove; i++) {
-                for (int j = -ymove; j <= ymove; j++) {
-                    for (int k = -zmove; k <= zmove; k++) {
-                        if (i != x && j != y && k != z) {
-                            checkBlockBreak(world, player, x + i, y + j, z + k, stack, strength, block, side);
-                        }
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
-    public void checkBlockBreak(World world, EntityPlayer player, int x, int y, int z, ItemStack stack, float strength, Block originalBlock, int side) {
-        Block breakBlock = world.getBlock(x, y, z);
-
-        if (this.canHarvestBlock(breakBlock, stack)) {
-            float newStrength = ForgeHooks.blockStrength(breakBlock, player, world, x, y, z);
-            Material material = originalBlock.getMaterial();
-
-            if (newStrength > 0f && strength / newStrength <= 10f && breakBlock.getMaterial() == material) {
-                RandomUtils.breakBlock(world, breakBlock, x, y, z, side, player);
-
-                if ((double) breakBlock.getBlockHardness(world, x, y, z) != 0.0D) {
-                    stack.damageItem(1, player);
-                }
-            }
-        }
-    }
-}
+				ToolHandler.removeBlocksInIteration(player, world, x, y, z, xo >= 0 ? 0 : -10, yo >= 0 ? 0 : -10, zo >= 0 ? 0 : -10, xo > 0 ? 10 : 1, yo > 0 ? 10 : 1, zo > 0 ? 10 : 1, null, ToolHandler.materialsPick, silk, fortune);
+				stack.damageItem(1, player);
+				break;*/
+			}
+		
+		return false;
+	}}

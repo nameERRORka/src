@@ -19,11 +19,11 @@ public class CommonProxy {
     	Dimensions.init();
         AFRBlocks.init();
         AFRItems.init();
-        MinecraftForge.EVENT_BUS.register(new EventHandler());
     }
 
     public void init(FMLInitializationEvent e) {
     	AchievementPage.init();
+        MinecraftForge.EVENT_BUS.register(new EventHandler());
     }
 
     public void postInit(FMLPostInitializationEvent e) {
