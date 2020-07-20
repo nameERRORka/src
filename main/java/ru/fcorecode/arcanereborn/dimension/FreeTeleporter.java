@@ -6,6 +6,7 @@ import cpw.mods.fml.common.eventhandler.Event;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.util.ChatComponentText;
 
 public class FreeTeleporter extends Teleporter {
 
@@ -13,9 +14,13 @@ public class FreeTeleporter extends Teleporter {
         super(worldIn);
     }
     EntityPlayer player;
-	    public void placeInPortal(Entity entityIn, float rotationYaw) {
-	    	    player.setPosition(255.0D, 255.0D, 255.0D);
-	    	    
+	private WorldServer worldIn;
+        public void placeInPortal(Entity entityIn, float rotationYaw) {
+        	if(this.worldIn.provider.dimensionId == 55553) {
+        		
+        	}
+        this.makePortal(entityIn);
+        
 	    	}
 
 			

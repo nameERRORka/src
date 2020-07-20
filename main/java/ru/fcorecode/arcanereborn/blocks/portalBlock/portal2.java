@@ -117,14 +117,7 @@ public final class portal2 extends Block {
     					int spawnX = MathHelper.floor_double(playerMP.posX); 
     					int spawnY = MathHelper.floor_double(playerMP.posY); 
     					int spawnZ = MathHelper.floor_double(playerMP.posZ); 
-    					System.out.println(spawnX);
-    					System.out.println(spawnY);
-    					System.out.println(spawnZ);
-    					ARK = world.getTotalWorldTime();
     					
-    					System.out.println(ARK);
-    						
-  
     					playerMP.setSpawnChunk(new ChunkCoordinates(spawnX, spawnY, spawnZ), true, 55553);
     					playerMP.triggerAchievement(AchievementPage.DeadPortal);
     					if (!world.isRemote)
@@ -142,26 +135,37 @@ public final class portal2 extends Block {
 
     		}
     	}
-    public boolean tryToCreatePortal(World world, int dx, int dy, int dz)
-    {
-    	if (isGoodPortalPool(world, dx, dy, dz))
-    	{
-    	return true;
-    	}
-    	return false;
-    }
-    
-    public boolean isGoodPortalPool(World world, int dx, int dy, int dz)
-    {
-    	boolean flag = false;
-    	
-    	flag &= world.getBlock(dx + 0, dy, dz + 0).getMaterial() == Material.water;
-    	flag &= world.getBlock(dx + 1, dy, dz + 0).getMaterial() == Material.water;
-    	flag &= world.getBlock(dx + 1, dy, dz + 1).getMaterial() == Material.water;
-    	flag &= world.getBlock(dx + 0, dy, dz + 1).getMaterial() == Material.water;
-    	
+    public boolean tryCreatePortal(World world, int x, int y, int z) {
+        byte size1 = 0;
+        byte size2 = 0;
+        if (world.getBlock(x - 1, y, z) == AFRBlocks._MagicRock || world.getBlock(x + 1, y, z) == AFRBlocks._MagicRock) size1 = 1;
+        if (world.getBlock(x, y, z - 1) == AFRBlocks._MagicRock || world.getBlock(x, y, z + 1) == AFRBlocks._MagicRock) size2 = 1;
+        if (size1 == size2) return false;
+        if (world.isAirBlock(x - size1, y, z - size2)) {
+            x -= size1;
+            z -= size2;
+        }
 
-    	return flag;
+        for (int i = -1; i <= 2; i++) {
+            for (int j = -1; j <= 3; j++) {
+                boolean flag = i == -1 || i == 2 || j == -1 || j == 3;
+                if (i != -1 && i != 2 || j != -1 && j != 3) {
+                    Block b1 = world.getBlock(x + size1 * i, y + j, z + size2 * i);
+                    boolean isAir = world.isAirBlock(x + size1 * i, y + j, z + size2 * i);
+                    if (flag) {
+                        if (b1 != AFRBlocks._MagicRock) return false;
+                    } else if (!isAir && b1 != Blocks.fire) return false;
+                }
+            }
+        }
+
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 3; j++) {
+                world.setBlock(x + size1 * i, y + j, z + size2 * i, this, 0, 2);
+            }
+        }
+
+        return true;
     }
     @Override
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World w, int x, int y, int z) {

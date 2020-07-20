@@ -96,4 +96,5 @@ public class BaseSkana extends ItemSword
 			  c = a - b;
 			par3List.add("Прочности осталось " + c);
 	    }
+		
 		}

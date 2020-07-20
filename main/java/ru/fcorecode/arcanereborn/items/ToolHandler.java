@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 public class ToolHandler extends MiningCore {
 
 	public static Material[] materialsPick = new Material[]{ Material.rock, Material.iron, Material.ice, Material.glass, Material.piston, Material.anvil };
+	public static Material[] materialShov = new Material[] { Material.rock, Material.iron, Material.ice, Material.glass, Material.piston, Material.anvil, Material.grass, Material.ground, Material.sand, Material.snow, Material.craftedSnow, Material.clay };
 
 	
 	public static boolean isRightMaterial(Material material, Material[] materialsListing) {

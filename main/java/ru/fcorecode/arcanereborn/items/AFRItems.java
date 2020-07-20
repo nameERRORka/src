@@ -9,6 +9,7 @@ import ru.fcorecode.arcanereborn.food.littlecake;
 import ru.fcorecode.arcanereborn.items.Money.Money;
 import ru.fcorecode.arcanereborn.items.armor._daemonicArmor;
 import ru.fcorecode.arcanereborn.items.items.DaemonicShatter;
+import ru.fcorecode.arcanereborn.items.items.MagicShatter;
 import ru.fcorecode.arcanereborn.items.tools.*;
 import ru.fcorecode.arcanereborn.items.weapons.BaseSkana;
 import ru.fcorecode.arcanereborn.items.weapons.LeatherClaws;
@@ -16,6 +17,7 @@ import ru.fcorecode.arcanereborn.items.weapons.LeatherClaws;
 public final class AFRItems {
 
 	public static Item _daemonicShatter;
+	public static Item _MagicShatter;
 	public static Item _MediumHammer;
 	public static Item _BestHammer;
 	public static Item _ZeroHammer;
@@ -33,12 +35,18 @@ public final class AFRItems {
     public static Item _daemonicBody;
     public static Item _daemonicLegs;
     public static Item _daemonicSteps;
-	
+    public static Item _magicHelmet;
+    public static Item _magicBody;
+    public static Item _magicLegs;
+    public static Item _magicSteps;
 
 	public static void init() {
 
 		_daemonicShatter = new DaemonicShatter("DaemonicShatter", "items/_daemonicShatter");
 		GameRegistry.registerItem(_daemonicShatter, "DaemonicShatter");
+		
+		_MagicShatter = new MagicShatter("MagicShatter", "items/_daemonicShatter");
+		GameRegistry.registerItem(_MagicShatter, "MagicShatter");
 
 		_Skana = new BaseSkana("BaseSkana", "weapon/_baseSkana", 1, ModToolMaterial.SKANA);
 		GameRegistry.registerItem(_Skana, "BaseSkana");
@@ -84,7 +92,10 @@ public final class AFRItems {
         _daemonicLegs = new _daemonicArmor("DaemonicLegs", "armor/daemonic/_daemonicLegs", "DaemonicArmor_2.png", 1,0, 2);
         _daemonicSteps = new _daemonicArmor("DaemonicSteps","armor/daemonic/_daemonicSteps", "DaemonicArmor_1.png", 1,0, 3);
 
-
+        _magicHelmet = new _daemonicArmor("magicHelmet", "armor/daemonic/_daemonicHelmet", "DaemonicArmor_1.png", 1,0, 0);
+        _magicBody = new _daemonicArmor("magicCuirass", "armor/daemonic/_daemonicCuirass", "DaemonicArmor_1.png", 1,0, 1);
+        _magicLegs = new _daemonicArmor("magicLegs", "armor/daemonic/_daemonicLegs", "DaemonicArmor_2.png", 1,0, 2);
+        _magicSteps = new _daemonicArmor("magicSteps","armor/daemonic/_daemonicSteps", "DaemonicArmor_1.png", 1,0, 3);
 
 		ItemStack enchantmentStack = new ItemStack(_BasePickaxe);
     	ItemStack enchantmentStack1 = new ItemStack(net.minecraft.init.Items.diamond_pickaxe);
