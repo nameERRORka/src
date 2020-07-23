@@ -7,9 +7,12 @@ import javax.annotation.Nonnull;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -55,18 +58,16 @@ public final class portal2 extends Block {
         this.setBlockTextureName(Main.MODID + ":" + texturePath);
         setBlockUnbreakable();
     }
-    public static Minecraft mc = FMLClientHandler.instance().getClient();
     @Override
 	public int quantityDropped(Random random)
     {
         return 0;
     }
-
     @Override
-	public int getRenderBlockPass()
-    {
+    public int getRenderBlockPass()
+        {
         return 1;
-    }
+        }
     
     @Override
 	public IIcon getIcon(int side, int meta)
@@ -82,6 +83,13 @@ public final class portal2 extends Block {
     }
 
     @Override
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int i, int j, int k)
+    {
+        return null;
+    }
+
+
+    @Override
 	public boolean isOpaqueCube()
     {
         return false;
@@ -91,6 +99,16 @@ public final class portal2 extends Block {
 	public boolean renderAsNormalBlock()
     {
         return false;
+    }
+    
+
+
+    
+    @Override
+	@SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister par1IconRegister)
+    {
+        ; // don't load anything
     }
     
     @Override
@@ -167,10 +185,7 @@ public final class portal2 extends Block {
 
         return true;
     }
-    @Override
-    public AxisAlignedBB getCollisionBoundingBoxFromPool(World w, int x, int y, int z) {
-    	return null;
-}
+
 
 
 }

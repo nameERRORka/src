@@ -13,8 +13,7 @@ import net.minecraft.world.World;
 import ru.fcorecode.arcanereborn.Main;
 import ru.fcorecode.arcanereborn.configs.ConfigInfo;
 
-public class PortalFrame1 extends Block {
-	
+public class PortalFrame2 extends Block {
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
 
@@ -26,7 +25,7 @@ public class PortalFrame1 extends Block {
             "4",
             "5"
     };
-	public PortalFrame1(String unlocalizedName, Material material) {
+	public PortalFrame2(String unlocalizedName, Material material) {
 		super(material);
         this.setBlockName(unlocalizedName);
         this.setCreativeTab(ConfigInfo.tabAFRebornBlocks);
@@ -38,6 +37,7 @@ public class PortalFrame1 extends Block {
         this.setBlockTextureName(Main.MODID + ":" + unlocalizedName + "/_" + unlocalizedName);
         setBlockUnbreakable();
 	}
+
     public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemStack) {
         int l = MathHelper.floor_double((double)(entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
         world.setBlockMetadataWithNotify(x, y, z, l, 2);

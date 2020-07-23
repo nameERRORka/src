@@ -52,6 +52,7 @@ public abstract class MagicArmor extends ItemArmor implements ISpecialArmor
 	    return new ArmorProperties(1, 100, 100);
 	}
 
+	
 }
     
 

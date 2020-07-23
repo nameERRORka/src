@@ -50,6 +50,7 @@ public class ModToolMaterial {
     //6 - enchant
     //=======================
     public static ArmorMaterial armorMaterial = EnumHelper.addArmorMaterial("tut:armor", 9, new int[]{2, 4, 6, 3}, 7);
+    public static ArmorMaterial BESTMAT = EnumHelper.addArmorMaterial("BESTMAT", 100, new int[] {10, 10, 10, 10}, 30);
     /*public static final ToolMaterial BESTHAMMER  = EnumHelper.addToolMaterial("MEDIUMHAMMER", 4, 4500, 12.0F, 4.0F, 5);
     public static final ToolMaterial MEDIUMHAMMER  = EnumHelper.addToolMaterial("MEDIUMHAMMER", 4, 4500, 12.0F, 4.0F, 5);
     public static final ToolMaterial MEDIUMHAMMER  = EnumHelper.addToolMaterial("MEDIUMHAMMER", 4, 4500, 12.0F, 4.0F, 5);
