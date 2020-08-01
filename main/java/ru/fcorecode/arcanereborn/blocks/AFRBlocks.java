@@ -1,12 +1,20 @@
 package ru.fcorecode.arcanereborn.blocks;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.IFMLLoadingPlugin.Name;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.Block;
+import ru.fcorecode.arcanereborn.blocks.BlockRotSide.BlockRotSide;
 import ru.fcorecode.arcanereborn.blocks.BluePlasma.CrystallisedBluePlasma;
 import ru.fcorecode.arcanereborn.blocks.GrassTrable.GrassTrable;
 import ru.fcorecode.arcanereborn.blocks.MagicRock.MagicRock;
 import ru.fcorecode.arcanereborn.blocks.MagickWood.MagicWood;
+import ru.fcorecode.arcanereborn.blocks.allblocks.AndesitBlock;
+import ru.fcorecode.arcanereborn.blocks.allblocks.AndesitSlabBlock;
+import ru.fcorecode.arcanereborn.blocks.allblocks.Bazalt;
+import ru.fcorecode.arcanereborn.blocks.allblocks.BlackStoneBlock;
+import ru.fcorecode.arcanereborn.blocks.allblocks.Concrete;
+import ru.fcorecode.arcanereborn.blocks.allblocks.MagmaBlock;
 import ru.fcorecode.arcanereborn.blocks.portalBlock.PortalBlock;
 import ru.fcorecode.arcanereborn.blocks.portalBlock.PortalDelBlock;
 import ru.fcorecode.arcanereborn.blocks.portalBlock.PortalFrame1;
@@ -15,10 +23,11 @@ import ru.fcorecode.arcanereborn.blocks.portalBlock.PortalLastBlock;
 import ru.fcorecode.arcanereborn.blocks.portalBlock.PortalLastDelBlock;
 import ru.fcorecode.arcanereborn.blocks.portalBlock.PortalLightBlock;
 import ru.fcorecode.arcanereborn.blocks.portalBlock.portal2;
+import ru.fcorecode.arcanereborn.configs.ConfigInfo;
 
 
 public final class AFRBlocks {
-
+	
     public static Block _CrystallisedBluePlasma;
     public static Block _MagicWood;
     public static Block _MagicRock;
@@ -32,6 +41,16 @@ public final class AFRBlocks {
     public static Block _PortFrame1;
     public static Block _PortFrame2;
     public static Block _PortalLightBlock;
+    public static Block _BlockRotSide;
+
+    
+    //architecturial
+    public static Block _MagmaBlock;
+    public static Block _Andesite;
+    public static Block _AndesiteSlab;
+    public static Block _BlackStone;
+    public static Block _BazaltBlock;
+    public static Block _Concrete;
 
 
     
@@ -40,12 +59,12 @@ public final class AFRBlocks {
         _CrystallisedBluePlasma = new CrystallisedBluePlasma("CrystallisedBluePlasma", Material.iron, "CrystallisedBluePlasma/CrystallisedBluePlasma");
         GameRegistry.registerBlock(_CrystallisedBluePlasma, "CrystallisedBluePlasma");
 
-        _MagicWood = new MagicWood("MagicWood", Material.wood);
+        _MagicWood = new MagicWood(Material.wood);
         GameRegistry.registerBlock(_MagicWood, "MagicWood");
         
         _GrassTrable = new GrassTrable("GrassTrable", Material.grass);
         GameRegistry.registerBlock(_GrassTrable, "MagicGrass");
-        
+       
         _MagicRock = new MagicRock("MagicRock", Material.rock, "MagicRock/_MagicRock");
         GameRegistry.registerBlock(_MagicRock, "MagicRock");
 
@@ -73,6 +92,23 @@ public final class AFRBlocks {
         _PortalLightBlock = new PortalLightBlock("PortalLightBlock", Material.redstoneLight, "PortalLightBlock/PortalLightBlock");
         GameRegistry.registerBlock(_PortalLightBlock, "PortalLightBlock");
         
-       
+        _BlockRotSide = new BlockRotSide(Material.wood).setBlockTextureName("arcanereborn:MagicWood").setCreativeTab(ConfigInfo.tabAFRebornBlocks);
+        GameRegistry.registerBlock(_BlockRotSide, "BlockRotSide");
+        
+        _MagmaBlock = new MagmaBlock("MagmaBlock", Material.rock, "Magma/Magma");
+        GameRegistry.registerBlock(_MagmaBlock, "MagmaBlock");
+        
+        _Andesite = new AndesitBlock("AndesiteBlock", Material.rock, "Andesite/AndesiteBlock");
+        GameRegistry.registerBlock(_Andesite, "AndesiteBlock");
+        
+        _AndesiteSlab = new AndesitSlabBlock("AndesiteSlab", Material.rock, "Andesite/AndesiteBlock");
+        GameRegistry.registerBlock(_AndesiteSlab, "AndesiteSlabBlock");	
+        
+        _BlackStone = new BlackStoneBlock("BlackStone", Material.rock, "BlackStone/blackstone");
+        GameRegistry.registerBlock(_BlackStone, "BlackStoneBlock");	
+        
+        _BazaltBlock = new Bazalt("BazaltBlock", Material.rock, "Bazalt/bazalt");
+        GameRegistry.registerBlock(_BazaltBlock, "BazaltBlock");	
+
     }
 }

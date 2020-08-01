@@ -1,6 +1,7 @@
 package ru.fcorecode.arcanereborn.blocks.MagickWood;
 
 import java.util.List;
+import java.util.Random;
 
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -64,25 +65,21 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class MagicWood extends Block {
-
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
 
     public final String[] name = new String[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"
+            "bottom",
+            "top",
+            "back",
+            "front",
+            "left",
+            "right"
     };
 
-    public MagicWood(String unlocalizedName, Material material) {
+    public MagicWood(Material material) {
         super(material);
-        this.setBlockName(unlocalizedName);
-        this.setBlockTextureName(Main.MODID + ":" + unlocalizedName + "/_" + unlocalizedName);
-        this.setCreativeTab(ConfigInfo.tabAFRebornBlocks);
-        this.setStepSound(soundTypeWood);
+        this.setBlockTextureName("arcanereborn:MagicWood");
     }
 
     /**Called when the block is placed in the world.**/
@@ -152,3 +149,6 @@ public class MagicWood extends Block {
     }
 
 }
+    
+
+

@@ -2,6 +2,8 @@ package ru.fcorecode.arcanereborn.items.weapons;
 
 import java.util.List;
 
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.InputEvent.KeyInputEvent;
@@ -12,6 +14,9 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -28,6 +33,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
@@ -77,13 +83,28 @@ public class LeatherClaws extends ItemSword
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		par3List.add("" + Rarity._legendary.rarityColor + Rarity._legendary.rarityName);
-		par3List.add("Описание предмета");
+		par3List.add("Описание пxредмета");
 		int a, b, c;
 		a = this.getMaxDamage();
 		b = this.getDamage(par1ItemStack);
 		c = a - b;
 		par3List.add("Прочности осталось " + c);
 	}
+	@SideOnly(Side.CLIENT)	    
+	public static void renderFirstPersonRightArm(EntityPlayer p_82441_1_, RenderPlayer renderPlayer){
+	        float f = 1.0F;
+	        GL11.glColor3f(f, f, f);
+	        renderPlayer.modelBipedMain.onGround = 0.0F;
+	        renderPlayer.modelBipedMain.setRotationAngles(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F, p_82441_1_);
+	        renderPlayer.modelBipedMain.bipedRightArm.render(0.0625F);
+	    }
+	@SideOnly(Side.CLIENT)	    
+	public static void renderFirstPersonLeftArm(EntityPlayer p_82441_1_, RenderPlayer renderPlayer){
+	        float f = 1.0F;
+	        GL11.glColor3f(f, f, f);
+	        renderPlayer.modelBipedMain.onGround = 0.0F;
+	        renderPlayer.modelBipedMain.setRotationAngles(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F, p_82441_1_);
+	        renderPlayer.modelBipedMain.bipedLeftArm.render(0.0625F);
+	    }
+	}
 
-
-}
